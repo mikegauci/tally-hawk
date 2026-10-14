@@ -2,7 +2,7 @@
 
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Button } from "@/components/ui/button";
 
 const cycle = ["system", "light", "dark"] as const;
@@ -21,9 +21,11 @@ function hintFor(theme: (typeof cycle)[number] | undefined) {
 
 export function ThemeToggle({ showLabel = true }: { showLabel?: boolean }) {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const current =
     theme === "light" || theme === "dark" || theme === "system"
