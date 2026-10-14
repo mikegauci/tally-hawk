@@ -110,7 +110,7 @@ test("shows errors without claiming an empty queue", async ({ page }) => {
     }),
   );
   await page.getByRole("button", { name: "Refresh", exact: true }).click();
-  await expect(page.getByRole("alert")).toContainText(
+  await expect(page.locator(".error-banner")).toContainText(
     "Service temporarily unavailable.",
   );
 });
