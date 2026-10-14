@@ -73,6 +73,7 @@ def test_rescore_splits_sets_and_prices_old_runs(tmp_path, gold_labels, monkeypa
     assert summary["sets"]["standard"]["document_accuracy"] == 1.0
     assert summary["sets"]["hard"]["silent_error_rate"] > 0
     assert summary["by_tag"]["scanned_rotated"]["n"] == 2
+    assert summary["by_tag"]["hard"]["n"] == 18 and summary["by_tag"]["standard"]["n"] == 50
     assert summary["cost_usd_per_invoice"] == round((5 + 30) / 1e6, 5)  # 1 token in, 1 out, at current prices
     assert summary["confidence_calibration"]["mean_conf_wrong"] == 0.98
     report = (tmp_path / "report.md").read_text()
