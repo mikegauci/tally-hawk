@@ -1,0 +1,63 @@
+{
+  "case_id": "inv_060",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "eur",
+    "tax_rate_not_printed",
+    "hard",
+    "handwritten_po"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Maple & Finch Engineering Ltd",
+    "vendor_tax_id": "NL13253999",
+    "invoice_number": "INV-412008",
+    "invoice_date": "2026-06-11",
+    "due_date": "2026-07-26",
+    "po_number": "4500018910",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 2.0,
+        "unit_price": 90.23,
+        "amount": 180.46
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 10.0,
+        "unit_price": 10.94,
+        "amount": 109.4
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 20.0,
+        "unit_price": 17.57,
+        "amount": 351.4
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 1.0,
+        "unit_price": 5.84,
+        "amount": 5.84
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 12.0,
+        "unit_price": 104.03,
+        "amount": 1248.36
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 10.0,
+        "unit_price": 37.07,
+        "amount": 370.7
+      }
+    ],
+    "subtotal": 2266.16,
+    "tax_rate": null,
+    "tax_amount": 203.95,
+    "total": 2470.11
+  }
+}

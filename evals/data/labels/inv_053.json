@@ -1,0 +1,58 @@
+{
+  "case_id": "inv_053",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "usd",
+    "zero_tax",
+    "no_due_date",
+    "hard",
+    "scanned_skewed"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Maple & Finch Engineering Corp.",
+    "vendor_tax_id": "86-5340778",
+    "invoice_number": "F306001",
+    "invoice_date": "2026-03-29",
+    "due_date": null,
+    "po_number": "PO/2025/6151",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Laptop docking station",
+        "quantity": 3.0,
+        "unit_price": 205.43,
+        "amount": 616.29
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 50.0,
+        "unit_price": 100.41,
+        "amount": 5020.5
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 1.0,
+        "unit_price": 32.11,
+        "amount": 32.11
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 24.0,
+        "unit_price": 18.31,
+        "amount": 439.44
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 1.0,
+        "unit_price": 34.33,
+        "amount": 34.33
+      }
+    ],
+    "subtotal": 6142.67,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 6142.67
+  }
+}

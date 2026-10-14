@@ -24,15 +24,46 @@ DEFAULT_EFFORT = os.environ.get("TALLYHAWK_EFFORT", "medium")
 EFFORT_LEVELS = ["none", "minimal", "low", "medium", "high", "xhigh", "max"]
 
 
+# The functions below re-read the environment, so values from a .env loaded after import count.
+def default_model() -> str:
+    return os.environ.get("TALLYHAWK_MODEL") or DEFAULT_MODEL
+
+
+def default_effort() -> str:
+    return os.environ.get("TALLYHAWK_EFFORT") or DEFAULT_EFFORT
+
+
+def load_dotenv(path: str | Path = ".env") -> None:
+    """Load KEY=VALUE lines from a .env file into the environment, without overriding
+    variables that are already set. Enough for this project's .env; no quoting rules."""
+    path = Path(path)
+    if not path.is_file():
+        return
+    for raw in path.read_text().splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.removeprefix("export ").split("=", 1)
+        value = value.strip().strip("'\"")
+        if value:
+            os.environ.setdefault(key.strip(), value)
+
+
 def _env_price(name: str) -> float | None:
     value = os.environ.get(name)
     return float(value) if value else None
 
 
-# USD per million tokens, for cost reporting. Set these from OpenAI's pricing page for the
-# model you run; without them the eval reports tokens but no cost.
-PRICE_INPUT_PER_MTOK = _env_price("TALLYHAWK_PRICE_INPUT_PER_MTOK")
-PRICE_OUTPUT_PER_MTOK = _env_price("TALLYHAWK_PRICE_OUTPUT_PER_MTOK")
+def estimate_cost(input_tokens: int, output_tokens: int) -> float | None:
+    """USD cost from TALLYHAWK_PRICE_INPUT_PER_MTOK / TALLYHAWK_PRICE_OUTPUT_PER_MTOK (USD per
+    million tokens, from OpenAI's pricing page for the model you run). Read at call time, so a
+    .env loaded after import still counts. None when either price is unset."""
+    price_in = _env_price("TALLYHAWK_PRICE_INPUT_PER_MTOK")
+    price_out = _env_price("TALLYHAWK_PRICE_OUTPUT_PER_MTOK")
+    if price_in is None or price_out is None:
+        return None
+    return round((input_tokens * price_in + output_tokens * price_out) / 1_000_000, 6)
+
 
 SYSTEM_PROMPT = """\
 You extract data from supplier invoices for an accounts payable team. The data you \
@@ -83,22 +114,17 @@ def _document_part(data: bytes, media_type: str) -> dict:
     return {"type": "input_image", "image_url": data_url, "detail": "high"}
 
 
-def estimate_cost(input_tokens: int, output_tokens: int) -> float | None:
-    if PRICE_INPUT_PER_MTOK is None or PRICE_OUTPUT_PER_MTOK is None:
-        return None
-    return round((input_tokens * PRICE_INPUT_PER_MTOK + output_tokens * PRICE_OUTPUT_PER_MTOK) / 1_000_000, 6)
-
-
 def extract_invoice(
     data: bytes,
     media_type: str = "application/pdf",
     *,
     client: openai.OpenAI | None = None,
-    model: str = DEFAULT_MODEL,
-    effort: str = DEFAULT_EFFORT,
+    model: str | None = None,
+    effort: str | None = None,
     confidence_threshold: float = DEFAULT_CONFIDENCE_THRESHOLD,
 ) -> ExtractionResult:
     client = client or openai.OpenAI()
+    model, effort = model or default_model(), effort or default_effort()
     started = time.perf_counter()
     response = client.responses.parse(
         model=model,

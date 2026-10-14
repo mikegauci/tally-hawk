@@ -71,7 +71,7 @@ Design choices:
 
 ```bash
 uv sync
-cp .env.example .env   # add your OPENAI_API_KEY, then: export $(cat .env | xargs)
+cp .env.example .env   # add your OPENAI_API_KEY; the CLI and eval read .env automatically
 uv run tallyhawk extract evals/data/invoices/inv_001.pdf
 ```
 
@@ -102,8 +102,9 @@ Extraction output (abridged and illustrative; real numbers come from the eval ru
 
 ## Evaluation
 
-`evals/data/` holds 50 synthetic invoices with known answers, generated deterministically
-by `evals/generate.py`. They vary on purpose:
+`evals/data/` holds 68 synthetic invoices with known answers, generated deterministically
+by `evals/generate.py`: 50 standard ones and 18 deliberately hard ones. The standard set
+varies on purpose:
 
 | Variation | Why it's hard |
 |---|---|
@@ -114,33 +115,58 @@ by `evals/generate.py`. They vary on purpose:
 | Buyer's tax ID printed next to the supplier's | Easy to grab the wrong one |
 | 4 invoices with the supplier's own maths wrong | Extraction must copy, validation must catch |
 
+GPT-5.5 scored 100% on every field of the standard set, so the **hard set** (tagged `hard`)
+is there to find where it breaks, and whether its confidence scores drop when it does:
+
+| Hard case | Count | What it tests |
+|---|---|---|
+| Scanned sideways (`scanned_rotated`) | 2 | Page image rotated 90°, no text layer |
+| Crooked, noisy scan (`scanned_skewed`) | 3 | 1.5–3.5° skew, speckle, blur |
+| Fax quality (`low_res`) | 3 | 62–78 dpi JPEG, one thresholded to black and white |
+| Handwritten PO (`handwritten_po`) | 2 | The PO number is only written by hand |
+| Handwritten note (`handwritten_note`) | 1 | A buyer's "part paid" scribble that is not invoice data |
+| Two-column layout (`two_column`) | 3 | Details and totals in a sidebar, SKUs, wrapped descriptions, a customer account number as a distractor |
+| Deposit paid (`deposit_paid`) | 1 | Invoice total vs a smaller "balance due" (the label is the invoice total) |
+| Two VAT rates (`mixed_tax_rates`) | 1 | No single tax rate, so `tax_rate` must be null |
+| Dual currency (`dual_currency`) | 1 | USD invoice with a bold EUR equivalent |
+| PAID stamp (`paid_stamp`) | 1 | A red stamp over the totals |
+
+Scanned pages are drawn as images (no text layer), so the model has to read pixels, as it
+would with a real scan or phone photo.
+
 Run it:
 
 ```bash
-uv run python -m evals.run_eval            # all 50 invoices
-uv run python -m evals.run_eval --limit 5  # smoke test
+uv run python -m evals.run_eval              # all 68 invoices
+uv run python -m evals.run_eval --tag hard   # only the 18 hard ones
+uv run python -m evals.run_eval --limit 5    # smoke test
+uv run python -m evals.run_eval --rescore evals/results/<run>   # re-score (and re-price) a saved run
 ```
 
 The report (`evals/results/<run>/report.md`) covers:
 
+- **Standard vs hard**: the headline numbers for each set side by side.
 - **Per-field accuracy** for every header field, plus line-item accuracy.
 - **Document accuracy**: share of invoices with every field right.
 - **Silent error rate**: invoices with a wrong field that were *not* sent to review. This
   is the number that matters for automation.
-- **Confidence calibration**: accuracy of high- vs low-confidence fields.
+- **Confidence calibration**: accuracy per confidence band, and mean confidence on right
+  vs wrong fields. If wrong fields still score 0.95+, confidence can't be used for routing.
 - **Validation issue detection**: supplier errors caught, missed and false alarms.
+- **Accuracy by tag**: document accuracy, review rate and silent errors per kind of invoice.
 - **Cost per invoice** and latency.
 
-`uv run pytest -m live` runs the same eval with pass/fail thresholds, and the
-**Extraction eval** GitHub Action runs it on demand (add an `OPENAI_API_KEY` secret).
-To get cost per invoice, set `TALLYHAWK_PRICE_INPUT_PER_MTOK` and
-`TALLYHAWK_PRICE_OUTPUT_PER_MTOK` from OpenAI's pricing page (as env vars locally, or
-repository variables for the Action); otherwise the report shows tokens only.
+`uv run pytest -m live` runs the same eval with pass/fail thresholds on the standard set
+(the hard set is reported, not gated), and the **Extraction eval** GitHub Action runs it
+on demand (add an `OPENAI_API_KEY` secret). Cost per invoice comes from
+`TALLYHAWK_PRICE_INPUT_PER_MTOK` and `TALLYHAWK_PRICE_OUTPUT_PER_MTOK` (USD per million
+tokens): `.env.example` has gpt-5.5's list prices, and the Action reads repository
+variables of the same names. Without them the report shows tokens only.
 
 ## Matching evaluation
 
 `evals/generate_matching.py` seeds suppliers, POs, goods receipts and already-paid
-invoices around the same 50 invoices, giving each a scenario with a known right answer
+invoices around the 50 standard extraction invoices (not the hard set), giving each a scenario with a known right answer
 (`evals/data/match_labels.json`). The invoices stay unchanged; the scenario is built on the
 buyer's side:
 

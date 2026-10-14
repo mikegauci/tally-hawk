@@ -1,0 +1,68 @@
+{
+  "case_id": "inv_054",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "hard",
+    "scanned_skewed"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Blue Harbor Foods Ltd",
+    "vendor_tax_id": "NL83776920",
+    "invoice_number": "2026-796856",
+    "invoice_date": "2026-03-21",
+    "due_date": "2026-04-20",
+    "po_number": "PO-10646",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 24.0,
+        "unit_price": 29.47,
+        "amount": 707.28
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 12.0,
+        "unit_price": 26.31,
+        "amount": 315.72
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 2.0,
+        "unit_price": 27.13,
+        "amount": 54.26
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 3.0,
+        "unit_price": 74.94,
+        "amount": 224.82
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 12.0,
+        "unit_price": 10.5,
+        "amount": 126.0
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 5.0,
+        "unit_price": 120.08,
+        "amount": 600.4
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 1.0,
+        "unit_price": 56.94,
+        "amount": 56.94
+      }
+    ],
+    "subtotal": 2085.42,
+    "tax_rate": 18.0,
+    "tax_amount": 375.38,
+    "total": 2460.8
+  }
+}

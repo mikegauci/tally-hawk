@@ -1,0 +1,32 @@
+{
+  "case_id": "inv_059",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "gbp",
+    "hard",
+    "handwritten_po"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Copperleaf Building Materials plc",
+    "vendor_tax_id": "GB347 5931 38",
+    "invoice_number": "2026-630593",
+    "invoice_date": "2026-09-08",
+    "due_date": "2026-10-23",
+    "po_number": "PO-14964",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 6.0,
+        "unit_price": 25.03,
+        "amount": 150.18
+      }
+    ],
+    "subtotal": 150.18,
+    "tax_rate": 5.0,
+    "tax_amount": 7.51,
+    "total": 157.69
+  }
+}
