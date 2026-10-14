@@ -18,7 +18,7 @@ matter as much as features.
 2. **PO matching agent** (done in this repo): seeded Supabase DB of vendors, POs and goods receipts; LangGraph
    workflow (extract → validate → match → decide → human handoff) using OpenAI tool calling;
    pgvector for fuzzy vendor matching; matching evals.
-3. **Web app**: FastAPI service (Railway/Render) + Next.js/Tailwind on Vercel with upload,
+3. **Web app** (backend done in this repo: schema, store, API, Dockerfile): FastAPI service (Railway/Render) + Next.js/Tailwind on Vercel with upload,
    review queue (PDF beside extracted fields) and dashboard; Supabase auth and storage.
 4. **Portfolio polish**: README with architecture diagram, accuracy and cost numbers,
    Langfuse tracing, demo video.
@@ -42,7 +42,16 @@ matter as much as features.
 - `src/tallyhawk/drafting.py`: supplier query emails (LLM or template).
 - `src/tallyhawk/workflow.py`: LangGraph graph `check → lookup → [investigate] → match →
   decide → [draft_query] → handoff`; `interrupt` at handoff when a checkpointer is set.
-- `src/tallyhawk/cli.py`: `uv run tallyhawk extract invoice.pdf`, `uv run tallyhawk match invoice.pdf|label.json`.
+- `src/tallyhawk/db.py`: `migrate`, `seed_from_dir` and `PostgresStore` (same interface as
+  `InMemoryStore`, same ranking functions, so evals agree on both stores).
+- `supabase/migrations/`: the Postgres schema (procurement tables, invoices, extractions,
+  match results, reviews, `review_queue` view, storage bucket). Add a new file; never edit
+  an applied one.
+- `src/tallyhawk/service.py`: the invoice pipeline (upload → extract → match → review) and
+  status rules. `src/tallyhawk/api.py`: FastAPI routes over it. `src/tallyhawk/storage.py`:
+  Supabase Storage or a local folder.
+- `src/tallyhawk/cli.py`: `uv run tallyhawk extract invoice.pdf`, `uv run tallyhawk match invoice.pdf|label.json [--db]`,
+  `uv run tallyhawk db migrate|seed`.
 - `evals/generate.py`: deterministic generator for `evals/data/` (PDFs + labels). Labels
   hold the values *printed* on the invoice, including deliberate supplier mistakes.
 - `evals/scoring.py`, `evals/run_eval.py`: scoring and the eval runner/report.
@@ -64,6 +73,9 @@ uv run python -m evals.generate_matching  # regenerate matching seed + labels (d
 uv run python -m evals.run_match_eval --resolver rules --drafter template  # free matching baseline
 uv run python -m evals.run_match_eval     # matching eval with the agent (needs OPENAI_API_KEY)
 uv run pytest -m live -s                  # full eval with pass/fail thresholds
+TALLYHAWK_TEST_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres uv run pytest  # + DB/API tests
+uv run tallyhawk db migrate && uv run tallyhawk db seed   # needs DATABASE_URL
+uv run uvicorn tallyhawk.api:app --reload # API on :8000, docs at /docs
 ```
 
 ## Conventions
@@ -80,6 +92,8 @@ uv run pytest -m live -s                  # full eval with pass/fail thresholds
 - Approve / review / query decisions stay deterministic; the LLM finds missing POs and drafts
   emails only. A PO the agent found always goes to review. Agent effort defaults to `low`
   (`TALLYHAWK_AGENT_EFFORT`).
+- Secrets (OpenAI key, database password, Supabase service role key) only ever come from the
+  environment; never commit them. The service role key is server-side only.
 - PR titles say specifically what the PR does: no "Step N" prefix and no branch names.
 - Mike is new to finance terms; explain AP jargon (PO, goods receipt, three-way match)
   plainly in docs and UI.

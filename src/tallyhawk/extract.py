@@ -47,7 +47,7 @@ invoice uses a decimal comma (1.234,56) convert it to 1234.56.
 Score your confidence per field honestly; a reviewer only checks fields you mark \
 below 0.9, so overconfidence lets errors through."""
 
-_MEDIA_TYPES = {
+MEDIA_TYPES = {
     ".pdf": "application/pdf",
     ".png": "image/png",
     ".jpg": "image/jpeg",
@@ -154,7 +154,7 @@ def extract_invoice(
 
 def extract_file(path: str | Path, **kwargs) -> ExtractionResult:
     path = Path(path)
-    media_type = _MEDIA_TYPES.get(path.suffix.lower())
+    media_type = MEDIA_TYPES.get(path.suffix.lower())
     if media_type is None:
-        raise ValueError(f"Unsupported file type: {path.suffix} (expected one of {sorted(_MEDIA_TYPES)})")
+        raise ValueError(f"Unsupported file type: {path.suffix} (expected one of {sorted(MEDIA_TYPES)})")
     return extract_invoice(path.read_bytes(), media_type, **kwargs)

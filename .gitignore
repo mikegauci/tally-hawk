@@ -23,3 +23,6 @@ out/
 # OS / editor
 .DS_Store
 *.pem
+
+# Local invoice uploads (TALLYHAWK_STORAGE_DIR)
+storage/

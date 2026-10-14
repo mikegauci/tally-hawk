@@ -5,9 +5,15 @@ description = "AI invoice extraction and PO matching for accounts payable teams"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "fastapi>=0.115",
+    "httpx>=0.28",
     "langgraph>=1.2.15",
     "openai>=3.31.0",
+    "psycopg-pool>=3.2",
+    "psycopg[binary]>=3.2",
     "pydantic>=2.14.1",
+    "python-multipart>=0.0.9",
+    "uvicorn[standard]>=0.30",
 ]
 
 [build-system]

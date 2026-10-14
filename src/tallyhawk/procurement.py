@@ -8,20 +8,23 @@ Three documents take part in a three-way match:
 - **Invoice:** what the supplier is billing.
 
 `ProcurementStore` is the interface the matching workflow uses. `InMemoryStore` loads the
-seed JSON files; a Postgres/Supabase store (with pgvector for vendor search) can replace it
-later without touching the workflow.
+seed JSON files; `tallyhawk.db.PostgresStore` serves the same data from Postgres/Supabase.
+Both rank candidates with `rank_vendors` and `rank_similar_refs`, so they answer alike.
 """
 
 from __future__ import annotations
 
 import json
 import re
+from collections.abc import Iterable
 from datetime import date
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Literal, Protocol
 
 from pydantic import BaseModel
+
+VENDOR_CANDIDATE_MIN_SCORE = 0.5
 
 # Words that say what kind of company it is, not which company. Dropped before comparing names.
 LEGAL_SUFFIXES = frozenset(
@@ -122,6 +125,31 @@ def normalize_ref(value: str) -> str:
     return re.sub(r"\s+", "", value).casefold()
 
 
+def rank_vendors(vendors: Iterable[Vendor], name: str, tax_id: str | None, limit: int = 5) -> list[VendorCandidate]:
+    """Rank vendors by tax ID (exact) and then name similarity.
+
+    Lexical similarity is enough for suffix, case and abbreviation variants. Embeddings
+    (pgvector) could replace it for trading names that share no words with the legal name.
+    """
+    candidates = []
+    for vendor in vendors:
+        if tax_id and vendor.tax_id and normalize_ref(tax_id) == normalize_ref(vendor.tax_id):
+            candidates.append(VendorCandidate(vendor=vendor, score=1.0, reason="tax ID matches"))
+            continue
+        score = vendor_name_similarity(name, vendor.name)
+        if score >= VENDOR_CANDIDATE_MIN_SCORE:
+            candidates.append(VendorCandidate(vendor=vendor, score=score, reason="name similarity"))
+    candidates.sort(key=lambda c: (c.reason != "tax ID matches", -c.score, c.vendor.vendor_id))
+    return candidates[:limit]
+
+
+def rank_similar_refs(target: str, numbers: Iterable[str], limit: int = 3) -> list[str]:
+    """Document numbers that look like a typo of `target`, best first."""
+    key = normalize_ref(target)
+    scored = [(SequenceMatcher(None, key, normalize_ref(n)).ratio(), n) for n in numbers]
+    return [number for score, number in sorted(scored, reverse=True)[:limit] if score >= 0.8]
+
+
 class ProcurementStore(Protocol):
     def get_vendor(self, vendor_id: str) -> Vendor | None: ...
 
@@ -171,31 +199,13 @@ class InMemoryStore:
         return self.vendors.get(vendor_id)
 
     def search_vendors(self, name: str, tax_id: str | None = None, limit: int = 5) -> list[VendorCandidate]:
-        """Rank vendors by tax ID (exact) and then name similarity.
-
-        Lexical similarity is enough for suffix, case and abbreviation variants. The
-        Postgres store can swap this for pgvector embeddings without changing callers.
-        """
-        candidates = []
-        for vendor in self.vendors.values():
-            if tax_id and vendor.tax_id and normalize_ref(tax_id) == normalize_ref(vendor.tax_id):
-                candidates.append(VendorCandidate(vendor=vendor, score=1.0, reason="tax ID matches"))
-                continue
-            score = vendor_name_similarity(name, vendor.name)
-            if score >= 0.5:
-                candidates.append(VendorCandidate(vendor=vendor, score=score, reason="name similarity"))
-        candidates.sort(key=lambda c: (c.reason != "tax ID matches", -c.score, c.vendor.vendor_id))
-        return candidates[:limit]
+        return rank_vendors(self.vendors.values(), name, tax_id, limit)
 
     def get_purchase_order(self, po_number: str) -> PurchaseOrder | None:
         return self.purchase_orders.get(normalize_ref(po_number))
 
     def similar_po_numbers(self, po_number: str, limit: int = 3) -> list[str]:
-        target = normalize_ref(po_number)
-        scored = [
-            (SequenceMatcher(None, target, key).ratio(), po.po_number) for key, po in self.purchase_orders.items()
-        ]
-        return [number for score, number in sorted(scored, reverse=True)[:limit] if score >= 0.8]
+        return rank_similar_refs(po_number, [po.po_number for po in self.purchase_orders.values()], limit)
 
     def purchase_orders_for_vendor(self, vendor_id: str, include_closed: bool = False) -> list[PurchaseOrder]:
         return [
