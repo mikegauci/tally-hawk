@@ -1,0 +1,55 @@
+{
+  "case_id": "inv_022",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd",
+    "tax_rate_not_printed"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Granite Peak Office Solutions Corp.",
+    "vendor_tax_id": "35-3325561",
+    "invoice_number": "SI982573",
+    "invoice_date": "2026-04-26",
+    "due_date": "2026-06-25",
+    "po_number": "4500068972",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 2.0,
+        "unit_price": 11.68,
+        "amount": 23.36
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 3.0,
+        "unit_price": 15.9,
+        "amount": 47.7
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 4.0,
+        "unit_price": 34.59,
+        "amount": 138.36
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 10.0,
+        "unit_price": 7.66,
+        "amount": 76.6
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 6.0,
+        "unit_price": 85.27,
+        "amount": 511.62
+      }
+    ],
+    "subtotal": 797.64,
+    "tax_rate": null,
+    "tax_amount": 59.82,
+    "total": 857.46
+  }
+}

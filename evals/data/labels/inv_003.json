@@ -1,0 +1,54 @@
+{
+  "case_id": "inv_003",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Vantage Systems B.V.",
+    "vendor_tax_id": "IE66459413",
+    "invoice_number": "2026-769765",
+    "invoice_date": "2026-08-11",
+    "due_date": "2026-09-10",
+    "po_number": "PO-31244",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 2.0,
+        "unit_price": 80.68,
+        "amount": 161.36
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 4.0,
+        "unit_price": 4.02,
+        "amount": 16.08
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 3.0,
+        "unit_price": 56.44,
+        "amount": 169.32
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 1.0,
+        "unit_price": 16.09,
+        "amount": 16.09
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 5.0,
+        "unit_price": 14.63,
+        "amount": 73.15
+      }
+    ],
+    "subtotal": 436.0,
+    "tax_rate": 21.0,
+    "tax_amount": 91.56,
+    "total": 527.56
+  }
+}

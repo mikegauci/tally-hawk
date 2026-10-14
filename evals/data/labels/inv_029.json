@@ -1,0 +1,66 @@
+{
+  "case_id": "inv_029",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "eur"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Lumen Systems GmbH",
+    "vendor_tax_id": "IT74885076",
+    "invoice_number": "INV-22021",
+    "invoice_date": "2026-05-09",
+    "due_date": "2026-06-08",
+    "po_number": "MPM-5194",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 2.0,
+        "unit_price": 3.56,
+        "amount": 7.12
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 1.0,
+        "unit_price": 55.85,
+        "amount": 55.85
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 50.0,
+        "unit_price": 12.28,
+        "amount": 614.0
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 4.0,
+        "unit_price": 68.98,
+        "amount": 275.92
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 1.0,
+        "unit_price": 7.76,
+        "amount": 7.76
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 50.0,
+        "unit_price": 48.13,
+        "amount": 2406.5
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 5.0,
+        "unit_price": 72.89,
+        "amount": 364.45
+      }
+    ],
+    "subtotal": 3731.6,
+    "tax_rate": 21.0,
+    "tax_amount": 783.64,
+    "total": 4515.24
+  }
+}

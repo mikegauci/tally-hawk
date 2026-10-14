@@ -1,0 +1,46 @@
+{
+  "case_id": "inv_028",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "no_due_date",
+    "no_po"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Redfern Foods B.V.",
+    "vendor_tax_id": "DE76255322",
+    "invoice_number": "SI631143",
+    "invoice_date": "2026-05-09",
+    "due_date": null,
+    "po_number": null,
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 6.0,
+        "unit_price": 36.95,
+        "amount": 221.7
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 1.0,
+        "unit_price": 38.85,
+        "amount": 38.85
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 10.0,
+        "unit_price": 97.48,
+        "amount": 974.8
+      }
+    ],
+    "subtotal": 1235.35,
+    "tax_rate": 21.0,
+    "tax_amount": 259.42,
+    "total": 1494.77
+  }
+}

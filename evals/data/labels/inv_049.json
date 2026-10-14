@@ -1,0 +1,66 @@
+{
+  "case_id": "inv_049",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "gbp"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Lumen IT Services plc",
+    "vendor_tax_id": "GB823 9584 22",
+    "invoice_number": "2026-289418",
+    "invoice_date": "2026-06-21",
+    "due_date": "2026-08-20",
+    "po_number": "4500013164",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 1.0,
+        "unit_price": 33.94,
+        "amount": 33.94
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 4.0,
+        "unit_price": 41.95,
+        "amount": 167.8
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 3.0,
+        "unit_price": 12.47,
+        "amount": 37.41
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 50.0,
+        "unit_price": 51.42,
+        "amount": 2571.0
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 3.0,
+        "unit_price": 11.58,
+        "amount": 34.74
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 10.0,
+        "unit_price": 119.73,
+        "amount": 1197.3
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 4.0,
+        "unit_price": 17.8,
+        "amount": 71.2
+      }
+    ],
+    "subtotal": 4113.39,
+    "tax_rate": 20.0,
+    "tax_amount": 822.68,
+    "total": 4936.07
+  }
+}

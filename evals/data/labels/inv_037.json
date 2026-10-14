@@ -1,0 +1,35 @@
+{
+  "case_id": "inv_037",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd",
+    "zero_tax",
+    "no_due_date",
+    "no_po"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Ironbridge Trading Corp.",
+    "vendor_tax_id": "53-7480157",
+    "invoice_number": "284980",
+    "invoice_date": "2026-05-15",
+    "due_date": null,
+    "po_number": null,
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 4.0,
+        "unit_price": 56.54,
+        "amount": 226.16
+      }
+    ],
+    "subtotal": 226.16,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 226.16
+  }
+}

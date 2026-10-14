@@ -1,0 +1,39 @@
+{
+  "case_id": "inv_024",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "gbp",
+    "no_po"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Blue Harbor Trading LLP",
+    "vendor_tax_id": "GB473 4876 93",
+    "invoice_number": "SI547394",
+    "invoice_date": "2026-06-11",
+    "due_date": "2026-06-25",
+    "po_number": null,
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 20.0,
+        "unit_price": 32.86,
+        "amount": 657.2
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 1.0,
+        "unit_price": 6.67,
+        "amount": 6.67
+      }
+    ],
+    "subtotal": 663.87,
+    "tax_rate": 20.0,
+    "tax_amount": 132.77,
+    "total": 796.64
+  }
+}

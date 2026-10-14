@@ -1,0 +1,58 @@
+{
+  "case_id": "inv_043",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "no_due_date",
+    "no_po"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Copperleaf Foods Ltd",
+    "vendor_tax_id": "DE77790510",
+    "invoice_number": "2026-236260",
+    "invoice_date": "2026-02-21",
+    "due_date": null,
+    "po_number": null,
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 20.0,
+        "unit_price": 111.77,
+        "amount": 2235.4
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 3.0,
+        "unit_price": 34.15,
+        "amount": 102.45
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 10.0,
+        "unit_price": 27.5,
+        "amount": 275.0
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 24.0,
+        "unit_price": 42.15,
+        "amount": 1011.6
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 1.0,
+        "unit_price": 65.39,
+        "amount": 65.39
+      }
+    ],
+    "subtotal": 3689.84,
+    "tax_rate": 9.0,
+    "tax_amount": 332.09,
+    "total": 4021.93
+  }
+}

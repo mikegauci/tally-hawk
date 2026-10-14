@@ -1,0 +1,313 @@
+{
+  "case_id": "inv_015",
+  "layout": "multipage",
+  "tags": [
+    "multipage",
+    "gbp",
+    "many_line_items"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Kestrel Foods Ltd",
+    "vendor_tax_id": "GB255 1703 42",
+    "invoice_number": "F381541",
+    "invoice_date": "2026-06-18",
+    "due_date": "2026-07-18",
+    "po_number": "CCC-3066",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 10.0,
+        "unit_price": 52.58,
+        "amount": 525.8
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 1.0,
+        "unit_price": 34.98,
+        "amount": 34.98
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 1.0,
+        "unit_price": 8.89,
+        "amount": 8.89
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 1.0,
+        "unit_price": 151.6,
+        "amount": 151.6
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 3.0,
+        "unit_price": 9.95,
+        "amount": 29.85
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 50.0,
+        "unit_price": 133.63,
+        "amount": 6681.5
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 1.0,
+        "unit_price": 85.99,
+        "amount": 85.99
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 50.0,
+        "unit_price": 15.87,
+        "amount": 793.5
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 1.0,
+        "unit_price": 28.57,
+        "amount": 28.57
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 1.0,
+        "unit_price": 22.91,
+        "amount": 22.91
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 1.0,
+        "unit_price": 29.94,
+        "amount": 29.94
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 3.0,
+        "unit_price": 14.02,
+        "amount": 42.06
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 6.0,
+        "unit_price": 53.43,
+        "amount": 320.58
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 1.0,
+        "unit_price": 30.72,
+        "amount": 30.72
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 2.0,
+        "unit_price": 37.55,
+        "amount": 75.1
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 50.0,
+        "unit_price": 39.64,
+        "amount": 1982.0
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 1.5,
+        "unit_price": 62.55,
+        "amount": 93.82
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 1.0,
+        "unit_price": 4.75,
+        "amount": 4.75
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 20.0,
+        "unit_price": 23.3,
+        "amount": 466.0
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 1.0,
+        "unit_price": 9.73,
+        "amount": 9.73
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 24.0,
+        "unit_price": 25.6,
+        "amount": 614.4
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 10.0,
+        "unit_price": 22.11,
+        "amount": 221.1
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 20.0,
+        "unit_price": 15.51,
+        "amount": 310.2
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 24.0,
+        "unit_price": 115.79,
+        "amount": 2778.96
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 1.0,
+        "unit_price": 220.69,
+        "amount": 220.69
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 8.0,
+        "unit_price": 81.02,
+        "amount": 648.16
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 4.0,
+        "unit_price": 256.09,
+        "amount": 1024.36
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 10.0,
+        "unit_price": 13.51,
+        "amount": 135.1
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 6.0,
+        "unit_price": 51.28,
+        "amount": 307.68
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 2.0,
+        "unit_price": 37.45,
+        "amount": 74.9
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 20.0,
+        "unit_price": 37.31,
+        "amount": 746.2
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 20.0,
+        "unit_price": 65.15,
+        "amount": 1303.0
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 3.0,
+        "unit_price": 27.54,
+        "amount": 82.62
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 1.0,
+        "unit_price": 24.01,
+        "amount": 24.01
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 4.0,
+        "unit_price": 9.66,
+        "amount": 38.64
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 50.0,
+        "unit_price": 54.47,
+        "amount": 2723.5
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 3.0,
+        "unit_price": 20.6,
+        "amount": 61.8
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 1.0,
+        "unit_price": 24.36,
+        "amount": 24.36
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 20.0,
+        "unit_price": 30.12,
+        "amount": 602.4
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 24.0,
+        "unit_price": 62.39,
+        "amount": 1497.36
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 1.0,
+        "unit_price": 78.68,
+        "amount": 78.68
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 24.0,
+        "unit_price": 23.64,
+        "amount": 567.36
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 12.0,
+        "unit_price": 19.88,
+        "amount": 238.56
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 4.0,
+        "unit_price": 47.96,
+        "amount": 191.84
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 2.0,
+        "unit_price": 61.84,
+        "amount": 123.68
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 1.0,
+        "unit_price": 27.66,
+        "amount": 27.66
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 3.0,
+        "unit_price": 4.46,
+        "amount": 13.38
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 24.0,
+        "unit_price": 51.26,
+        "amount": 1230.24
+      }
+    ],
+    "subtotal": 27329.13,
+    "tax_rate": 20.0,
+    "tax_amount": 5465.83,
+    "total": 32794.96
+  }
+}

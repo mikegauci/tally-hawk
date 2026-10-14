@@ -1,0 +1,57 @@
+{
+  "case_id": "inv_034",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "gbp",
+    "supplier_error"
+  ],
+  "expected_issues": [
+    "total_mismatch"
+  ],
+  "invoice": {
+    "vendor_name": "Granite Peak IT Services plc",
+    "vendor_tax_id": "GB352 6193 22",
+    "invoice_number": "381997",
+    "invoice_date": "2026-06-10",
+    "due_date": "2026-08-09",
+    "po_number": "PO/2026/3929",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 50.0,
+        "unit_price": 50.71,
+        "amount": 2535.5
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 2.0,
+        "unit_price": 24.42,
+        "amount": 48.84
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 1.0,
+        "unit_price": 158.12,
+        "amount": 158.12
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 12.0,
+        "unit_price": 10.88,
+        "amount": 130.56
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 3.5,
+        "unit_price": 97.66,
+        "amount": 341.81
+      }
+    ],
+    "subtotal": 3214.83,
+    "tax_rate": 20.0,
+    "tax_amount": 642.97,
+    "total": 3858.8
+  }
+}

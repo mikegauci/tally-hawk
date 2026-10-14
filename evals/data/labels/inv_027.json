@@ -1,0 +1,54 @@
+{
+  "case_id": "inv_027",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Atlas Foods LLC",
+    "vendor_tax_id": "87-1544000",
+    "invoice_number": "2026-235191",
+    "invoice_date": "2026-04-16",
+    "due_date": "2026-05-31",
+    "po_number": "PO-75802",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 2.0,
+        "unit_price": 22.74,
+        "amount": 45.48
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 1.0,
+        "unit_price": 11.72,
+        "amount": 11.72
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 50.0,
+        "unit_price": 25.3,
+        "amount": 1265.0
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 1.0,
+        "unit_price": 67.82,
+        "amount": 67.82
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 50.0,
+        "unit_price": 17.09,
+        "amount": 854.5
+      }
+    ],
+    "subtotal": 2244.52,
+    "tax_rate": 7.5,
+    "tax_amount": 168.34,
+    "total": 2412.86
+  }
+}

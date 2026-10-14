@@ -1,0 +1,54 @@
+{
+  "case_id": "inv_026",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "eur"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Vantage IT Services B.V.",
+    "vendor_tax_id": "IT18029932",
+    "invoice_number": "2026-668171",
+    "invoice_date": "2026-09-28",
+    "due_date": "2026-11-27",
+    "po_number": "CCC-8713",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 4.0,
+        "unit_price": 59.79,
+        "amount": 239.16
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 2.0,
+        "unit_price": 38.47,
+        "amount": 76.94
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 1.0,
+        "unit_price": 19.92,
+        "amount": 19.92
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 24.0,
+        "unit_price": 3.18,
+        "amount": 76.32
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 1.0,
+        "unit_price": 11.31,
+        "amount": 11.31
+      }
+    ],
+    "subtotal": 423.65,
+    "tax_rate": 18.0,
+    "tax_amount": 76.26,
+    "total": 499.91
+  }
+}

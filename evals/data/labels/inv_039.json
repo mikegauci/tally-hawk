@@ -1,0 +1,55 @@
+{
+  "case_id": "inv_039",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "usd",
+    "zero_tax"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Northwind Catering Supplies Inc.",
+    "vendor_tax_id": "42-9749961",
+    "invoice_number": "SI122518",
+    "invoice_date": "2026-02-17",
+    "due_date": "2026-03-03",
+    "po_number": "PO/2025/1801",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 50.0,
+        "unit_price": 45.03,
+        "amount": 2251.5
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 5.0,
+        "unit_price": 8.52,
+        "amount": 42.6
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 20.0,
+        "unit_price": 9.41,
+        "amount": 188.2
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 5.0,
+        "unit_price": 26.11,
+        "amount": 130.55
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 2.0,
+        "unit_price": 56.77,
+        "amount": 113.54
+      }
+    ],
+    "subtotal": 2726.39,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 2726.39
+  }
+}

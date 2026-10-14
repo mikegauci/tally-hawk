@@ -1,0 +1,279 @@
+{
+  "case_id": "inv_040",
+  "layout": "multipage",
+  "tags": [
+    "multipage",
+    "eur",
+    "many_line_items",
+    "zero_tax",
+    "no_due_date"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Vantage Foods Ltd",
+    "vendor_tax_id": "IT11074443",
+    "invoice_number": "2026-267387",
+    "invoice_date": "2026-07-17",
+    "due_date": null,
+    "po_number": "PO-18722",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 20.0,
+        "unit_price": 59.8,
+        "amount": 1196.0
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 8.0,
+        "unit_price": 104.98,
+        "amount": 839.84
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 1.0,
+        "unit_price": 23.81,
+        "amount": 23.81
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 24.0,
+        "unit_price": 256.22,
+        "amount": 6149.28
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 1.0,
+        "unit_price": 134.55,
+        "amount": 134.55
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 4.0,
+        "unit_price": 26.31,
+        "amount": 105.24
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 3.0,
+        "unit_price": 11.88,
+        "amount": 35.64
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 1.0,
+        "unit_price": 2.8,
+        "amount": 2.8
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 6.0,
+        "unit_price": 70.68,
+        "amount": 424.08
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 1.0,
+        "unit_price": 34.04,
+        "amount": 34.04
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 20.0,
+        "unit_price": 47.04,
+        "amount": 940.8
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 50.0,
+        "unit_price": 19.68,
+        "amount": 984.0
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 4.0,
+        "unit_price": 23.54,
+        "amount": 94.16
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 24.0,
+        "unit_price": 15.5,
+        "amount": 372.0
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 3.0,
+        "unit_price": 10.7,
+        "amount": 32.1
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 20.0,
+        "unit_price": 22.52,
+        "amount": 450.4
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 10.0,
+        "unit_price": 66.88,
+        "amount": 668.8
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 50.0,
+        "unit_price": 35.47,
+        "amount": 1773.5
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 1.0,
+        "unit_price": 14.27,
+        "amount": 14.27
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 12.0,
+        "unit_price": 4.76,
+        "amount": 57.12
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 5.0,
+        "unit_price": 19.71,
+        "amount": 98.55
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 50.0,
+        "unit_price": 130.68,
+        "amount": 6534.0
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 20.0,
+        "unit_price": 38.69,
+        "amount": 773.8
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 10.0,
+        "unit_price": 14.25,
+        "amount": 142.5
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 20.0,
+        "unit_price": 22.31,
+        "amount": 446.2
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 2.0,
+        "unit_price": 18.11,
+        "amount": 36.22
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 3.5,
+        "unit_price": 91.32,
+        "amount": 319.62
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 24.0,
+        "unit_price": 47.39,
+        "amount": 1137.36
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 10.0,
+        "unit_price": 32.88,
+        "amount": 328.8
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 6.0,
+        "unit_price": 25.74,
+        "amount": 154.44
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 1.0,
+        "unit_price": 31.61,
+        "amount": 31.61
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 1.0,
+        "unit_price": 21.34,
+        "amount": 21.34
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 4.0,
+        "unit_price": 15.47,
+        "amount": 61.88
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 4.0,
+        "unit_price": 244.25,
+        "amount": 977.0
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 24.0,
+        "unit_price": 28.99,
+        "amount": 695.76
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 2.0,
+        "unit_price": 77.39,
+        "amount": 154.78
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 50.0,
+        "unit_price": 9.8,
+        "amount": 490.0
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 9.19,
+        "amount": 9.19
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 24.0,
+        "unit_price": 51.99,
+        "amount": 1247.76
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 1.0,
+        "unit_price": 8.77,
+        "amount": 8.77
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 8.0,
+        "unit_price": 83.32,
+        "amount": 666.56
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 6.0,
+        "unit_price": 150.08,
+        "amount": 900.48
+      }
+    ],
+    "subtotal": 29569.05,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 29569.05
+  }
+}

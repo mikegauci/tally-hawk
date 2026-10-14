@@ -1,0 +1,67 @@
+{
+  "case_id": "inv_044",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "eur",
+    "zero_tax"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Harbourside Systems S.r.l.",
+    "vendor_tax_id": "NL66040622",
+    "invoice_number": "INV-184533",
+    "invoice_date": "2026-09-25",
+    "due_date": "2026-10-25",
+    "po_number": "PO-61336",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 24.0,
+        "unit_price": 18.95,
+        "amount": 454.8
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 6.0,
+        "unit_price": 24.85,
+        "amount": 149.1
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 5.0,
+        "unit_price": 19.7,
+        "amount": 98.5
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 20.0,
+        "unit_price": 10.68,
+        "amount": 213.6
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 1.0,
+        "unit_price": 4.02,
+        "amount": 4.02
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 4.0,
+        "unit_price": 36.79,
+        "amount": 147.16
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 10.0,
+        "unit_price": 248.14,
+        "amount": 2481.4
+      }
+    ],
+    "subtotal": 3548.58,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 3548.58
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "case_id": "inv_002",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd",
+    "no_po"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Old Mill Supplies Inc.",
+    "vendor_tax_id": "30-4773968",
+    "invoice_number": "2026-817180",
+    "invoice_date": "2026-08-21",
+    "due_date": "2026-09-20",
+    "po_number": null,
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Freight surcharge",
+        "quantity": 10.0,
+        "unit_price": 46.77,
+        "amount": 467.7
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 1.0,
+        "unit_price": 41.61,
+        "amount": 41.61
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 3.0,
+        "unit_price": 118.08,
+        "amount": 354.24
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 5.0,
+        "unit_price": 22.1,
+        "amount": 110.5
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 2.0,
+        "unit_price": 20.71,
+        "amount": 41.42
+      }
+    ],
+    "subtotal": 1015.47,
+    "tax_rate": 8.25,
+    "tax_amount": 83.78,
+    "total": 1099.25
+  }
+}

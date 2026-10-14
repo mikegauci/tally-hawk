@@ -1,0 +1,44 @@
+{
+  "case_id": "inv_014",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "eur",
+    "zero_tax",
+    "no_due_date"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Ironbridge Engineering B.V.",
+    "vendor_tax_id": "IT54931489",
+    "invoice_number": "INV-991520",
+    "invoice_date": "2026-06-21",
+    "due_date": null,
+    "po_number": "PO/2025/6498",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 20.0,
+        "unit_price": 5.93,
+        "amount": 118.6
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 3.0,
+        "unit_price": 28.01,
+        "amount": 84.03
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 4.0,
+        "unit_price": 121.12,
+        "amount": 484.48
+      }
+    ],
+    "subtotal": 687.11,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 687.11
+  }
+}

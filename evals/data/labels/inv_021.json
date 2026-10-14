@@ -1,0 +1,60 @@
+{
+  "case_id": "inv_021",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "eur"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Northwind IT Services B.V.",
+    "vendor_tax_id": "DE93487859",
+    "invoice_number": "INV-608622",
+    "invoice_date": "2026-02-01",
+    "due_date": "2026-03-03",
+    "po_number": "4500089060",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Laptop docking station",
+        "quantity": 5.0,
+        "unit_price": 195.74,
+        "amount": 978.7
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 10.0,
+        "unit_price": 11.34,
+        "amount": 113.4
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 20.0,
+        "unit_price": 34.2,
+        "amount": 684.0
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 1.0,
+        "unit_price": 106.7,
+        "amount": 106.7
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 2.0,
+        "unit_price": 70.99,
+        "amount": 141.98
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 1.0,
+        "unit_price": 15.56,
+        "amount": 15.56
+      }
+    ],
+    "subtotal": 2040.34,
+    "tax_rate": 19.0,
+    "tax_amount": 387.66,
+    "total": 2428.0
+  }
+}

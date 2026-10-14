@@ -1,0 +1,36 @@
+{
+  "case_id": "inv_042",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Copperleaf Logistics Corp.",
+    "vendor_tax_id": "49-7288471",
+    "invoice_number": "2026-775892",
+    "invoice_date": "2026-06-22",
+    "due_date": "2026-07-22",
+    "po_number": "PO-89300",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 1.0,
+        "unit_price": 8.84,
+        "amount": 8.84
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 1.0,
+        "unit_price": 55.74,
+        "amount": 55.74
+      }
+    ],
+    "subtotal": 64.58,
+    "tax_rate": 6.0,
+    "tax_amount": 3.87,
+    "total": 68.45
+  }
+}
