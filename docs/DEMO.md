@@ -42,3 +42,16 @@ deploying the web app. Replace the demo video URL in the root README when publis
 ## Closing line
 
 "TallyHawk keeps the payment decision deterministic and uses AI only to read documents, find missing POs, and draft supplier queries."
+
+## Sharing with reviewers (hiring managers)
+
+1. **Public demo video** — Link from the root README (best when the Render API is cold or you want zero friction).
+2. **Live app magic link** — Set `WEB_DEMO_TOKEN` on Vercel (`openssl rand -hex 32`). Send privately:
+
+   `https://tally-hawk.vercel.app/login?token=<WEB_DEMO_TOKEN>`
+
+   The link signs the visitor in and starts the in-app **Product tour**. Do not commit the token or paste the full URL in the public README. Rotate the env var if the link leaks.
+
+3. **Backup** — Plain site URL plus `WEB_PASSWORD` for people who already have credentials.
+
+Remind viewers that demo data comes from `uv run tallyhawk demo load`, that **approval is recorded—not payment**, and that on Render’s free tier the API may take ~30s to wake up (refresh Overview or use the video first).

@@ -5,6 +5,9 @@ test.beforeEach(async ({ request }) => {
 });
 async function login(page: import("@playwright/test").Page) {
   await page.goto("/login");
+  await page.evaluate(() =>
+    localStorage.setItem("tallyhawk-tour-v1", "1"),
+  );
   await page.getByLabel("Workspace password").fill("test-password");
   await page.getByRole("button", { name: "Sign in to workspace" }).click();
   await expect(page).toHaveURL("/dashboard");
@@ -16,6 +19,27 @@ test("overview dashboard shows KPIs from the API", async ({ page }) => {
   await expect(page.getByText("Recent supplier bills")).toBeVisible();
   await expect(page.getByRole("cell", { name: "supplier-invoice.pdf" })).toBeVisible();
 });
+test("demo magic link signs in without password and opens product tour", async ({
+  page,
+}) => {
+  await page.goto("/login");
+  await page.evaluate(() => localStorage.removeItem("tallyhawk-tour-v1"));
+  await page.goto("/login?token=test-demo-token");
+  await expect(page).toHaveURL(/\/dashboard\?tour=1$/);
+  await expect(page.getByText("Overview at a glance")).toBeVisible();
+  await page.getByRole("button", { name: "Close" }).click();
+  await page.reload();
+  await expect(page.getByText("Overview at a glance")).not.toBeVisible();
+});
+
+test("rejects invalid demo magic link", async ({ page }) => {
+  await page.goto("/login?token=not-a-valid-demo-token");
+  await expect(page).toHaveURL("/login");
+  await expect(page.locator(".error-message")).toContainText(
+    "Incorrect workspace password",
+  );
+});
+
 test("protects workspace pages and API, rejects cross-origin sign-in", async ({
   page,
   request,

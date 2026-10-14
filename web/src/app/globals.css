@@ -1390,6 +1390,33 @@ pre {
     min-height: 40px;
   }
 }
+.driver-popover.tallyhawk-tour-popover {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.12);
+  max-width: min(360px, calc(100vw - 32px));
+}
+.driver-popover.tallyhawk-tour-popover .driver-popover-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.driver-popover.tallyhawk-tour-popover .driver-popover-description {
+  color: var(--muted-foreground);
+  font-size: 0.925rem;
+  line-height: 1.45;
+}
+.driver-popover.tallyhawk-tour-popover button {
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.875rem;
+}
+.driver-popover.tallyhawk-tour-popover .driver-popover-progress-text {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

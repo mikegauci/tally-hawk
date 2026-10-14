@@ -32,3 +32,4 @@ web/test-results/
 web/playwright-report/
 .vercel/
 *.tsbuildinfo
+.vercel

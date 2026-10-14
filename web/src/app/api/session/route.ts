@@ -6,7 +6,28 @@ import {
   sameOrigin,
   sessionToken,
   TTL,
+  validDemoToken,
 } from "@/lib/auth";
+
+async function rejectSignIn() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return Response.json(
+    { detail: "Incorrect workspace password." },
+    { status: 401 },
+  );
+}
+
+async function establishSession() {
+  (await cookies()).set(COOKIE, sessionToken(), {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: TTL,
+    path: "/",
+  });
+  return Response.json({ ok: true });
+}
+
 export async function POST(request: Request) {
   if (!sameOrigin(request))
     return Response.json(
@@ -21,21 +42,15 @@ export async function POST(request: Request) {
       { status: 503 },
     );
   const form = await request.formData();
-  if (!equal(String(form.get("password") || ""), process.env.WEB_PASSWORD!)) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return Response.json(
-      { detail: "Incorrect workspace password." },
-      { status: 401 },
-    );
+  const demoToken = String(form.get("demo_token") || "");
+  if (demoToken) {
+    if (!validDemoToken(demoToken)) return rejectSignIn();
+    return establishSession();
   }
-  (await cookies()).set(COOKIE, sessionToken(), {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: TTL,
-    path: "/",
-  });
-  return Response.json({ ok: true });
+  if (!equal(String(form.get("password") || ""), process.env.WEB_PASSWORD!)) {
+    return rejectSignIn();
+  }
+  return establishSession();
 }
 export async function DELETE(request: Request) {
   if (!sameOrigin(request))

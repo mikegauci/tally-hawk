@@ -11,7 +11,8 @@ only the problem invoices reach a person.
 > access are follow-ons. See [web setup](web/README.md), [deploy](docs/DEPLOY.md), and
 > [the build plan](CLAUDE.md#build-plan).
 >
-> **Demo video:** *(add your Loom/YouTube URL after recording — script in [docs/DEMO.md](docs/DEMO.md))*
+> **Demo video:** *(add your Loom/YouTube URL after recording — script in [docs/DEMO.md](docs/DEMO.md))*  
+> **Live app:** portfolio reviewers — magic link in cover letter/resume ([sharing notes](docs/DEMO.md#sharing-with-reviewers-hiring-managers)); not published in this README.
 
 ## Architecture
 

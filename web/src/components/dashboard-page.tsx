@@ -140,7 +140,7 @@ export function DashboardPage() {
         </div>
       )}
 
-      <div className="metrics metrics-wide">
+      <div className="metrics metrics-wide" data-tour="dashboard-kpis">
         <Metric
           label="Needs review"
           value={loading ? "—" : counts.awaitingReview}

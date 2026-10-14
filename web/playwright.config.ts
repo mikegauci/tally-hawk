@@ -24,6 +24,7 @@ export default defineConfig({
         TALLYHAWK_API_URL: "http://127.0.0.1:8109",
         TALLYHAWK_API_KEY: "test-api-key",
         WEB_PASSWORD: "test-password",
+        WEB_DEMO_TOKEN: "test-demo-token",
         SESSION_SECRET: "test-only-secret-do-not-deploy",
         WEB_REVIEWER_NAME: "Test reviewer",
       },

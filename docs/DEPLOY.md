@@ -51,6 +51,7 @@ Use the repo [`render.yaml`](../render.yaml) blueprint (**New → Blueprint** in
 | `TALLYHAWK_API_URL` | Render HTTPS origin, no trailing slash |
 | `TALLYHAWK_API_KEY` | Same as Render |
 | `WEB_PASSWORD` | Workspace sign-in password |
+| `WEB_DEMO_TOKEN` | Optional; `openssl rand -hex 32` for recruiter magic links (`/login?token=…`) |
 | `SESSION_SECRET` | `openssl rand -hex 32` |
 | `WEB_REVIEWER_NAME` | Optional |
 
@@ -61,7 +62,7 @@ Until Render is live, set `TALLYHAWK_API_URL` on Vercel to your API origin (defa
 
 ## 4. Security checklist
 
-- Rotate `TALLYHAWK_API_KEY` and `SESSION_SECRET` if leaked.
+- Rotate `TALLYHAWK_API_KEY`, `SESSION_SECRET`, and `WEB_DEMO_TOKEN` if leaked.
 - Rate-limit `/api/session` at the edge (Vercel firewall or similar) before broad exposure.
 - Use separate preview credentials/backends if preview deployments must not touch production data.
 

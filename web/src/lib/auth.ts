@@ -11,6 +11,13 @@ export function configured() {
     process.env.TALLYHAWK_API_KEY,
   );
 }
+export function demoTokenConfigured() {
+  return Boolean(process.env.WEB_DEMO_TOKEN);
+}
+export function validDemoToken(token: string) {
+  const expected = process.env.WEB_DEMO_TOKEN;
+  return Boolean(expected && token && equal(token, expected));
+}
 function sign(value: string) {
   return createHmac("sha256", process.env.SESSION_SECRET!)
     .update(value)

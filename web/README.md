@@ -30,6 +30,7 @@ Do not expose the local API publicly without `TALLYHAWK_API_KEY`.
 | `TALLYHAWK_API_URL` | Local API URL or the deployed HTTPS API origin |
 | `TALLYHAWK_API_KEY` | Same bearer token as the backend |
 | `WEB_PASSWORD` | A strong, unique workspace sign-in password |
+| `WEB_DEMO_TOKEN` | Optional; enables `/login?token=…` magic links for portfolio reviewers (see [docs/DEMO.md](../docs/DEMO.md)) |
 | `SESSION_SECRET` | Random secret, e.g. `openssl rand -hex 32` |
 | `WEB_REVIEWER_NAME` | Optional shared identity recorded with reviews |
 
@@ -122,6 +123,8 @@ vars. Expect roughly **$0.15–0.50** in OpenAI usage for the default set. See [
   edits block decisions until saved/rechecked, and navigation warns about them.
 - Failed/empty/loading states, responsive mobile document/data switching, keyboard
   accessible shadcn tabs and dialogs, persistent desktop sidebar collapse.
+- First-visit **Product tour** (driver.js) on Overview; replay from the sidebar. Magic-link
+  sign-in (`WEB_DEMO_TOKEN`) redirects to `/dashboard?tour=1`.
 
 No payment, sending, or unsupported AR capability is implied. `send_query` records
 supplier follow-up; it does **not** send email. The backend can automatically approve

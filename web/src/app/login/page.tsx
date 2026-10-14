@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowDownToLine,
   ArrowRight,
@@ -9,9 +9,38 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeToggle } from "@/components/theme-toggle";
+
+async function signIn(body: FormData) {
+  const response = await fetch("/api/session", {
+    method: "POST",
+    body,
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.detail);
+}
+
 export default function Login() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    if (!token) return;
+    window.history.replaceState({}, "", "/login");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot magic-link sign-in
+    setBusy(true);
+    setError("");
+    const form = new FormData();
+    form.set("demo_token", token);
+    signIn(form)
+      .then(() => window.location.assign("/dashboard?tour=1"))
+      .catch((err) => {
+        setError((err as Error).message);
+        setBusy(false);
+      });
+  }, []);
+
   return (
     <main className="login-page">
       <div className="login-theme">
@@ -36,15 +65,10 @@ export default function Login() {
             setBusy(true);
             setError("");
             try {
-              const response = await fetch("/api/session", {
-                method: "POST",
-                body: new FormData(event.currentTarget),
-              });
-              const data = await response.json();
-              if (!response.ok) throw new Error(data.detail);
+              await signIn(new FormData(event.currentTarget));
               window.location.assign("/dashboard");
-            } catch (error) {
-              setError((error as Error).message);
+            } catch (err) {
+              setError((err as Error).message);
               setBusy(false);
             }
           }}

@@ -14,12 +14,20 @@ import {
   ShieldCheck,
   Menu,
   X,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { replayWorkspaceTour, WorkspaceTour } from "@/components/workspace-tour";
 const subscribe = (callback: () => void) => {
   window.addEventListener("sidebar-change", callback);
   return () => window.removeEventListener("sidebar-change", callback);
+};
+const tourId: Record<string, string> = {
+  "/dashboard": "nav-dashboard",
+  "/inbox": "nav-inbox",
+  "/tasks": "nav-tasks",
+  "/payables/bills": "nav-bills",
 };
 const groups = [
   {
@@ -82,6 +90,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   onClick={() => setMobile(false)}
                   key={item.href}
                   href={item.href}
+                  data-tour={tourId[item.href]}
                   aria-current={path.startsWith(item.href) ? "page" : undefined}
                   className={
                     path.startsWith(item.href) ? "nav-item active" : "nav-item"
@@ -95,7 +104,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="sidebar-note sidebar-label">
+          <div className="sidebar-note sidebar-label" data-tour="sidebar-note">
             <ShieldCheck size={18} />
             <p>
               A clear trail for every bill.
@@ -117,6 +126,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <span className="sidebar-label">Collapse navigation</span>
           </Button>
           <ThemeToggle />
+          <Button variant="ghost" onClick={() => replayWorkspaceTour()}>
+            <Sparkles />
+            <span className="sidebar-label">Product tour</span>
+          </Button>
           <Button
             variant="ghost"
             onClick={async () => {
@@ -164,6 +177,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </span>
         </footer>
       </div>
+      <WorkspaceTour />
     </div>
   );
 }
