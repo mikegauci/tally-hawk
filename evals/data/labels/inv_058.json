@@ -1,0 +1,44 @@
+{
+  "case_id": "inv_058",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "eur",
+    "hard",
+    "low_res"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Redfern Building Materials Ltd",
+    "vendor_tax_id": "MT98197810",
+    "invoice_number": "409605",
+    "invoice_date": "2026-02-28",
+    "due_date": "2026-03-30",
+    "po_number": "PO/2026/0856",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 2.0,
+        "unit_price": 8.34,
+        "amount": 16.68
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 10.0,
+        "unit_price": 6.98,
+        "amount": 69.8
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 10.0,
+        "unit_price": 157.21,
+        "amount": 1572.1
+      }
+    ],
+    "subtotal": 1658.58,
+    "tax_rate": 19.0,
+    "tax_amount": 315.13,
+    "total": 1973.71
+  }
+}

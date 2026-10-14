@@ -1,0 +1,40 @@
+{
+  "case_id": "inv_062",
+  "layout": "two_column",
+  "tags": [
+    "two_column",
+    "usd",
+    "no_po",
+    "hard"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Ironbridge Supplies Inc.",
+    "vendor_tax_id": "45-9160499",
+    "invoice_number": "612621",
+    "invoice_date": "2026-06-14",
+    "due_date": "2026-07-14",
+    "po_number": null,
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 1.0,
+        "unit_price": 46.09,
+        "amount": 46.09
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 24.0,
+        "unit_price": 12.48,
+        "amount": 299.52
+      }
+    ],
+    "subtotal": 345.61,
+    "tax_rate": 8.25,
+    "tax_amount": 28.51,
+    "total": 374.12
+  }
+}

@@ -21,7 +21,16 @@ import re
 from datetime import timedelta
 from pathlib import Path
 
-from evals.generate import CATALOG, PO_STYLES, VENDOR_FIRST, VENDOR_SECOND, VENDOR_SUFFIX, Case, build_cases
+from evals.generate import (
+    CATALOG,
+    N_STANDARD,
+    PO_STYLES,
+    VENDOR_FIRST,
+    VENDOR_SECOND,
+    VENDOR_SUFFIX,
+    Case,
+    build_cases,
+)
 from tallyhawk.procurement import (
     GoodsReceipt,
     POLine,
@@ -226,7 +235,7 @@ class Builder:
 def build(cases: list[Case] | None = None, seed: int = SEED) -> tuple[dict[str, list], list[dict]]:
     rng = random.Random(seed)
     b = Builder(rng)
-    cases = cases or build_cases()
+    cases = cases or build_cases()[:N_STANDARD]  # the extraction hard set has no matching scenarios
     invoice_names = {c.invoice.vendor_name for c in cases}
 
     # Supplier records. Two step-1 invoices share a name with different tax IDs, so a vendor

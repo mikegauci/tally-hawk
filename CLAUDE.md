@@ -13,8 +13,9 @@ matter as much as features.
 ## Build plan
 
 1. **Extraction + eval set** (done in this repo): Python package `tallyhawk`, GPT-5.5 reads
-   PDFs natively via structured outputs, validation rules, 50 synthetic invoices with
-   ground truth, eval harness with per-field accuracy.
+   PDFs natively via structured outputs, validation rules, 68 synthetic invoices with
+   ground truth (50 standard + 18 hard: scans, low-res, handwriting, two-column, ambiguous
+   totals), eval harness with per-field accuracy, calibration and cost per invoice.
 2. **PO matching agent** (done in this repo): seeded Supabase DB of vendors, POs and goods receipts; LangGraph
    workflow (extract → validate → match → decide → human handoff) using OpenAI tool calling;
    pgvector for fuzzy vendor matching; matching evals.
@@ -54,6 +55,9 @@ matter as much as features.
   `uv run tallyhawk db migrate|seed`.
 - `evals/generate.py`: deterministic generator for `evals/data/` (PDFs + labels). Labels
   hold the values *printed* on the invoice, including deliberate supplier mistakes.
+  `HARD_KINDS` defines the hard set; scanned cases are rendered by `RasterDoc` as JPEG-only
+  PDFs (no text layer). Hard cases use their own random stream, so adding one never
+  changes the standard 50.
 - `evals/scoring.py`, `evals/run_eval.py`: scoring and the eval runner/report.
 - `evals/generate_matching.py`: deterministic seed (`evals/data/procurement/`) and matching
   labels (`evals/data/match_labels.json`), one scenario per invoice. `evals/run_match_eval.py`
@@ -82,7 +86,9 @@ uv run uvicorn tallyhawk.api:app --reload # API on :8000, docs at /docs
 
 - LLM provider is OpenAI (Mike's choice, 2026-10-14). Default model `gpt-5.5` at reasoning
   effort `medium` (override with `TALLYHAWK_MODEL`, `TALLYHAWK_EFFORT` or CLI flags). Cost is
-  reported only when `TALLYHAWK_PRICE_INPUT_PER_MTOK` / `TALLYHAWK_PRICE_OUTPUT_PER_MTOK` are set.
+  reported only when `TALLYHAWK_PRICE_INPUT_PER_MTOK` / `TALLYHAWK_PRICE_OUTPUT_PER_MTOK` are set
+  (`.env.example` has gpt-5.5's prices). The CLI and eval runner load `.env` themselves.
+- The live eval gates on the standard set only; the hard set is reported, not gated.
 - Extract what is printed; never "fix" a supplier's arithmetic in extraction. Validation
   is where mismatches are caught.
 - Any change to the prompt, schema or model should come with a before/after eval run.

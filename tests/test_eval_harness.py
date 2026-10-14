@@ -1,8 +1,10 @@
 """The eval harness scores saved predictions correctly (no API calls)."""
 
+import json
+
 from conftest import make_extracted
 
-from evals.run_eval import render_report, summarize
+from evals.run_eval import main, render_report, summarize
 from tallyhawk.extract import ExtractionResult, Usage
 from tallyhawk.schema import InvoiceData
 from tallyhawk.validation import low_confidence_fields, needs_review, validate_invoice
@@ -51,3 +53,28 @@ def test_failed_cases_are_reported(tmp_path, gold_labels):
     (tmp_path / f"{label['case_id']}.json").write_text('{"error": "APIConnectionError: boom"}')
     summary = summarize([label], tmp_path)
     assert summary["n_scored"] == 0 and summary["failures"][0]["case_id"] == label["case_id"]
+
+
+def test_rescore_splits_sets_and_prices_old_runs(tmp_path, gold_labels, monkeypatch):
+    pred_dir = tmp_path / "predictions"
+    pred_dir.mkdir()
+    for label in gold_labels:
+        gold = InvoiceData.model_validate(label["invoice"])
+        if label["case_id"] == "inv_051":  # a hard case read wrong, with high confidence
+            gold = gold.model_copy(update={"invoice_number": "WRONG"})
+        write_prediction(pred_dir, label["case_id"], gold)
+    (tmp_path / "summary.json").write_text(json.dumps({"meta": {"model": "m", "effort": "medium", "started": "t"}}))
+    monkeypatch.setenv("TALLYHAWK_PRICE_INPUT_PER_MTOK", "5")
+    monkeypatch.setenv("TALLYHAWK_PRICE_OUTPUT_PER_MTOK", "30")
+
+    summary = main(["--rescore", str(tmp_path)])
+
+    assert list(summary["sets"]) == ["standard", "hard"]
+    assert summary["sets"]["standard"]["document_accuracy"] == 1.0
+    assert summary["sets"]["hard"]["silent_error_rate"] > 0
+    assert summary["by_tag"]["scanned_rotated"]["n"] == 2
+    assert summary["by_tag"]["hard"]["n"] == 18 and summary["by_tag"]["standard"]["n"] == 50
+    assert summary["cost_usd_per_invoice"] == round((5 + 30) / 1e6, 5)  # 1 token in, 1 out, at current prices
+    assert summary["confidence_calibration"]["mean_conf_wrong"] == 0.98
+    report = (tmp_path / "report.md").read_text()
+    assert "## Standard vs hard invoices" in report and "| inv_051 | hard | invoice_number" in report

@@ -1,0 +1,63 @@
+{
+  "case_id": "inv_066",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "no_due_date",
+    "hard",
+    "mixed_tax_rates"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Vantage Engineering B.V.",
+    "vendor_tax_id": "DE48398354",
+    "invoice_number": "F308861",
+    "invoice_date": "2026-08-06",
+    "due_date": null,
+    "po_number": "PO-93433",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 50.0,
+        "unit_price": 11.54,
+        "amount": 577.0
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 2.0,
+        "unit_price": 109.47,
+        "amount": 218.94
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 2.0,
+        "unit_price": 175.87,
+        "amount": 351.74
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 24.0,
+        "unit_price": 50.42,
+        "amount": 1210.08
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 3.0,
+        "unit_price": 25.0,
+        "amount": 75.0
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 6.0,
+        "unit_price": 7.75,
+        "amount": 46.5
+      }
+    ],
+    "subtotal": 2479.26,
+    "tax_rate": null,
+    "tax_amount": 273.16,
+    "total": 2752.42
+  }
+}

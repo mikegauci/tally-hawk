@@ -1,0 +1,62 @@
+{
+  "case_id": "inv_067",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd",
+    "hard",
+    "dual_currency"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Harbourside Print Works LLC",
+    "vendor_tax_id": "14-4745153",
+    "invoice_number": "SI295708",
+    "invoice_date": "2026-02-15",
+    "due_date": "2026-03-01",
+    "po_number": "HVH-3126",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 1.0,
+        "unit_price": 10.42,
+        "amount": 10.42
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 1.0,
+        "unit_price": 8.51,
+        "amount": 8.51
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 50.0,
+        "unit_price": 3.68,
+        "amount": 184.0
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 24.0,
+        "unit_price": 82.98,
+        "amount": 1991.52
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 20.0,
+        "unit_price": 249.31,
+        "amount": 4986.2
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 2.0,
+        "unit_price": 30.47,
+        "amount": 60.94
+      }
+    ],
+    "subtotal": 7241.59,
+    "tax_rate": 6.0,
+    "tax_amount": 434.5,
+    "total": 7676.09
+  }
+}
