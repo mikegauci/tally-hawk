@@ -70,6 +70,14 @@ class LLMDrafter:
     def __call__(
         self, invoice: InvoiceData, vendor: Vendor | None, po_number: str | None, issues: list[MatchIssue]
     ) -> VendorQuery:
+        from tallyhawk.tracing import span
+
+        with span("draft_supplier_query", as_type="generation", metadata={"model": self.model}):
+            return self._draft(invoice, vendor, po_number, issues)
+
+    def _draft(
+        self, invoice: InvoiceData, vendor: Vendor | None, po_number: str | None, issues: list[MatchIssue]
+    ) -> VendorQuery:
         facts = "\n".join(f"- {fact}" for fact in _facts(issues))
         prompt = (
             f"Supplier: {vendor.name if vendor else invoice.vendor_name}\n"

@@ -96,8 +96,21 @@ multipart overhead. The backend still accepts 20 MB directly. Supporting larger 
 uploads needs a signed direct-storage upload flow. See
 [Vercel function limits](https://vercel.com/docs/functions/limitations).
 
+## Demo dataset
+
+After the API database is migrated and seeded (`uv run tallyhawk db migrate && uv run tallyhawk db seed`
+from the repo root), load five curated eval invoices through the real pipeline:
+
+```sh
+uv run tallyhawk demo load
+```
+
+Requires `DATABASE_URL`, `OPENAI_API_KEY`, and local `TALLYHAWK_STORAGE_DIR` or Supabase storage
+vars. Expect roughly **$0.15–0.50** in OpenAI usage for the default set. See [docs/DEPLOY.md](../docs/DEPLOY.md).
+
 ## Implemented behavior
 
+- `/dashboard`: AP overview — status KPIs, attention list, recent bills (no fabricated AR metrics).
 - `/inbox`: multi-file upload, drag/drop, type/size validation, per-file errors,
   explicit retry, processing polling, received documents.
 - `/tasks`: actual review queue, supplier/document search, sorting, 20-row pagination.

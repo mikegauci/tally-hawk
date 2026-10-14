@@ -93,10 +93,16 @@ async function proxy(
       headers: resultHeaders,
     });
   } catch {
+    const base = process.env.TALLYHAWK_API_URL?.replace(/\/$/, "") ?? "";
+    const local = /localhost|127\.0\.0\.1/.test(base);
+    const hint = local
+      ? "Start the API from the repo root: uv run uvicorn tallyhawk.api:app --env-file .env --reload"
+      : base
+        ? `Check that the API at ${base} is deployed and reachable (see docs/DEPLOY.md).`
+        : "Set TALLYHAWK_API_URL in the web environment.";
     return Response.json(
       {
-        detail:
-          "The invoice service could not respond. Refresh to check whether your request completed before trying again.",
+        detail: `The invoice service could not respond. ${hint}`,
       },
       { status: 502 },
     );

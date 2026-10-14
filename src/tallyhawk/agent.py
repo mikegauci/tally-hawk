@@ -162,6 +162,12 @@ class AgentResolver:
         self.max_turns = max_turns
 
     def __call__(self, invoice: InvoiceData) -> Resolution:
+        from tallyhawk.tracing import span
+
+        with span("po_investigation_agent", metadata={"model": self.model}):
+            return self._run(invoice)
+
+    def _run(self, invoice: InvoiceData) -> Resolution:
         items: list = [{"role": "user", "content": f"Find the PO for this invoice.\n\n{invoice_brief(invoice)}"}]
         calls: list[ToolCall] = []
         usage: list[Usage] = []

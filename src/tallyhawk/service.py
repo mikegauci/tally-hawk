@@ -158,6 +158,16 @@ class InvoiceService:
 
     def process(self, invoice_id: uuid.UUID) -> InvoiceDetail:
         """Extract and match one invoice. Calling it again re-runs it from scratch."""
+        from tallyhawk.tracing import set_invoice_id, span
+
+        set_invoice_id(str(invoice_id))
+        try:
+            with span("process_invoice"):
+                return self._process(invoice_id)
+        finally:
+            set_invoice_id(None)
+
+    def _process(self, invoice_id: uuid.UUID) -> InvoiceDetail:
         with self.pool.connection() as conn, conn.transaction():
             row = conn.execute(
                 """

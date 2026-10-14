@@ -7,8 +7,15 @@ async function login(page: import("@playwright/test").Page) {
   await page.goto("/login");
   await page.getByLabel("Workspace password").fill("test-password");
   await page.getByRole("button", { name: "Sign in to workspace" }).click();
-  await expect(page).toHaveURL("/inbox");
+  await expect(page).toHaveURL("/dashboard");
 }
+test("overview dashboard shows KPIs from the API", async ({ page }) => {
+  await login(page);
+  await expect(page.getByRole("heading", { name: "Overview" })).toBeVisible();
+  await expect(page.getByText("Needs review")).toBeVisible();
+  await expect(page.getByText("Recent supplier bills")).toBeVisible();
+  await expect(page.getByRole("cell", { name: "supplier-invoice.pdf" })).toBeVisible();
+});
 test("protects workspace pages and API, rejects cross-origin sign-in", async ({
   page,
   request,

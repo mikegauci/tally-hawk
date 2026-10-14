@@ -19,10 +19,11 @@ matter as much as features.
 2. **PO matching agent** (done in this repo): seeded Supabase DB of vendors, POs and goods receipts; LangGraph
    workflow (extract → validate → match → decide → human handoff) using OpenAI tool calling;
    pgvector for fuzzy vendor matching; matching evals.
-3. **Web app** (backend done in this repo: schema, store, API, Dockerfile): FastAPI service (Railway/Render) + Next.js/Tailwind on Vercel with upload,
-   review queue (PDF beside extracted fields) and dashboard; Supabase auth and storage.
-4. **Portfolio polish**: README with architecture diagram, accuracy and cost numbers,
-   Langfuse tracing, demo video.
+3. **Web app** (done for demo): FastAPI + Next.js upload, review queue, AP overview dashboard;
+   shared workspace password auth; Supabase Postgres/Storage in deploy docs. Supabase Auth per-user is deferred.
+4. **Portfolio polish** (done): README architecture diagram, [docs/EVAL_SNAPSHOT.md](docs/EVAL_SNAPSHOT.md),
+   optional Langfuse (`LANGFUSE_*`), [docs/DEMO.md](docs/DEMO.md) script, [docs/DEPLOY.md](docs/DEPLOY.md).
+   Mike records the demo video and links it from the README.
 
 ## Layout
 
@@ -79,6 +80,7 @@ uv run python -m evals.run_match_eval     # matching eval with the agent (needs 
 uv run pytest -m live -s                  # full eval with pass/fail thresholds
 TALLYHAWK_TEST_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres uv run pytest  # + DB/API tests
 uv run tallyhawk db migrate && uv run tallyhawk db seed   # needs DATABASE_URL
+uv run tallyhawk demo load                              # showcase invoices (OpenAI)
 uv run uvicorn tallyhawk.api:app --reload # API on :8000, docs at /docs
 ```
 
