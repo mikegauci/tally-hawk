@@ -83,7 +83,7 @@ def _document_part(data: bytes, media_type: str) -> dict:
     return {"type": "input_image", "image_url": data_url, "detail": "high"}
 
 
-def _cost(input_tokens: int, output_tokens: int) -> float | None:
+def estimate_cost(input_tokens: int, output_tokens: int) -> float | None:
     if PRICE_INPUT_PER_MTOK is None or PRICE_OUTPUT_PER_MTOK is None:
         return None
     return round((input_tokens * PRICE_INPUT_PER_MTOK + output_tokens * PRICE_OUTPUT_PER_MTOK) / 1_000_000, 6)
@@ -146,7 +146,7 @@ def extract_invoice(
         usage=Usage(
             input_tokens=response.usage.input_tokens,
             output_tokens=response.usage.output_tokens,
-            cost_usd=_cost(response.usage.input_tokens, response.usage.output_tokens),
+            cost_usd=estimate_cost(response.usage.input_tokens, response.usage.output_tokens),
         ),
         latency_s=round(latency, 2),
     )

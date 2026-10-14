@@ -1,0 +1,2836 @@
+[
+  {
+    "receipt_number": "GRN-00001",
+    "po_number": "HVH-3330",
+    "received_date": "2026-08-22",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00002",
+    "po_number": "CCC-7335",
+    "received_date": "2026-08-19",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 2.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00003",
+    "po_number": "PO-31244",
+    "received_date": "2026-08-10",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 5.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00004",
+    "po_number": "PO/2026/4893",
+    "received_date": "2026-03-25",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 2.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00005",
+    "po_number": "PO/2026/4893",
+    "received_date": "2026-03-26",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 2.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00006",
+    "po_number": "PO/2026/2712",
+    "received_date": "2026-08-19",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 3.5
+      },
+      {
+        "po_line": 40,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 49,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 50,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 51,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 52,
+        "quantity": 3.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00007",
+    "po_number": "PO/2026/1450",
+    "received_date": "2026-04-27",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00008",
+    "po_number": "4500058691",
+    "received_date": "2026-04-25",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 19.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 12.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00009",
+    "po_number": "PO/2026/5360",
+    "received_date": "2026-03-06",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 3.5
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00010",
+    "po_number": "4500040230",
+    "received_date": "2026-03-28",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 50.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00011",
+    "po_number": "4500052199",
+    "received_date": "2026-01-26",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 1.5
+      },
+      {
+        "po_line": 20,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 8.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 49,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 50,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 51,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 52,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 53,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00012",
+    "po_number": "PO-12516",
+    "received_date": "2026-02-21",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 12.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00013",
+    "po_number": "PO-22528",
+    "received_date": "2026-02-04",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00014",
+    "po_number": "PO-22528",
+    "received_date": "2026-02-06",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 3.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00015",
+    "po_number": "PO/2025/6498",
+    "received_date": "2026-06-20",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 4.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00016",
+    "po_number": "CCC-3066",
+    "received_date": "2026-06-09",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 40.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 1.5
+      },
+      {
+        "po_line": 18,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 8.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 24.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00017",
+    "po_number": "PO/2025/4879",
+    "received_date": "2026-01-21",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 6.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00018",
+    "po_number": "4500057358",
+    "received_date": "2026-03-26",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00019",
+    "po_number": "PO-33005",
+    "received_date": "2026-01-14",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 8.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 12.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00020",
+    "po_number": "GRG-2224",
+    "received_date": "2026-04-29",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 1.5
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 5.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00021",
+    "po_number": "4500037160",
+    "received_date": "2026-08-16",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 49,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 50,
+        "quantity": 10.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00022",
+    "po_number": "4500089061",
+    "received_date": "2026-01-26",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00023",
+    "po_number": "4500068972",
+    "received_date": "2026-04-21",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 6.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00024",
+    "po_number": "HVH-5512",
+    "received_date": "2026-01-08",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00025",
+    "po_number": "PO-84135",
+    "received_date": "2026-04-09",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 8.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 6.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00026",
+    "po_number": "PO-75802",
+    "received_date": "2026-04-07",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 50.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00027",
+    "po_number": "GRG-5372",
+    "received_date": "2026-05-02",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 10.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00028",
+    "po_number": "MPM-5194",
+    "received_date": "2026-05-04",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 50.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00029",
+    "po_number": "PO-58114",
+    "received_date": "2026-07-31",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 3.5
+      },
+      {
+        "po_line": 10,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 8.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 3.5
+      },
+      {
+        "po_line": 28,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 49,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 50,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 51,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 52,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 53,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00030",
+    "po_number": "PO/2026/9457",
+    "received_date": "2026-08-19",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 19.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 2.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00031",
+    "po_number": "PO-40463",
+    "received_date": "2026-04-19",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 10.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00032",
+    "po_number": "PO/2025/9849",
+    "received_date": "2026-02-20",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 20.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00033",
+    "po_number": "PO/2026/3929",
+    "received_date": "2026-06-09",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 3.5
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00034",
+    "po_number": "4500019128",
+    "received_date": "2026-02-17",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 49,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 50,
+        "quantity": 6.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00035",
+    "po_number": "PO/2026/4979",
+    "received_date": "2026-08-31",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 24.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00036",
+    "po_number": "PO/2025/1801",
+    "received_date": "2026-02-11",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 2.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00037",
+    "po_number": "PO-18722",
+    "received_date": "2026-07-13",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 3.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00038",
+    "po_number": "PO-18722",
+    "received_date": "2026-07-10",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 23,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 1.5
+      },
+      {
+        "po_line": 28,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 25.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 3.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00039",
+    "po_number": "HVH-6102",
+    "received_date": "2026-04-19",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00040",
+    "po_number": "PO-36834",
+    "received_date": "2026-02-20",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00041",
+    "po_number": "PO-61336",
+    "received_date": "2026-09-25",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 10.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00042",
+    "po_number": "PO/2025/6382",
+    "received_date": "2026-01-10",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 20.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00043",
+    "po_number": "4500046641",
+    "received_date": "2026-06-01",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 20.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00044",
+    "po_number": "PO/2025/4213",
+    "received_date": "2025-12-30",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 40.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00045",
+    "po_number": "4500013164",
+    "received_date": "2026-06-17",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 10.0
+      }
+    ]
+  },
+  {
+    "receipt_number": "GRN-00046",
+    "po_number": "PO/2025/8475",
+    "received_date": "2026-06-24",
+    "lines": [
+      {
+        "po_line": 1,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 2,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 3,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 4,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 5,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 6,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 7,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 8,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 9,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 10,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 11,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 12,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 13,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 14,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 15,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 16,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 17,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 18,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 19,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 20,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 21,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 22,
+        "quantity": 1.5
+      },
+      {
+        "po_line": 23,
+        "quantity": 2.0
+      },
+      {
+        "po_line": 24,
+        "quantity": 5.0
+      },
+      {
+        "po_line": 25,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 26,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 27,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 28,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 29,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 30,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 31,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 32,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 33,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 34,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 35,
+        "quantity": 50.0
+      },
+      {
+        "po_line": 36,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 37,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 38,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 39,
+        "quantity": 8.0
+      },
+      {
+        "po_line": 40,
+        "quantity": 1.0
+      },
+      {
+        "po_line": 41,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 42,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 43,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 44,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 45,
+        "quantity": 6.0
+      },
+      {
+        "po_line": 46,
+        "quantity": 20.0
+      },
+      {
+        "po_line": 47,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 48,
+        "quantity": 4.0
+      },
+      {
+        "po_line": 49,
+        "quantity": 24.0
+      },
+      {
+        "po_line": 50,
+        "quantity": 3.0
+      },
+      {
+        "po_line": 51,
+        "quantity": 10.0
+      },
+      {
+        "po_line": 52,
+        "quantity": 12.0
+      },
+      {
+        "po_line": 53,
+        "quantity": 24.0
+      }
+    ]
+  }
+]

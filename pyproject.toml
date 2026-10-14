@@ -5,6 +5,7 @@ description = "AI invoice extraction and PO matching for accounts payable teams"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "langgraph>=1.2.15",
     "openai>=3.31.0",
     "pydantic>=2.14.1",
 ]

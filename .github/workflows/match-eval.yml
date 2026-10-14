@@ -1,0 +1,33 @@
+name: Matching eval
+
+# Runs the PO matching agent on all 50 invoices. The agent and email drafter call the
+# OpenAI API, so this runs on demand. Needs an OPENAI_API_KEY repository secret.
+on:
+  workflow_dispatch:
+    inputs:
+      resolver:
+        description: agent (OpenAI tool calling) or rules (no API calls)
+        default: agent
+      model:
+        description: OpenAI model ID
+        default: gpt-5.5
+      effort:
+        description: Agent reasoning effort
+        default: low
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - run: uv run python -m evals.run_match_eval --resolver "${{ inputs.resolver }}" --model "${{ inputs.model }}" --effort "${{ inputs.effort }}" | tee -a "$GITHUB_STEP_SUMMARY"
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TALLYHAWK_PRICE_INPUT_PER_MTOK: ${{ vars.TALLYHAWK_PRICE_INPUT_PER_MTOK }}
+          TALLYHAWK_PRICE_OUTPUT_PER_MTOK: ${{ vars.TALLYHAWK_PRICE_OUTPUT_PER_MTOK }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: match-eval-results
+          path: evals/results/

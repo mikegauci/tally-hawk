@@ -1,0 +1,475 @@
+[
+  {
+    "case_id": "inv_001",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V001",
+    "expected_po_number": "HVH-3330",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_002",
+    "scenario": "po_not_printed",
+    "expected_decision": "review",
+    "expected_vendor_id": "V002",
+    "expected_po_number": "CCC-7335",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_003",
+    "scenario": "price_increase",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V003",
+    "expected_po_number": "PO-31244",
+    "expected_issues": [
+      "price_variance"
+    ]
+  },
+  {
+    "case_id": "inv_004",
+    "scenario": "split_receipts",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V004",
+    "expected_po_number": "PO/2026/4893",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_005",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V005",
+    "expected_po_number": "PO/2026/2712",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_006",
+    "scenario": "price_within_tolerance",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V006",
+    "expected_po_number": "PO/2026/1450",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_007",
+    "scenario": "short_delivery",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V007",
+    "expected_po_number": "4500058691",
+    "expected_issues": [
+      "qty_exceeds_received"
+    ]
+  },
+  {
+    "case_id": "inv_008",
+    "scenario": "supplier_error",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V008",
+    "expected_po_number": "PO/2026/5360",
+    "expected_issues": [
+      "invoice_arithmetic_error"
+    ]
+  },
+  {
+    "case_id": "inv_009",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V009",
+    "expected_po_number": "4500040230",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_010",
+    "scenario": "po_typo",
+    "expected_decision": "review",
+    "expected_vendor_id": "V010",
+    "expected_po_number": "4500052199",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_011",
+    "scenario": "not_received",
+    "expected_decision": "review",
+    "expected_vendor_id": "V011",
+    "expected_po_number": "MPM-2810",
+    "expected_issues": [
+      "no_goods_receipt"
+    ]
+  },
+  {
+    "case_id": "inv_012",
+    "scenario": "po_not_printed",
+    "expected_decision": "review",
+    "expected_vendor_id": "V012",
+    "expected_po_number": "PO-12516",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_013",
+    "scenario": "split_receipts",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V013",
+    "expected_po_number": "PO-22528",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_014",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V014",
+    "expected_po_number": "PO/2025/6498",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_015",
+    "scenario": "short_delivery",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V015",
+    "expected_po_number": "CCC-3066",
+    "expected_issues": [
+      "qty_exceeds_received"
+    ]
+  },
+  {
+    "case_id": "inv_016",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V016",
+    "expected_po_number": "PO/2025/4879",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_017",
+    "scenario": "extra_line",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V017",
+    "expected_po_number": "4500057358",
+    "expected_issues": [
+      "line_not_on_po"
+    ]
+  },
+  {
+    "case_id": "inv_018",
+    "scenario": "price_increase",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V018",
+    "expected_po_number": "PO-33005",
+    "expected_issues": [
+      "price_variance"
+    ]
+  },
+  {
+    "case_id": "inv_019",
+    "scenario": "duplicate",
+    "expected_decision": "review",
+    "expected_vendor_id": "V019",
+    "expected_po_number": "GRG-2224",
+    "expected_issues": [
+      "duplicate_invoice"
+    ]
+  },
+  {
+    "case_id": "inv_020",
+    "scenario": "supplier_error",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V020",
+    "expected_po_number": "4500037160",
+    "expected_issues": [
+      "invoice_arithmetic_error"
+    ]
+  },
+  {
+    "case_id": "inv_021",
+    "scenario": "po_typo",
+    "expected_decision": "review",
+    "expected_vendor_id": "V021",
+    "expected_po_number": "4500089061",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_022",
+    "scenario": "vendor_mismatch",
+    "expected_decision": "review",
+    "expected_vendor_id": "V022",
+    "expected_po_number": "4500068972",
+    "expected_issues": [
+      "vendor_mismatch"
+    ]
+  },
+  {
+    "case_id": "inv_023",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V023",
+    "expected_po_number": "HVH-5512",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_024",
+    "scenario": "no_po_exists",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V024",
+    "expected_po_number": null,
+    "expected_issues": [
+      "no_po_found"
+    ]
+  },
+  {
+    "case_id": "inv_025",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V025",
+    "expected_po_number": "PO-84135",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_026",
+    "scenario": "not_received",
+    "expected_decision": "review",
+    "expected_vendor_id": "V026",
+    "expected_po_number": "CCC-8713",
+    "expected_issues": [
+      "no_goods_receipt"
+    ]
+  },
+  {
+    "case_id": "inv_027",
+    "scenario": "price_within_tolerance",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V027",
+    "expected_po_number": "PO-75802",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_028",
+    "scenario": "po_not_printed",
+    "expected_decision": "review",
+    "expected_vendor_id": "V028",
+    "expected_po_number": "GRG-5372",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_029",
+    "scenario": "extra_line",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V029",
+    "expected_po_number": "MPM-5194",
+    "expected_issues": [
+      "line_not_on_po"
+    ]
+  },
+  {
+    "case_id": "inv_030",
+    "scenario": "price_increase",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V030",
+    "expected_po_number": "PO-58114",
+    "expected_issues": [
+      "price_variance"
+    ]
+  },
+  {
+    "case_id": "inv_031",
+    "scenario": "short_delivery",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V031",
+    "expected_po_number": "PO/2026/9457",
+    "expected_issues": [
+      "qty_exceeds_received"
+    ]
+  },
+  {
+    "case_id": "inv_032",
+    "scenario": "vendor_mismatch",
+    "expected_decision": "review",
+    "expected_vendor_id": "V032",
+    "expected_po_number": "PO-40463",
+    "expected_issues": [
+      "vendor_mismatch"
+    ]
+  },
+  {
+    "case_id": "inv_033",
+    "scenario": "clean",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V033",
+    "expected_po_number": "PO/2025/9849",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_034",
+    "scenario": "supplier_error",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V034",
+    "expected_po_number": "PO/2026/3929",
+    "expected_issues": [
+      "invoice_arithmetic_error"
+    ]
+  },
+  {
+    "case_id": "inv_035",
+    "scenario": "po_not_printed",
+    "expected_decision": "review",
+    "expected_vendor_id": "V035",
+    "expected_po_number": "4500019128",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_036",
+    "scenario": "po_typo",
+    "expected_decision": "review",
+    "expected_vendor_id": "V036",
+    "expected_po_number": "PO/2026/4979",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_037",
+    "scenario": "no_po_exists",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V037",
+    "expected_po_number": null,
+    "expected_issues": [
+      "no_po_found"
+    ]
+  },
+  {
+    "case_id": "inv_038",
+    "scenario": "no_po_exists",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V038",
+    "expected_po_number": null,
+    "expected_issues": [
+      "no_po_found"
+    ]
+  },
+  {
+    "case_id": "inv_039",
+    "scenario": "duplicate",
+    "expected_decision": "review",
+    "expected_vendor_id": "V039",
+    "expected_po_number": "PO/2025/1801",
+    "expected_issues": [
+      "duplicate_invoice"
+    ]
+  },
+  {
+    "case_id": "inv_040",
+    "scenario": "split_receipts",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V040",
+    "expected_po_number": "PO-18722",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_041",
+    "scenario": "price_increase",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V041",
+    "expected_po_number": "HVH-6102",
+    "expected_issues": [
+      "price_variance"
+    ]
+  },
+  {
+    "case_id": "inv_042",
+    "scenario": "unknown_vendor",
+    "expected_decision": "review",
+    "expected_vendor_id": null,
+    "expected_po_number": null,
+    "expected_issues": [
+      "no_po_found",
+      "unknown_vendor"
+    ]
+  },
+  {
+    "case_id": "inv_043",
+    "scenario": "po_not_printed",
+    "expected_decision": "review",
+    "expected_vendor_id": "V042",
+    "expected_po_number": "PO-36834",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  },
+  {
+    "case_id": "inv_044",
+    "scenario": "price_within_tolerance",
+    "expected_decision": "approve",
+    "expected_vendor_id": "V043",
+    "expected_po_number": "PO-61336",
+    "expected_issues": []
+  },
+  {
+    "case_id": "inv_045",
+    "scenario": "no_po_exists",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V044",
+    "expected_po_number": null,
+    "expected_issues": [
+      "no_po_found"
+    ]
+  },
+  {
+    "case_id": "inv_046",
+    "scenario": "currency_mismatch",
+    "expected_decision": "review",
+    "expected_vendor_id": "V045",
+    "expected_po_number": "PO/2025/6382",
+    "expected_issues": [
+      "currency_mismatch"
+    ]
+  },
+  {
+    "case_id": "inv_047",
+    "scenario": "supplier_error",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V046",
+    "expected_po_number": "4500046641",
+    "expected_issues": [
+      "invoice_arithmetic_error"
+    ]
+  },
+  {
+    "case_id": "inv_048",
+    "scenario": "short_delivery",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V047",
+    "expected_po_number": "PO/2025/4213",
+    "expected_issues": [
+      "qty_exceeds_received"
+    ]
+  },
+  {
+    "case_id": "inv_049",
+    "scenario": "extra_line",
+    "expected_decision": "vendor_query",
+    "expected_vendor_id": "V048",
+    "expected_po_number": "4500013164",
+    "expected_issues": [
+      "line_not_on_po"
+    ]
+  },
+  {
+    "case_id": "inv_050",
+    "scenario": "po_not_printed",
+    "expected_decision": "review",
+    "expected_vendor_id": "V049",
+    "expected_po_number": "PO/2025/8475",
+    "expected_issues": [
+      "po_inferred"
+    ]
+  }
+]

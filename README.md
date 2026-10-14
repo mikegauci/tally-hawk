@@ -2,10 +2,11 @@
 
 **AI invoice processing for small finance teams.** TallyHawk reads supplier invoices,
 pulls out the data an accounts payable clerk would type in by hand, checks that the
-numbers add up, and (in the next step) matches each invoice against its purchase order
-and goods receipt so only the problem invoices reach a person.
+numbers add up, and matches each invoice against its purchase order and goods receipt so
+only the problem invoices reach a person.
 
-> Status: step 1 of 4, extraction and evaluation. See [the build plan](CLAUDE.md#build-plan).
+> Status: steps 1 and 2 of 4 (extraction, PO matching agent, and evals for both). See
+> [the build plan](CLAUDE.md#build-plan).
 
 ## What step 1 does
 
@@ -28,6 +29,44 @@ invoice.pdf ──► OpenAI GPT-5.5 (reads the PDF directly, structured output)
 - **Validation catches supplier mistakes too.** Extraction copies what's printed; the
   rules then flag invoices whose own arithmetic is wrong.
 
+## What step 2 does: the PO matching agent
+
+Before paying an invoice, finance checks three documents agree. This is a **three-way match**:
+
+- the **purchase order (PO)**: what the company agreed to buy, how many, at what price;
+- the **goods receipt**: what the warehouse actually received (it can arrive in batches);
+- the **invoice**: what the supplier is billing.
+
+TallyHawk runs that check as a [LangGraph](https://langchain-ai.github.io/langgraph/) workflow:
+
+```
+check ─► lookup ─┬───────────────► match ─► decide ─┬─► approve
+                 └─► investigate ─►                 ├─► draft supplier email ─► person
+                    (OpenAI agent,                  └─► person (review)
+                     only if no PO found)
+```
+
+| Node | What it does | LLM? |
+|---|---|---|
+| check | Step 1's validation errors and low-confidence fields become issues | no |
+| lookup | Finds the supplier by tax ID or fuzzy name, and the PO by the number printed on the invoice | no |
+| investigate | When the invoice quotes no PO, or one that isn't on file, an agent with tools (`search_vendors`, `list_purchase_orders`, `get_purchase_order`) looks for the right PO and submits it or "none" | yes, OpenAI tool calling |
+| match | Pairs invoice lines with PO lines and checks prices (1% tolerance), quantities ordered and quantities received, plus duplicates, currency and supplier | no |
+| decide | **approve**, **review** (a person must look) or **vendor_query** (the supplier must fix something) | no |
+| draft_query | Writes the email to the supplier, quoting the invoice, PO and each problem | yes (or a template) |
+| handoff | Queues the case for a person; with a checkpointer it pauses (`interrupt`) until a reviewer resumes it | no |
+
+Design choices:
+
+- **The money decision is deterministic.** Rules decide approve / review / query so every
+  outcome can be audited; the LLM only searches for a missing PO and writes emails.
+- **The agent runs only when the simple lookup fails** (9 of the 50 eval invoices), which
+  keeps cost and latency down, and its answer is checked against the database: a PO it
+  invents is ignored, and a PO it finds always goes to a person to confirm.
+- **The data layer is an interface** (`ProcurementStore`). Today it's in-memory JSON seed
+  data; Supabase/Postgres with pgvector vendor search plugs in later without changing the
+  workflow.
+
 ## Quick start
 
 ```bash
@@ -36,7 +75,18 @@ cp .env.example .env   # add your OPENAI_API_KEY, then: export $(cat .env | xarg
 uv run tallyhawk extract evals/data/invoices/inv_001.pdf
 ```
 
-Output (abridged and illustrative; real numbers come from the eval run):
+Match an invoice against the seeded POs and receipts. This one costs nothing because it
+starts from known invoice data and uses the rules-only path:
+
+```bash
+uv run tallyhawk match evals/data/labels/inv_007.json --resolver rules --drafter template
+```
+
+It returns `vendor_query`, because 24 pairs of safety boots were billed but only 19
+arrived, with a drafted email to the supplier saying so. Drop the two flags (and pass a
+PDF) to run extraction, the agent and the LLM drafter.
+
+Extraction output (abridged and illustrative; real numbers come from the eval run):
 
 ```json
 {
@@ -87,15 +137,58 @@ To get cost per invoice, set `TALLYHAWK_PRICE_INPUT_PER_MTOK` and
 `TALLYHAWK_PRICE_OUTPUT_PER_MTOK` from OpenAI's pricing page (as env vars locally, or
 repository variables for the Action); otherwise the report shows tokens only.
 
+## Matching evaluation
+
+`evals/generate_matching.py` seeds suppliers, POs, goods receipts and already-paid
+invoices around the same 50 invoices, giving each a scenario with a known right answer
+(`evals/data/match_labels.json`). The invoices stay unchanged; the scenario is built on the
+buyer's side:
+
+| Scenario | Invoices | Right decision |
+|---|---|---|
+| Clean match (supplier names often spelled differently on file) | 8 | approve |
+| Price a fraction of a percent over the PO | 3 | approve |
+| Goods delivered in two batches | 3 | approve |
+| Supplier's own arithmetic wrong | 4 | vendor_query |
+| Price 5 to 12% over the PO | 4 | vendor_query |
+| Fewer units received than billed | 4 | vendor_query |
+| Line billed that isn't on the PO | 3 | vendor_query |
+| No PO quoted, and none of the supplier's POs match | 4 | vendor_query |
+| No PO quoted, but a matching open PO exists | 6 | review (agent must find it) |
+| PO number has a typo | 3 | review (agent must find it) |
+| Already paid (duplicate) | 2 | review |
+| PO raised with a different supplier | 2 | review |
+| Goods not received yet | 2 | review |
+| Unknown supplier | 1 | review |
+| PO in a different currency | 1 | review |
+
+```bash
+uv run python -m evals.run_match_eval --resolver rules --drafter template  # free baseline
+uv run python -m evals.run_match_eval                                      # with the agent
+uv run python -m evals.run_match_eval --from-run evals/results/<extraction run>  # end to end
+```
+
+The report covers decision accuracy, a decision confusion table, **false approvals**
+(invoices paid that should have been stopped, the number that matters most), supplier and
+PO accuracy, issue-code precision and recall, per-scenario accuracy, how often the agent
+ran, and LLM calls, tokens and cost per invoice.
+
+Rules-only baseline (no API calls): **82% decision accuracy, 0 false approvals**. The 9
+misses are exactly the missing-PO and PO-typo invoices, which it sends back to the
+supplier instead of finding the PO; that gap is what the agent is for. The live agent
+numbers come from the **Matching eval** GitHub Action or `uv run pytest -m live -s
+evals/test_live_match_eval.py`.
+
 ## Development
 
 ```bash
-uv run pytest                 # offline tests: validation, scoring, dataset integrity, mocked API
+uv run pytest                 # offline tests: validation, matching, datasets, mocked OpenAI API
 uv run ruff check . && uv run ruff format --check .
 ```
 
 ## Stack
 
 Python 3.12, [uv](https://docs.astral.sh/uv/), Pydantic, the OpenAI Python SDK
-(Responses API, GPT-5.5), pytest, reportlab (synthetic invoices). Coming next: LangGraph, Supabase
-(Postgres + pgvector), FastAPI, Next.js on Vercel, Langfuse.
+(Responses API with structured outputs and tool calling, GPT-5.5), LangGraph, pytest,
+reportlab (synthetic invoices). Coming next: Supabase (Postgres + pgvector), FastAPI,
+Next.js on Vercel, Langfuse.
