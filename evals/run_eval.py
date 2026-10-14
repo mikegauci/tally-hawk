@@ -134,7 +134,7 @@ def summarize(labels: list[dict], pred_dir: Path, threshold: float = DEFAULT_CON
         if not score["all_correct"] and not result.needs_review:
             silent_errors += 1
         silent = not score["all_correct"] and not result.needs_review
-        for tag in (*label["tags"], set_name(label)):
+        for tag in dict.fromkeys([*label["tags"], set_name(label)]):  # hard cases already carry "hard"
             per_tag[tag].append((score["all_correct"], result.needs_review, silent))
         # Price at the current TALLYHAWK_PRICE_* settings when set, so --rescore can cost an old run.
         cost = estimate_cost(result.usage.input_tokens, result.usage.output_tokens)
