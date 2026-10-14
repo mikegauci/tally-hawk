@@ -1,0 +1,38 @@
+{
+  "case_id": "inv_046",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "eur",
+    "zero_tax",
+    "no_due_date"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Old Mill Supplies S.r.l.",
+    "vendor_tax_id": "NL82967390",
+    "invoice_number": "783118",
+    "invoice_date": "2026-01-10",
+    "due_date": null,
+    "po_number": "PO/2025/6382",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 1.0,
+        "unit_price": 7.34,
+        "amount": 7.34
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 20.0,
+        "unit_price": 54.27,
+        "amount": 1085.4
+      }
+    ],
+    "subtotal": 1092.74,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 1092.74
+  }
+}

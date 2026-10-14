@@ -1,0 +1,49 @@
+{
+  "case_id": "inv_023",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "zero_tax"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Maple & Finch Supplies Ltd",
+    "vendor_tax_id": "NL33072657",
+    "invoice_number": "F686131",
+    "invoice_date": "2026-01-17",
+    "due_date": "2026-02-16",
+    "po_number": "HVH-5512",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 3.0,
+        "unit_price": 19.28,
+        "amount": 57.84
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 10.0,
+        "unit_price": 41.73,
+        "amount": 417.3
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 5.0,
+        "unit_price": 14.34,
+        "amount": 71.7
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 10.36,
+        "amount": 10.36
+      }
+    ],
+    "subtotal": 557.2,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 557.2
+  }
+}

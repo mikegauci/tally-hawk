@@ -1,0 +1,54 @@
+{
+  "case_id": "inv_032",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Granite Peak Building Materials Inc.",
+    "vendor_tax_id": "16-8878239",
+    "invoice_number": "90544",
+    "invoice_date": "2026-04-27",
+    "due_date": "2026-06-11",
+    "po_number": "PO-40463",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 24.0,
+        "unit_price": 60.66,
+        "amount": 1455.84
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 50.0,
+        "unit_price": 35.82,
+        "amount": 1791.0
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 3.0,
+        "unit_price": 10.97,
+        "amount": 32.91
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 2.0,
+        "unit_price": 86.2,
+        "amount": 172.4
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 10.0,
+        "unit_price": 9.26,
+        "amount": 92.6
+      }
+    ],
+    "subtotal": 3544.75,
+    "tax_rate": 8.25,
+    "tax_amount": 292.44,
+    "total": 3837.19
+  }
+}

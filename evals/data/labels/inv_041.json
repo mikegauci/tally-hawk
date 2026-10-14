@@ -1,0 +1,30 @@
+{
+  "case_id": "inv_041",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Ironbridge Trading Inc.",
+    "vendor_tax_id": "80-4834160",
+    "invoice_number": "2026-421064",
+    "invoice_date": "2026-04-25",
+    "due_date": "2026-05-25",
+    "po_number": "HVH-6102",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Laptop docking station",
+        "quantity": 1.0,
+        "unit_price": 255.77,
+        "amount": 255.77
+      }
+    ],
+    "subtotal": 255.77,
+    "tax_rate": 8.25,
+    "tax_amount": 21.1,
+    "total": 276.87
+  }
+}

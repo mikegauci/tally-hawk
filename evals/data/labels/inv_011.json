@@ -1,0 +1,66 @@
+{
+  "case_id": "inv_011",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Vantage IT Services LLC",
+    "vendor_tax_id": "33-6541914",
+    "invoice_number": "2026-670452",
+    "invoice_date": "2026-01-14",
+    "due_date": "2026-01-28",
+    "po_number": "MPM-2810",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 20.0,
+        "unit_price": 19.81,
+        "amount": 396.2
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 10.0,
+        "unit_price": 25.59,
+        "amount": 255.9
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 11.78,
+        "amount": 11.78
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 4.0,
+        "unit_price": 15.6,
+        "amount": 62.4
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 6.0,
+        "unit_price": 42.47,
+        "amount": 254.82
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 1.0,
+        "unit_price": 221.45,
+        "amount": 221.45
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 3.0,
+        "unit_price": 56.02,
+        "amount": 168.06
+      }
+    ],
+    "subtotal": 1370.61,
+    "tax_rate": 7.5,
+    "tax_amount": 102.8,
+    "total": 1473.41
+  }
+}

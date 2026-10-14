@@ -1,0 +1,54 @@
+{
+  "case_id": "inv_031",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "gbp"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Maple & Finch Office Solutions LLP",
+    "vendor_tax_id": "GB978 8154 23",
+    "invoice_number": "163733",
+    "invoice_date": "2026-08-23",
+    "due_date": "2026-09-22",
+    "po_number": "PO/2026/9457",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 10.0,
+        "unit_price": 130.94,
+        "amount": 1309.4
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 1.0,
+        "unit_price": 14.04,
+        "amount": 14.04
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 24.0,
+        "unit_price": 60.11,
+        "amount": 1442.64
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 6.0,
+        "unit_price": 9.64,
+        "amount": 57.84
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 2.0,
+        "unit_price": 210.88,
+        "amount": 421.76
+      }
+    ],
+    "subtotal": 3245.68,
+    "tax_rate": 20.0,
+    "tax_amount": 649.14,
+    "total": 3894.82
+  }
+}

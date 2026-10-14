@@ -1,0 +1,52 @@
+{
+  "case_id": "inv_038",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "no_po",
+    "tax_rate_not_printed"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Redfern Office Solutions Ltd",
+    "vendor_tax_id": "DE20511891",
+    "invoice_number": "2026-131395",
+    "invoice_date": "2026-05-14",
+    "due_date": "2026-07-13",
+    "po_number": null,
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 15.62,
+        "amount": 15.62
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 10.0,
+        "unit_price": 25.12,
+        "amount": 251.2
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 1.0,
+        "unit_price": 72.75,
+        "amount": 72.75
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 1.0,
+        "unit_price": 85.4,
+        "amount": 85.4
+      }
+    ],
+    "subtotal": 424.97,
+    "tax_rate": null,
+    "tax_amount": 80.74,
+    "total": 505.71
+  }
+}

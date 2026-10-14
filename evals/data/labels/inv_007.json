@@ -1,0 +1,60 @@
+{
+  "case_id": "inv_007",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Maple & Finch Logistics Corp.",
+    "vendor_tax_id": "83-8599901",
+    "invoice_number": "338626",
+    "invoice_date": "2026-04-25",
+    "due_date": "2026-06-09",
+    "po_number": "4500058691",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 24.0,
+        "unit_price": 41.52,
+        "amount": 996.48
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 12.0,
+        "unit_price": 27.41,
+        "amount": 328.92
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 24.0,
+        "unit_price": 99.62,
+        "amount": 2390.88
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 2.0,
+        "unit_price": 4.74,
+        "amount": 9.48
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 4.0,
+        "unit_price": 94.38,
+        "amount": 377.52
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 12.0,
+        "unit_price": 23.12,
+        "amount": 277.44
+      }
+    ],
+    "subtotal": 4380.72,
+    "tax_rate": 7.5,
+    "tax_amount": 328.55,
+    "total": 4709.27
+  }
+}

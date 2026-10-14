@@ -1,0 +1,42 @@
+{
+  "case_id": "inv_019",
+  "layout": "compact",
+  "tags": [
+    "compact",
+    "gbp"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Redfern Packaging LLP",
+    "vendor_tax_id": "GB249 3390 69",
+    "invoice_number": "F630301",
+    "invoice_date": "2026-05-07",
+    "due_date": "2026-06-21",
+    "po_number": "GRG-2224",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 1.5,
+        "unit_price": 71.07,
+        "amount": 106.6
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 1.0,
+        "unit_price": 48.74,
+        "amount": 48.74
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 5.0,
+        "unit_price": 77.33,
+        "amount": 386.65
+      }
+    ],
+    "subtotal": 541.99,
+    "tax_rate": 20.0,
+    "tax_amount": 108.4,
+    "total": 650.39
+  }
+}

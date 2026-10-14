@@ -1,0 +1,54 @@
+{
+  "case_id": "inv_017",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Kestrel Office Solutions Inc.",
+    "vendor_tax_id": "83-2307445",
+    "invoice_number": "111246",
+    "invoice_date": "2026-03-30",
+    "due_date": "2026-05-14",
+    "po_number": "4500057358",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 3.0,
+        "unit_price": 13.74,
+        "amount": 41.22
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 5.0,
+        "unit_price": 168.71,
+        "amount": 843.55
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 4.0,
+        "unit_price": 20.83,
+        "amount": 83.32
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 1.0,
+        "unit_price": 113.96,
+        "amount": 113.96
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 3.0,
+        "unit_price": 21.95,
+        "amount": 65.85
+      }
+    ],
+    "subtotal": 1147.9,
+    "tax_rate": 6.0,
+    "tax_amount": 68.87,
+    "total": 1216.77
+  }
+}

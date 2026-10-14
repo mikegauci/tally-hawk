@@ -1,0 +1,39 @@
+{
+  "case_id": "inv_012",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd",
+    "no_po"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Vantage Trading Corp.",
+    "vendor_tax_id": "10-6435258",
+    "invoice_number": "788371",
+    "invoice_date": "2026-02-27",
+    "due_date": "2026-04-28",
+    "po_number": null,
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 12.0,
+        "unit_price": 9.99,
+        "amount": 119.88
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 12.0,
+        "unit_price": 13.04,
+        "amount": 156.48
+      }
+    ],
+    "subtotal": 276.36,
+    "tax_rate": 8.25,
+    "tax_amount": 22.8,
+    "total": 299.16
+  }
+}

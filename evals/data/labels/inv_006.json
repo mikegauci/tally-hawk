@@ -1,0 +1,49 @@
+{
+  "case_id": "inv_006",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "eur",
+    "zero_tax"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Blue Harbor Foods Ltd",
+    "vendor_tax_id": "MT58545669",
+    "invoice_number": "F120368",
+    "invoice_date": "2026-05-04",
+    "due_date": "2026-06-18",
+    "po_number": "PO/2026/1450",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 4.0,
+        "unit_price": 64.76,
+        "amount": 259.04
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 12.0,
+        "unit_price": 6.89,
+        "amount": 82.68
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 50.0,
+        "unit_price": 54.94,
+        "amount": 2747.0
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 1.0,
+        "unit_price": 46.94,
+        "amount": 46.94
+      }
+    ],
+    "subtotal": 3135.66,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 3135.66
+  }
+}

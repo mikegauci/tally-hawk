@@ -1,0 +1,338 @@
+{
+  "case_id": "inv_005",
+  "layout": "multipage",
+  "tags": [
+    "multipage",
+    "gbp",
+    "many_line_items",
+    "zero_tax"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Copperleaf Foods plc",
+    "vendor_tax_id": "GB456 5465 50",
+    "invoice_number": "F184728",
+    "invoice_date": "2026-08-22",
+    "due_date": "2026-09-05",
+    "po_number": "PO/2026/2712",
+    "currency": "GBP",
+    "line_items": [
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 20.0,
+        "unit_price": 14.14,
+        "amount": 282.8
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 20.0,
+        "unit_price": 110.86,
+        "amount": 2217.2
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 20.0,
+        "unit_price": 235.71,
+        "amount": 4714.2
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 24.0,
+        "unit_price": 58.01,
+        "amount": 1392.24
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 3.0,
+        "unit_price": 86.7,
+        "amount": 260.1
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 3.0,
+        "unit_price": 2.69,
+        "amount": 8.07
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 1.0,
+        "unit_price": 58.58,
+        "amount": 58.58
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 2.0,
+        "unit_price": 29.0,
+        "amount": 58.0
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 20.0,
+        "unit_price": 35.19,
+        "amount": 703.8
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 4.0,
+        "unit_price": 7.98,
+        "amount": 31.92
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 2.0,
+        "unit_price": 79.94,
+        "amount": 159.88
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 24.0,
+        "unit_price": 16.75,
+        "amount": 402.0
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 6.0,
+        "unit_price": 12.75,
+        "amount": 76.5
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 1.0,
+        "unit_price": 28.96,
+        "amount": 28.96
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 20.0,
+        "unit_price": 6.21,
+        "amount": 124.2
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 5.0,
+        "unit_price": 47.07,
+        "amount": 235.35
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 20.0,
+        "unit_price": 27.35,
+        "amount": 547.0
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 1.0,
+        "unit_price": 88.3,
+        "amount": 88.3
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 2.0,
+        "unit_price": 17.7,
+        "amount": 35.4
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 3.0,
+        "unit_price": 12.15,
+        "amount": 36.45
+      },
+      {
+        "description": "Pallet delivery, zone 2",
+        "quantity": 10.0,
+        "unit_price": 80.46,
+        "amount": 804.6
+      },
+      {
+        "description": "Rebar 12mm, 6m length",
+        "quantity": 1.0,
+        "unit_price": 12.35,
+        "amount": 12.35
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 12.43,
+        "amount": 12.43
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 5.0,
+        "unit_price": 20.88,
+        "amount": 104.4
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 2.0,
+        "unit_price": 213.88,
+        "amount": 427.76
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 50.0,
+        "unit_price": 13.37,
+        "amount": 668.5
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 4.0,
+        "unit_price": 30.9,
+        "amount": 123.6
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 4.0,
+        "unit_price": 104.84,
+        "amount": 419.36
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 24.0,
+        "unit_price": 5.57,
+        "amount": 133.68
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 9.25,
+        "amount": 9.25
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 3.0,
+        "unit_price": 6.85,
+        "amount": 20.55
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 24.0,
+        "unit_price": 180.36,
+        "amount": 4328.64
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 12.0,
+        "unit_price": 29.59,
+        "amount": 355.08
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 50.0,
+        "unit_price": 7.51,
+        "amount": 375.5
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 20.0,
+        "unit_price": 57.06,
+        "amount": 1141.2
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 6.0,
+        "unit_price": 11.51,
+        "amount": 69.06
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 10.0,
+        "unit_price": 39.78,
+        "amount": 397.8
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 24.0,
+        "unit_price": 42.17,
+        "amount": 1012.08
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 3.5,
+        "unit_price": 109.71,
+        "amount": 383.98
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 1.0,
+        "unit_price": 24.03,
+        "amount": 24.03
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 20.0,
+        "unit_price": 108.09,
+        "amount": 2161.8
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 20.0,
+        "unit_price": 8.06,
+        "amount": 161.2
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 20.0,
+        "unit_price": 13.19,
+        "amount": 263.8
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 50.0,
+        "unit_price": 22.33,
+        "amount": 1116.5
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 24.0,
+        "unit_price": 48.34,
+        "amount": 1160.16
+      },
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 1.0,
+        "unit_price": 19.02,
+        "amount": 19.02
+      },
+      {
+        "description": "Safety boots, size assorted",
+        "quantity": 3.0,
+        "unit_price": 43.18,
+        "amount": 129.54
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 1.0,
+        "unit_price": 39.82,
+        "amount": 39.82
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 10.0,
+        "unit_price": 15.25,
+        "amount": 152.5
+      },
+      {
+        "description": "Shrink wrap roll 500mm",
+        "quantity": 1.0,
+        "unit_price": 16.13,
+        "amount": 16.13
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 20.0,
+        "unit_price": 33.64,
+        "amount": 672.8
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 3.0,
+        "unit_price": 131.63,
+        "amount": 394.89
+      }
+    ],
+    "subtotal": 28572.96,
+    "tax_rate": 0.0,
+    "tax_amount": 0.0,
+    "total": 28572.96
+  }
+}
