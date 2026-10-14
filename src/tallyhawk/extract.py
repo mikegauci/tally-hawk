@@ -123,27 +123,30 @@ def extract_invoice(
     effort: str | None = None,
     confidence_threshold: float = DEFAULT_CONFIDENCE_THRESHOLD,
 ) -> ExtractionResult:
+    from tallyhawk.tracing import record_generation, span
+
     client = client or openai.OpenAI()
     model, effort = model or default_model(), effort or default_effort()
     started = time.perf_counter()
-    response = client.responses.parse(
-        model=model,
-        instructions=SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "user",
-                "content": [
-                    _document_part(data, media_type),
-                    {"type": "input_text", "text": "Extract this invoice."},
-                ],
-            }
-        ],
-        text_format=ExtractedInvoice,
-        reasoning={"effort": effort},
-        max_output_tokens=16000,
-        store=False,
-    )
-    latency = time.perf_counter() - started
+    with span("extract_invoice", as_type="generation", metadata={"model": model, "effort": effort}) as observation:
+        response = client.responses.parse(
+            model=model,
+            instructions=SYSTEM_PROMPT,
+            input=[
+                {
+                    "role": "user",
+                    "content": [
+                        _document_part(data, media_type),
+                        {"type": "input_text", "text": "Extract this invoice."},
+                    ],
+                }
+            ],
+            text_format=ExtractedInvoice,
+            reasoning={"effort": effort},
+            max_output_tokens=16000,
+            store=False,
+        )
+        latency = time.perf_counter() - started
 
     if response.status == "incomplete":
         reason = response.incomplete_details.reason if response.incomplete_details else "unknown"
@@ -163,17 +166,25 @@ def extract_invoice(
 
     issues = validate_invoice(extracted.invoice)
     low = low_confidence_fields(extracted, confidence_threshold)
+    usage = Usage(
+        input_tokens=response.usage.input_tokens,
+        output_tokens=response.usage.output_tokens,
+        cost_usd=estimate_cost(response.usage.input_tokens, response.usage.output_tokens),
+    )
+    record_generation(
+        observation,
+        model=response.model,
+        input_tokens=usage.input_tokens,
+        output_tokens=usage.output_tokens,
+        cost_usd=usage.cost_usd,
+    )
     return ExtractionResult(
         extracted=extracted,
         issues=issues,
         low_confidence_fields=low,
         needs_review=needs_review(issues, low),
         model=response.model,
-        usage=Usage(
-            input_tokens=response.usage.input_tokens,
-            output_tokens=response.usage.output_tokens,
-            cost_usd=estimate_cost(response.usage.input_tokens, response.usage.output_tokens),
-        ),
+        usage=usage,
         latency_s=round(latency, 2),
     )
 

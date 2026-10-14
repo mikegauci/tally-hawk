@@ -5,6 +5,7 @@ import { useState, useSyncExternalStore } from "react";
 import {
   ArrowDownToLine,
   Inbox,
+  LayoutDashboard,
   ListTodo,
   ReceiptText,
   PanelLeftClose,
@@ -24,6 +25,7 @@ const groups = [
   {
     label: "Workspace",
     items: [
+      { label: "Overview", href: "/dashboard", icon: LayoutDashboard },
       { label: "Inbox", href: "/inbox", icon: Inbox },
       { label: "My Tasks", href: "/tasks", icon: ListTodo },
     ],
@@ -56,7 +58,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         />
       )}
       <aside className={`sidebar ${mobile ? "mobile-open" : ""}`}>
-        <Link href="/inbox" className="brand">
+        <Link href="/dashboard" className="brand">
           <span className="brand-mark">
             <ArrowDownToLine size={21} />
           </span>
@@ -141,11 +143,13 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <span>
             Workspace <span className="breadcrumb-divider">/</span>{" "}
             <strong>
-              {path.startsWith("/inbox")
-                ? "Inbox"
-                : path.startsWith("/tasks")
-                  ? "My Tasks"
-                  : "Supplier Bills"}
+              {path.startsWith("/dashboard")
+                ? "Overview"
+                : path.startsWith("/inbox")
+                  ? "Inbox"
+                  : path.startsWith("/tasks")
+                    ? "My Tasks"
+                    : "Supplier Bills"}
             </strong>
           </span>
           <span className="topbar-label">

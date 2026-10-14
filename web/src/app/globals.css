@@ -425,6 +425,98 @@ small {
   gap: 16px;
   margin-bottom: 24px;
 }
+.metrics-wide {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.dashboard-grid .panel {
+  padding: 20px;
+}
+.dashboard-grid .section-heading {
+  padding: 0 0 16px;
+  margin-bottom: 0;
+}
+.attention-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.attention-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.attention-list li:last-child {
+  border-bottom: none;
+}
+.attention-list strong {
+  display: block;
+  font-size: 14px;
+}
+.attention-list span {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.attention-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.status-breakdown {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.status-breakdown li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+.status-bar-track {
+  height: 8px;
+  background: var(--muted);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.status-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  min-width: 4px;
+}
+.status-count {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 1.5rem;
+  text-align: right;
+}
+.muted.small {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.text-link {
+  font-weight: 500;
+  text-decoration: underline;
+}
 .metric {
   display: flex;
   align-items: flex-start;
@@ -467,6 +559,10 @@ small {
 .success {
   color: var(--success);
   background: var(--success-background);
+}
+.danger {
+  color: var(--destructive);
+  background: color-mix(in oklab, var(--destructive) 12%, transparent);
 }
 .inbox-grid {
   display: grid;
@@ -1202,8 +1298,13 @@ pre {
   h1 {
     font-size: 26px;
   }
-  .metrics {
+  .metrics,
+  .metrics-wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
   .metric {
     padding: 12px;

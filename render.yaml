@@ -1,0 +1,26 @@
+# Render Blueprint: TallyHawk API (Docker).
+# Connect this repo in Render → New → Blueprint, then set secret env vars in the dashboard.
+services:
+  - type: web
+    name: tallyhawk-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: TALLYHAWK_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: TALLYHAWK_CORS_ORIGINS
+        sync: false
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+    preDeployCommand: tallyhawk db migrate

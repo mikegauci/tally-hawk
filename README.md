@@ -5,10 +5,44 @@ pulls out the data an accounts payable clerk would type in by hand, checks that 
 numbers add up, and matches each invoice against its purchase order and goods receipt so
 only the problem invoices reach a person.
 
-> Status: steps 1 and 2 of 4 are done (extraction, PO matching agent, and evals for both),
-> and step 3 now includes the backend plus a Next.js upload and review workspace.
-> See [web setup and deployment](web/README.md) and
+> Status: steps 1–3 are complete for a portfolio demo (extraction, matching agent, API,
+> Next.js inbox/review/**overview dashboard**, shared workspace auth). Step 4 adds eval
+> snapshots, optional Langfuse tracing, and deploy docs. Supabase Auth and multi-tenant
+> access are follow-ons. See [web setup](web/README.md), [deploy](docs/DEPLOY.md), and
 > [the build plan](CLAUDE.md#build-plan).
+>
+> **Demo video:** *(add your Loom/YouTube URL after recording — script in [docs/DEMO.md](docs/DEMO.md))*
+
+## Architecture
+
+```mermaid
+flowchart TB
+  subgraph client [Browser]
+    Web[Next.js on Vercel]
+  end
+  subgraph api [API on Render]
+    FastAPI[FastAPI]
+    Pipe[InvoiceService]
+    Graph[LangGraph matching]
+  end
+  subgraph data [Supabase]
+    PG[(Postgres)]
+    Store[(Invoice files)]
+  end
+  OpenAI[OpenAI GPT-5.5]
+  Web -->|server proxy + API key| FastAPI
+  FastAPI --> Pipe
+  Pipe -->|extract| OpenAI
+  Pipe --> Graph
+  Graph -->|agent + draft| OpenAI
+  Pipe --> PG
+  Pipe --> Store
+```
+
+## Evaluation snapshot
+
+Headline metrics (pinned runs): [docs/EVAL_SNAPSHOT.md](docs/EVAL_SNAPSHOT.md). Regenerate
+with `uv run python -m evals.run_eval` and `uv run python -m evals.run_match_eval`.
 
 ## What step 1 does
 
@@ -276,5 +310,9 @@ uv run ruff check . && uv run ruff format --check .
 
 Python 3.12, [uv](https://docs.astral.sh/uv/), Pydantic, the OpenAI Python SDK
 (Responses API with structured outputs and tool calling, GPT-5.5), LangGraph, pytest,
-reportlab (synthetic invoices), FastAPI, Postgres / Supabase (psycopg 3), Docker. Next.js, TypeScript, Tailwind v4, shadcn/ui and TanStack Table in `web/`.
-Next: individual user authentication, tenant permissions, and Langfuse.
+reportlab (synthetic invoices), FastAPI, Postgres / Supabase (psycopg 3), Docker,
+optional Langfuse tracing. Next.js, TypeScript, Tailwind v4, shadcn/ui and TanStack Table in `web/`.
+
+Populate a demo workspace: `uv run tallyhawk demo load` (see [docs/DEPLOY.md](docs/DEPLOY.md)).
+
+Next: individual user authentication and tenant permissions.

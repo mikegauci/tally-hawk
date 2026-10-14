@@ -6,6 +6,7 @@ tallyhawk match evals/data/labels/inv_003.json --resolver rules --drafter templa
 tallyhawk db migrate                          # create or update the schema at $DATABASE_URL
 tallyhawk db seed                             # load the synthetic vendors, POs and receipts into it
 tallyhawk match invoice.pdf --db              # match against the database instead of the seed JSON
+tallyhawk demo load                           # seed DB and process curated eval PDFs (OpenAI)
 """
 
 from __future__ import annotations
@@ -14,9 +15,9 @@ import argparse
 import json
 import os
 import sys
-from pathlib import Path
 
 from tallyhawk.agent import DEFAULT_AGENT_EFFORT, AgentResolver
+from tallyhawk.demo import DEFAULT_DEMO_CASES
 from tallyhawk.drafting import LLMDrafter, template_drafter
 from tallyhawk.extract import EFFORT_LEVELS, default_effort, default_model, extract_file, load_dotenv
 from tallyhawk.procurement import InMemoryStore
@@ -50,7 +51,39 @@ def main(argv: list[str] | None = None) -> int:
     db_sub.add_parser("migrate", help="Apply pending migrations from supabase/migrations.")
     seed = db_sub.add_parser("seed", help="Load procurement seed JSON (vendors, POs, receipts, posted invoices).")
     seed.add_argument("--seed", default=DEFAULT_SEED_DIR)
+
+    demo = sub.add_parser("demo", help="Showcase helpers (curated eval uploads).")
+    demo_sub = demo.add_subparsers(dest="demo_command", required=True)
+    load = demo_sub.add_parser(
+        "load",
+        help="Migrate, seed procurement data, upload curated eval PDFs, and process each one.",
+    )
+    load.add_argument(
+        "--cases",
+        default=",".join(DEFAULT_DEMO_CASES),
+        help="Comma-separated case ids (default: five showcase invoices).",
+    )
+    load.add_argument("--skip-seed", action="store_true", help="Skip procurement seed (schema still migrated).")
+    load.add_argument("--seed", default=DEFAULT_SEED_DIR, help="Procurement seed directory.")
+    load.add_argument(
+        "--invoices-dir",
+        default="evals/data/invoices",
+        help="Directory containing {case_id}.pdf files.",
+    )
     args = parser.parse_args(argv)
+
+    if args.command == "demo":
+        from pathlib import Path
+
+        from tallyhawk.demo import run_load
+
+        cases = [c.strip() for c in args.cases.split(",") if c.strip()]
+        return run_load(
+            cases,
+            skip_seed=args.skip_seed,
+            seed_dir=Path(args.seed),
+            invoices_dir=Path(args.invoices_dir),
+        )
 
     if args.command == "db":
         from tallyhawk.db import connect, migrate, seed_from_dir

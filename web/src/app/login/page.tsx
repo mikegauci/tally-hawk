@@ -42,7 +42,7 @@ export default function Login() {
               });
               const data = await response.json();
               if (!response.ok) throw new Error(data.detail);
-              window.location.assign("/inbox");
+              window.location.assign("/dashboard");
             } catch (error) {
               setError((error as Error).message);
               setBusy(false);
