@@ -1,4 +1,6 @@
 import json
+import os
+import uuid
 from pathlib import Path
 
 import pytest
@@ -6,6 +8,7 @@ import pytest
 from tallyhawk.schema import HEADER_FIELDS, ExtractedInvoice, FieldConfidence, InvoiceData
 
 LABELS_DIR = Path(__file__).parent.parent / "evals" / "data" / "labels"
+SEED_DIR = Path(__file__).parent.parent / "evals" / "data" / "procurement"
 
 
 @pytest.fixture
@@ -39,3 +42,31 @@ def invoice() -> InvoiceData:
 def make_extracted(invoice: InvoiceData, confidence: float = 0.98) -> ExtractedInvoice:
     scores = {name: confidence for name in (*HEADER_FIELDS, "line_items")}
     return ExtractedInvoice(invoice=invoice, confidence=FieldConfidence(**scores), notes=None)
+
+
+@pytest.fixture(scope="session")
+def pg_pool():
+    """A fresh, migrated and seeded database on the server at TALLYHAWK_TEST_DATABASE_URL.
+
+    Tests that use it are skipped when the variable is unset. Locally:
+    TALLYHAWK_TEST_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres uv run pytest
+    """
+    url = os.environ.get("TALLYHAWK_TEST_DATABASE_URL")
+    if not url:
+        pytest.skip("TALLYHAWK_TEST_DATABASE_URL is not set")
+    import psycopg
+    from psycopg.conninfo import make_conninfo
+
+    from tallyhawk.db import connect, migrate, seed_from_dir
+
+    name = f"tallyhawk_test_{uuid.uuid4().hex[:8]}"
+    with psycopg.connect(url, autocommit=True) as admin:
+        admin.execute(f'create database "{name}"')
+    pool = connect(make_conninfo(url, dbname=name))
+    with pool.connection() as conn:
+        migrate(conn)
+        seed_from_dir(conn, SEED_DIR)
+    yield pool
+    pool.close()
+    with psycopg.connect(url, autocommit=True) as admin:
+        admin.execute(f'drop database "{name}" with (force)')

@@ -5,7 +5,8 @@ pulls out the data an accounts payable clerk would type in by hand, checks that 
 numbers add up, and matches each invoice against its purchase order and goods receipt so
 only the problem invoices reach a person.
 
-> Status: steps 1 and 2 of 4 (extraction, PO matching agent, and evals for both). See
+> Status: steps 1 and 2 of 4 are done (extraction, PO matching agent, and evals for both),
+> and the backend for step 3 (Postgres schema and HTTP API) is in. See
 > [the build plan](CLAUDE.md#build-plan).
 
 ## What step 1 does
@@ -63,9 +64,9 @@ Design choices:
 - **The agent runs only when the simple lookup fails** (9 of the 50 eval invoices), which
   keeps cost and latency down, and its answer is checked against the database: a PO it
   invents is ignored, and a PO it finds always goes to a person to confirm.
-- **The data layer is an interface** (`ProcurementStore`). Today it's in-memory JSON seed
-  data; Supabase/Postgres with pgvector vendor search plugs in later without changing the
-  workflow.
+- **The data layer is an interface** (`ProcurementStore`). It runs on the in-memory JSON
+  seed data or on Supabase/Postgres (`PostgresStore`) without changing the workflow, and all
+  50 matching eval cases give identical outcomes on both (`tests/test_db.py`).
 
 ## Quick start
 
@@ -205,10 +206,68 @@ supplier instead of finding the PO; that gap is what the agent is for. The live 
 numbers come from the **Matching eval** GitHub Action or `uv run pytest -m live -s
 evals/test_live_match_eval.py`.
 
+## The backend: database and API
+
+The API the web app will call. It stores each uploaded invoice, runs extraction and
+matching, and keeps everything a reviewer needs: what the model read, how sure it was, the
+match result, and what the reviewer decided.
+
+```
+upload ─► invoices (file in Supabase Storage) ─► extractions ─► match_results ─┬─► approved ─► posted_invoices
+                                                                              └─► review_queue ─► reviews
+```
+
+**Schema** (`supabase/migrations/`, plain SQL so the Supabase CLI can apply it too):
+
+| Table | What it holds |
+|---|---|
+| `vendors` | Suppliers: name, tax ID, email |
+| `purchase_orders`, `po_lines` | What was ordered, from whom, at what price |
+| `goods_receipts`, `goods_receipt_lines` | What actually arrived against each PO |
+| `posted_invoices` | Invoices already in the accounts, so a resubmitted copy is caught as a duplicate. Every invoice TallyHawk approves is added here |
+| `invoices` | Each upload, its file and its status (`uploaded` → `processing` → `approved` / `awaiting_review` / `failed`; a reviewer then moves it to `approved`, `rejected` or `vendor_queried`) |
+| `extractions` | What the model read, with confidence scores, tokens and cost |
+| `match_results` | The three-way match outcome: decision, issues per line, drafted supplier email |
+| `reviews` | What a person decided, and any fields they corrected (future eval data) |
+| `review_queue` (view) | Invoices waiting for a person, with their latest match |
+
+Row level security is on for every table with no policies yet, so Supabase's public keys
+can't read anything; the API connects with the database password. Policies for signed-in
+users come with the web app.
+
+**Endpoints** (interactive docs at `/docs`; send `Authorization: Bearer $TALLYHAWK_API_KEY`):
+
+| Method | Path | Does |
+|---|---|---|
+| `POST` | `/invoices` | Upload a PDF or image; extraction and matching start in the background |
+| `POST` | `/invoices/{id}/process` | Run (or re-run) extraction and matching and wait for the result |
+| `GET` | `/invoices?status=` | List invoices |
+| `GET` | `/invoices/{id}` | Latest extraction, match outcome and review history |
+| `GET` | `/invoices/{id}/file` | The original file, to show beside the extracted fields |
+| `GET` | `/review-queue` | Invoices waiting for a person, oldest first |
+| `POST` | `/invoices/{id}/review` | `approve`, `reject`, `send_query` (supplier must fix something), or `correct` misread fields and match again |
+
+Run it locally against any Postgres 15+:
+
+```bash
+export DATABASE_URL=postgresql://postgres:postgres@localhost:5432/tallyhawk OPENAI_API_KEY=...
+uv run tallyhawk db migrate      # create the tables
+uv run tallyhawk db seed         # load the 62 synthetic suppliers, 79 POs and their goods receipts
+uv run uvicorn tallyhawk.api:app --reload
+curl -F file=@evals/data/invoices/inv_001.pdf localhost:8000/invoices
+```
+
+For Supabase, set `DATABASE_URL` to the project's pooler connection string and add
+`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` so files go to the private `invoices`
+storage bucket. The `Dockerfile` builds the API for Railway or Render; run
+`tallyhawk db migrate` as the pre-deploy step.
+
 ## Development
 
 ```bash
 uv run pytest                 # offline tests: validation, matching, datasets, mocked OpenAI API
+# database and API tests too (each run creates and drops its own database; CI runs these)
+TALLYHAWK_TEST_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres uv run pytest
 uv run ruff check . && uv run ruff format --check .
 ```
 
@@ -216,5 +275,5 @@ uv run ruff check . && uv run ruff format --check .
 
 Python 3.12, [uv](https://docs.astral.sh/uv/), Pydantic, the OpenAI Python SDK
 (Responses API with structured outputs and tool calling, GPT-5.5), LangGraph, pytest,
-reportlab (synthetic invoices). Coming next: Supabase (Postgres + pgvector), FastAPI,
-Next.js on Vercel, Langfuse.
+reportlab (synthetic invoices), FastAPI, Postgres / Supabase (psycopg 3), Docker. Coming
+next: Next.js on Vercel, Supabase auth, Langfuse.
