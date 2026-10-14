@@ -6,7 +6,8 @@ numbers add up, and matches each invoice against its purchase order and goods re
 only the problem invoices reach a person.
 
 > Status: steps 1 and 2 of 4 are done (extraction, PO matching agent, and evals for both),
-> and the backend for step 3 (Postgres schema and HTTP API) is in. See
+> and step 3 now includes the backend plus a Next.js upload and review workspace.
+> See [web setup and deployment](web/README.md) and
 > [the build plan](CLAUDE.md#build-plan).
 
 ## What step 1 does
@@ -275,5 +276,5 @@ uv run ruff check . && uv run ruff format --check .
 
 Python 3.12, [uv](https://docs.astral.sh/uv/), Pydantic, the OpenAI Python SDK
 (Responses API with structured outputs and tool calling, GPT-5.5), LangGraph, pytest,
-reportlab (synthetic invoices), FastAPI, Postgres / Supabase (psycopg 3), Docker. Coming
-next: Next.js on Vercel, Supabase auth, Langfuse.
+reportlab (synthetic invoices), FastAPI, Postgres / Supabase (psycopg 3), Docker. Next.js, TypeScript, Tailwind v4, shadcn/ui and TanStack Table in `web/`.
+Next: individual user authentication, tenant permissions, and Langfuse.

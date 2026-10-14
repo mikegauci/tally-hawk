@@ -8,3 +8,6 @@ storage
 **/__pycache__
 .pytest_cache
 .ruff_cache
+
+# The Next.js app is deployed separately to Vercel.
+web/
