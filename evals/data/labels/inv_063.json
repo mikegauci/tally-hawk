@@ -1,0 +1,67 @@
+{
+  "case_id": "inv_063",
+  "layout": "two_column",
+  "tags": [
+    "two_column",
+    "usd",
+    "hard"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Ironbridge IT Services Inc.",
+    "vendor_tax_id": "77-9185095",
+    "invoice_number": "F865696",
+    "invoice_date": "2026-03-18",
+    "due_date": "2026-04-17",
+    "po_number": "HVH-8051",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 2.0,
+        "unit_price": 17.32,
+        "amount": 34.64
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 6.0,
+        "unit_price": 138.89,
+        "amount": 833.34
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 2.0,
+        "unit_price": 107.12,
+        "amount": 214.24
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 4.0,
+        "unit_price": 24.44,
+        "amount": 97.76
+      },
+      {
+        "description": "Toner cartridge, black",
+        "quantity": 2.0,
+        "unit_price": 58.63,
+        "amount": 117.26
+      },
+      {
+        "description": "Olive oil, extra virgin, 5L",
+        "quantity": 50.0,
+        "unit_price": 33.48,
+        "amount": 1674.0
+      },
+      {
+        "description": "Cat6 patch cable 3m",
+        "quantity": 2.0,
+        "unit_price": 3.66,
+        "amount": 7.32
+      }
+    ],
+    "subtotal": 2978.56,
+    "tax_rate": 6.0,
+    "tax_amount": 178.71,
+    "total": 3157.27
+  }
+}

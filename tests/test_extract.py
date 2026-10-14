@@ -56,8 +56,8 @@ def mock_client(invoice, *, outcome="ok", captured=None, confidence=0.98):
 
 
 def test_extracts_and_validates(invoice, monkeypatch):
-    monkeypatch.setattr(extract, "PRICE_INPUT_PER_MTOK", 2.0)
-    monkeypatch.setattr(extract, "PRICE_OUTPUT_PER_MTOK", 10.0)
+    monkeypatch.setenv("TALLYHAWK_PRICE_INPUT_PER_MTOK", "2.0")
+    monkeypatch.setenv("TALLYHAWK_PRICE_OUTPUT_PER_MTOK", "10.0")
     captured = {}
     result = extract_invoice(b"%PDF-1.4", client=mock_client(invoice, captured=captured))
 
@@ -74,7 +74,7 @@ def test_extracts_and_validates(invoice, monkeypatch):
 
 
 def test_cost_is_none_without_prices(invoice, monkeypatch):
-    monkeypatch.setattr(extract, "PRICE_INPUT_PER_MTOK", None)
+    monkeypatch.delenv("TALLYHAWK_PRICE_INPUT_PER_MTOK", raising=False)
     result = extract_invoice(b"%PDF-1.4", client=mock_client(invoice))
     assert result.usage.cost_usd is None and result.usage.input_tokens == 3000
 
@@ -93,3 +93,13 @@ def test_refusal_raises(invoice):
 def test_incomplete_raises(invoice):
     with pytest.raises(ExtractionError, match="max_output_tokens"):
         extract_invoice(b"%PDF-1.4", client=mock_client(invoice, outcome="incomplete"))
+
+
+def test_load_dotenv_sets_prices_without_overriding(tmp_path, monkeypatch):
+    env = tmp_path / ".env"
+    env.write_text("# comment\nTALLYHAWK_PRICE_INPUT_PER_MTOK=5\nexport TALLYHAWK_PRICE_OUTPUT_PER_MTOK='30'\nEMPTY=\n")
+    monkeypatch.setenv("TALLYHAWK_PRICE_INPUT_PER_MTOK", "")  # so monkeypatch restores it afterwards
+    monkeypatch.delenv("TALLYHAWK_PRICE_INPUT_PER_MTOK")
+    monkeypatch.setenv("TALLYHAWK_PRICE_OUTPUT_PER_MTOK", "40")
+    extract.load_dotenv(env)
+    assert extract.estimate_cost(1_000_000, 1_000_000) == 45.0  # 5 from .env + 40 already set

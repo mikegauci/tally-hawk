@@ -1,0 +1,68 @@
+{
+  "case_id": "inv_061",
+  "layout": "european",
+  "tags": [
+    "european",
+    "eur",
+    "hard",
+    "handwritten_note"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Lumen Supplies S.r.l.",
+    "vendor_tax_id": "NL76418740",
+    "invoice_number": "SI721593",
+    "invoice_date": "2026-08-09",
+    "due_date": "2026-09-08",
+    "po_number": "HVH-4045",
+    "currency": "EUR",
+    "line_items": [
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 4.0,
+        "unit_price": 12.01,
+        "amount": 48.04
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 10.0,
+        "unit_price": 20.8,
+        "amount": 208.0
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 50.0,
+        "unit_price": 46.78,
+        "amount": 2339.0
+      },
+      {
+        "description": "On-site IT support, per hour",
+        "quantity": 8.0,
+        "unit_price": 103.33,
+        "amount": 826.64
+      },
+      {
+        "description": "Laptop docking station",
+        "quantity": 6.0,
+        "unit_price": 193.94,
+        "amount": 1163.64
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 6.0,
+        "unit_price": 17.91,
+        "amount": 107.46
+      },
+      {
+        "description": "Printed brochures A5 (per 100)",
+        "quantity": 4.0,
+        "unit_price": 58.02,
+        "amount": 232.08
+      }
+    ],
+    "subtotal": 4924.86,
+    "tax_rate": 19.0,
+    "tax_amount": 935.72,
+    "total": 5860.58
+  }
+}

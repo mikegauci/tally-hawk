@@ -1,6 +1,6 @@
 name: Extraction eval
 
-# Calls the OpenAI API on all 50 invoices, so it runs on demand rather than on every push.
+# Calls the OpenAI API on all 68 invoices, so it runs on demand rather than on every push.
 # Needs an OPENAI_API_KEY repository secret.
 on:
   workflow_dispatch:
@@ -11,6 +11,9 @@ on:
       effort:
         description: Effort level
         default: medium
+      tag:
+        description: Only invoices with this tag (e.g. hard); empty for all
+        default: ""
 
 jobs:
   eval:
@@ -19,9 +22,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
       - run: uv sync --locked
-      - run: uv run python -m evals.run_eval --model "${{ inputs.model }}" --effort "${{ inputs.effort }}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - run: uv run python -m evals.run_eval --model "${{ inputs.model }}" --effort "${{ inputs.effort }}" ${TAG:+--tag "$TAG"} | tee -a "$GITHUB_STEP_SUMMARY"
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TAG: ${{ inputs.tag }}
           TALLYHAWK_PRICE_INPUT_PER_MTOK: ${{ vars.TALLYHAWK_PRICE_INPUT_PER_MTOK }}
           TALLYHAWK_PRICE_OUTPUT_PER_MTOK: ${{ vars.TALLYHAWK_PRICE_OUTPUT_PER_MTOK }}
       - uses: actions/upload-artifact@v4

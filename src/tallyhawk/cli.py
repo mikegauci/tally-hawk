@@ -14,7 +14,7 @@ from pathlib import Path
 
 from tallyhawk.agent import DEFAULT_AGENT_EFFORT, AgentResolver
 from tallyhawk.drafting import LLMDrafter, template_drafter
-from tallyhawk.extract import DEFAULT_EFFORT, DEFAULT_MODEL, EFFORT_LEVELS, extract_file
+from tallyhawk.extract import EFFORT_LEVELS, default_effort, default_model, extract_file, load_dotenv
 from tallyhawk.procurement import InMemoryStore
 from tallyhawk.schema import InvoiceData
 from tallyhawk.workflow import MatchingWorkflow
@@ -23,18 +23,19 @@ DEFAULT_SEED_DIR = "evals/data/procurement"
 
 
 def main(argv: list[str] | None = None) -> int:
+    load_dotenv()
     parser = argparse.ArgumentParser(prog="tallyhawk")
     sub = parser.add_subparsers(dest="command", required=True)
     ex = sub.add_parser("extract", help="Extract structured fields from an invoice PDF or image.")
     ex.add_argument("path")
-    ex.add_argument("--model", default=DEFAULT_MODEL)
-    ex.add_argument("--effort", default=DEFAULT_EFFORT, choices=EFFORT_LEVELS)
+    ex.add_argument("--model", default=default_model())
+    ex.add_argument("--effort", default=default_effort(), choices=EFFORT_LEVELS)
 
     mt = sub.add_parser("match", help="Match an invoice against its PO and goods receipts, and decide.")
     mt.add_argument("path", help="Invoice PDF/image, or a JSON file holding extracted invoice data.")
     mt.add_argument("--seed", default=DEFAULT_SEED_DIR, help="Directory with the procurement seed JSON.")
-    mt.add_argument("--model", default=DEFAULT_MODEL)
-    mt.add_argument("--effort", default=DEFAULT_EFFORT, choices=EFFORT_LEVELS, help="Extraction effort.")
+    mt.add_argument("--model", default=default_model())
+    mt.add_argument("--effort", default=default_effort(), choices=EFFORT_LEVELS, help="Extraction effort.")
     mt.add_argument("--agent-effort", default=DEFAULT_AGENT_EFFORT, choices=EFFORT_LEVELS)
     mt.add_argument("--resolver", default="agent", choices=["agent", "rules"])
     mt.add_argument("--drafter", default="llm", choices=["llm", "template"])

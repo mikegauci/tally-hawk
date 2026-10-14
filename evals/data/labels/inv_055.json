@@ -1,0 +1,68 @@
+{
+  "case_id": "inv_055",
+  "layout": "modern",
+  "tags": [
+    "modern",
+    "usd",
+    "hard",
+    "scanned_skewed"
+  ],
+  "expected_issues": [],
+  "invoice": {
+    "vendor_name": "Kestrel Office Solutions LLC",
+    "vendor_tax_id": "68-8992498",
+    "invoice_number": "INV-715159",
+    "invoice_date": "2026-05-16",
+    "due_date": "2026-07-15",
+    "po_number": "MPM-4038",
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "Laptop docking station",
+        "quantity": 4.0,
+        "unit_price": 193.21,
+        "amount": 772.84
+      },
+      {
+        "description": "Cleaning chemicals, 10L",
+        "quantity": 5.0,
+        "unit_price": 40.1,
+        "amount": 200.5
+      },
+      {
+        "description": "Flour type 00, 25kg sack",
+        "quantity": 50.0,
+        "unit_price": 19.44,
+        "amount": 972.0
+      },
+      {
+        "description": "Ballpoint pens (pack of 50)",
+        "quantity": 6.0,
+        "unit_price": 6.66,
+        "amount": 39.96
+      },
+      {
+        "description": "Freight surcharge",
+        "quantity": 4.0,
+        "unit_price": 59.21,
+        "amount": 236.84
+      },
+      {
+        "description": "Monthly software licence, per seat",
+        "quantity": 24.0,
+        "unit_price": 41.69,
+        "amount": 1000.56
+      },
+      {
+        "description": "Disposable gloves (box of 100)",
+        "quantity": 1.0,
+        "unit_price": 4.81,
+        "amount": 4.81
+      }
+    ],
+    "subtotal": 3227.51,
+    "tax_rate": 6.0,
+    "tax_amount": 193.65,
+    "total": 3421.16
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "case_id": "inv_065",
+  "layout": "classic",
+  "tags": [
+    "classic",
+    "usd",
+    "no_po",
+    "hard",
+    "deposit_paid"
+  ],
+  "expected_issues": [
+    "missing_po"
+  ],
+  "invoice": {
+    "vendor_name": "Ironbridge Systems Corp.",
+    "vendor_tax_id": "54-9896055",
+    "invoice_number": "SI476305",
+    "invoice_date": "2026-05-09",
+    "due_date": "2026-06-08",
+    "po_number": null,
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "A4 copy paper, 80gsm (box of 5 reams)",
+        "quantity": 1.0,
+        "unit_price": 20.94,
+        "amount": 20.94
+      },
+      {
+        "description": "Coffee beans 1kg",
+        "quantity": 1.0,
+        "unit_price": 23.88,
+        "amount": 23.88
+      },
+      {
+        "description": "Ready-mix concrete, per m3",
+        "quantity": 50.0,
+        "unit_price": 105.6,
+        "amount": 5280.0
+      },
+      {
+        "description": "Plasterboard sheet 2400x1200",
+        "quantity": 1.0,
+        "unit_price": 12.06,
+        "amount": 12.06
+      }
+    ],
+    "subtotal": 5336.88,
+    "tax_rate": 8.25,
+    "tax_amount": 440.29,
+    "total": 5777.17
+  }
+}
