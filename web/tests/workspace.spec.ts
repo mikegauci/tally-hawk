@@ -34,12 +34,12 @@ test("protects workspace pages and API, rejects cross-origin sign-in", async ({
 });
 test("sign-in, queue search and live counts", async ({ page }) => {
   await login(page);
+  await page.getByRole("link", { name: "My Tasks" }).click();
   await expect(
     page.getByRole("link", {
       name: "Kestrel Building Materials Ltd INV-2026-104",
     }),
   ).toBeVisible();
-  await page.getByRole("link", { name: "My Tasks" }).click();
   await expect(
     page.getByRole("heading", { name: "Review queue" }),
   ).toBeVisible();
@@ -52,6 +52,7 @@ test("sign-in, queue search and live counts", async ({ page }) => {
 });
 test("validates upload and sends a valid document", async ({ page }) => {
   await login(page);
+  await page.getByRole("link", { name: "Inbox" }).click();
   await page.getByLabel("Choose supplier invoices").setInputFiles({
     name: "bad.txt",
     mimeType: "text/plain",
@@ -142,6 +143,7 @@ test("responsive review separates document and data", async ({ page }) => {
 test("desktop visual capture and no overflow", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await login(page);
+  await page.getByRole("link", { name: "My Tasks" }).click();
   await expect(
     page.getByRole("link", {
       name: "Kestrel Building Materials Ltd INV-2026-104",
