@@ -1,0 +1,436 @@
+[
+  {
+    "vendor_id": "V001",
+    "name": "Kestrel Building Materials Ltd",
+    "tax_id": "IE82876894",
+    "email": "accounts@kestrel-building-materials-ltd.example",
+    "address": "240 Market Lane, Munich"
+  },
+  {
+    "vendor_id": "V002",
+    "name": "Old Mill Supplies Inc.",
+    "tax_id": "30-4773968",
+    "email": "accounts@old-mill-supplies-inc.example",
+    "address": "142 Elm Avenue, Columbus, OH"
+  },
+  {
+    "vendor_id": "V003",
+    "name": "Vantage Systems BV",
+    "tax_id": "IE66459413",
+    "email": "accounts@vantage-systems-bv.example",
+    "address": "145 Elm Avenue, Milan"
+  },
+  {
+    "vendor_id": "V004",
+    "name": "Ironbridge Engineering BV",
+    "tax_id": "NL95545642",
+    "email": "accounts@ironbridge-engineering-bv.example",
+    "address": "113 Industrial Estate Road, Milan"
+  },
+  {
+    "vendor_id": "V005",
+    "name": "COPPERLEAF FOODS PLC",
+    "tax_id": "GB456 5465 50",
+    "email": "accounts@copperleaf-foods-plc.example",
+    "address": "29 Harbour Road, Bristol"
+  },
+  {
+    "vendor_id": "V006",
+    "name": "Blue Harbor Foods Limited",
+    "tax_id": "MT58545669",
+    "email": "accounts@blue-harbor-foods-limited.example",
+    "address": "97 Market Lane, Milan"
+  },
+  {
+    "vendor_id": "V007",
+    "name": "Maple & Finch Logistics Corp.",
+    "tax_id": "83-8599901",
+    "email": "accounts@maple-finch-logistics-corp.example",
+    "address": "8 Market Lane, Portland, OR"
+  },
+  {
+    "vendor_id": "V008",
+    "name": "Vantage Print Works Ltd",
+    "tax_id": "IT50072170",
+    "email": "accounts@vantage-print-works-ltd.example",
+    "address": "85 Market Lane, Munich"
+  },
+  {
+    "vendor_id": "V009",
+    "name": "Blue Harbor Catering Supplies Ltd",
+    "tax_id": "GB214 5414 59",
+    "email": "accounts@blue-harbor-catering-supplies-ltd.example",
+    "address": "124 Elm Avenue, Leeds"
+  },
+  {
+    "vendor_id": "V010",
+    "name": "Lumen Foods S.r.l.",
+    "tax_id": "IE26866397",
+    "email": "accounts@lumen-foods-s-r-l.example",
+    "address": "95 Industrial Estate Road, Valletta"
+  },
+  {
+    "vendor_id": "V011",
+    "name": "Vantage IT Services LLC",
+    "tax_id": "33-6541914",
+    "email": "accounts@vantage-it-services-llc.example",
+    "address": "62 Market Lane, Portland, OR"
+  },
+  {
+    "vendor_id": "V012",
+    "name": "Vantage Trading Corp.",
+    "tax_id": "10-6435258",
+    "email": "accounts@vantage-trading-corp.example",
+    "address": "135 High Street, Portland, OR"
+  },
+  {
+    "vendor_id": "V013",
+    "name": "Ironbridge Foods B.V.",
+    "tax_id": "DE19775315",
+    "email": "accounts@ironbridge-foods-b-v.example",
+    "address": "31 Elm Avenue, Rotterdam"
+  },
+  {
+    "vendor_id": "V014",
+    "name": "Ironbridge Engineering B.V.",
+    "tax_id": "IT54931489",
+    "email": "accounts@ironbridge-engineering-b-v.example",
+    "address": "121 Elm Avenue, Rotterdam"
+  },
+  {
+    "vendor_id": "V015",
+    "name": "KESTREL FOODS LTD",
+    "tax_id": "GB255 1703 42",
+    "email": "accounts@kestrel-foods-ltd.example",
+    "address": "233 Triq il-Kbira, Glasgow"
+  },
+  {
+    "vendor_id": "V016",
+    "name": "Copperleaf IT Services Limited",
+    "tax_id": "MT45765493",
+    "email": "accounts@copperleaf-it-services-limited.example",
+    "address": "212 Market Lane, Dublin"
+  },
+  {
+    "vendor_id": "V017",
+    "name": "Kestrel Office Solutions Inc.",
+    "tax_id": "83-2307445",
+    "email": "accounts@kestrel-office-solutions-inc.example",
+    "address": "58 Elm Avenue, Portland, OR"
+  },
+  {
+    "vendor_id": "V018",
+    "name": "Vantage IT Services Ltd",
+    "tax_id": "IE56661026",
+    "email": "accounts@vantage-it-services-ltd.example",
+    "address": "172 Market Lane, Rotterdam"
+  },
+  {
+    "vendor_id": "V019",
+    "name": "Redfern Packaging LLP",
+    "tax_id": "GB249 3390 69",
+    "email": "accounts@redfern-packaging-llp.example",
+    "address": "17 Triq il-Kbira, Bristol"
+  },
+  {
+    "vendor_id": "V020",
+    "name": "COPPERLEAF IT SERVICES LTD",
+    "tax_id": "MT77336385",
+    "email": "accounts@copperleaf-it-services-ltd.example",
+    "address": "225 Market Lane, Dublin"
+  },
+  {
+    "vendor_id": "V021",
+    "name": "Northwind IT Services B.V.",
+    "tax_id": "DE93487859",
+    "email": "accounts@northwind-it-services-b-v.example",
+    "address": "232 Elm Avenue, Milan"
+  },
+  {
+    "vendor_id": "V022",
+    "name": "Granite Peak Office Solutions Corporation",
+    "tax_id": "35-3325561",
+    "email": "accounts@granite-peak-office-solutions-corporation.example",
+    "address": "131 High Street, Austin, TX"
+  },
+  {
+    "vendor_id": "V023",
+    "name": "Maple & Finch Supply Ltd",
+    "tax_id": "NL33072657",
+    "email": "accounts@maple-finch-supply-ltd.example",
+    "address": "1 Harbour Road, Milan"
+  },
+  {
+    "vendor_id": "V024",
+    "name": "Blue Harbor Trading LLP",
+    "tax_id": "GB473 4876 93",
+    "email": "accounts@blue-harbor-trading-llp.example",
+    "address": "198 High Street, Bristol"
+  },
+  {
+    "vendor_id": "V025",
+    "name": "Ironbridge Logistics Inc.",
+    "tax_id": "76-1973500",
+    "email": "accounts@ironbridge-logistics-inc.example",
+    "address": "220 Elm Avenue, Columbus, OH"
+  },
+  {
+    "vendor_id": "V026",
+    "name": "Vantage IT Services B.V.",
+    "tax_id": "IT18029932",
+    "email": "accounts@vantage-it-services-b-v.example",
+    "address": "121 Harbour Road, Milan"
+  },
+  {
+    "vendor_id": "V027",
+    "name": "Atlas Foods L.L.C.",
+    "tax_id": "87-1544000",
+    "email": "accounts@atlas-foods-l-l-c.example",
+    "address": "128 Market Lane, Portland, OR"
+  },
+  {
+    "vendor_id": "V028",
+    "name": "Redfern Foods BV",
+    "tax_id": "DE76255322",
+    "email": "accounts@redfern-foods-bv.example",
+    "address": "175 Harbour Road, Valletta"
+  },
+  {
+    "vendor_id": "V029",
+    "name": "Lumen Systems GMBH",
+    "tax_id": "IT74885076",
+    "email": "accounts@lumen-systems-gmbh.example",
+    "address": "138 High Street, Valletta"
+  },
+  {
+    "vendor_id": "V030",
+    "name": "Atlas Print Works Ltd",
+    "tax_id": "DE81971824",
+    "email": "accounts@atlas-print-works-ltd.example",
+    "address": "25 Elm Avenue, Munich"
+  },
+  {
+    "vendor_id": "V031",
+    "name": "Maple & Finch Office Solutions LLP",
+    "tax_id": "GB978 8154 23",
+    "email": "accounts@maple-finch-office-solutions-llp.example",
+    "address": "28 Elm Avenue, Bristol"
+  },
+  {
+    "vendor_id": "V032",
+    "name": "Granite Peak Building Materials Inc.",
+    "tax_id": "16-8878239",
+    "email": "accounts@granite-peak-building-materials-inc.example",
+    "address": "44 Elm Avenue, Portland, OR"
+  },
+  {
+    "vendor_id": "V033",
+    "name": "IRONBRIDGE PRINT WORKS S.R.L.",
+    "tax_id": "IE36236909",
+    "email": "accounts@ironbridge-print-works-s-r-l.example",
+    "address": "11 High Street, Rotterdam"
+  },
+  {
+    "vendor_id": "V034",
+    "name": "Granite Peak IT Services plc",
+    "tax_id": "GB352 6193 22",
+    "email": "accounts@granite-peak-it-services-plc.example",
+    "address": "210 Market Lane, Glasgow"
+  },
+  {
+    "vendor_id": "V035",
+    "name": "Kestrel Foods GmbH",
+    "tax_id": "NL54179365",
+    "email": "accounts@kestrel-foods-gmbh.example",
+    "address": "21 Elm Avenue, Milan"
+  },
+  {
+    "vendor_id": "V036",
+    "name": "Harbourside Packaging Corp.",
+    "tax_id": "93-9224533",
+    "email": "accounts@harbourside-packaging-corp.example",
+    "address": "19 Market Lane, Portland, OR"
+  },
+  {
+    "vendor_id": "V037",
+    "name": "Ironbridge Trading Corp.",
+    "tax_id": "53-7480157",
+    "email": "accounts@ironbridge-trading-corp.example",
+    "address": "196 Harbour Road, Austin, TX"
+  },
+  {
+    "vendor_id": "V038",
+    "name": "REDFERN OFFICE SOLUTIONS LTD",
+    "tax_id": "DE20511891",
+    "email": "accounts@redfern-office-solutions-ltd.example",
+    "address": "229 Market Lane, Milan"
+  },
+  {
+    "vendor_id": "V039",
+    "name": "Northwind Catering Supplies Inc.",
+    "tax_id": "42-9749961",
+    "email": "accounts@northwind-catering-supplies-inc.example",
+    "address": "200 High Street, Austin, TX"
+  },
+  {
+    "vendor_id": "V040",
+    "name": "Vantage Foods Limited",
+    "tax_id": "IT11074443",
+    "email": "accounts@vantage-foods-limited.example",
+    "address": "70 Market Lane, Valletta"
+  },
+  {
+    "vendor_id": "V041",
+    "name": "Ironbridge Trading Inc.",
+    "tax_id": "80-4834160",
+    "email": "accounts@ironbridge-trading-inc.example",
+    "address": "35 High Street, Austin, TX"
+  },
+  {
+    "vendor_id": "V042",
+    "name": "Copperleaf Foods Ltd",
+    "tax_id": "DE77790510",
+    "email": "accounts@copperleaf-foods-ltd.example",
+    "address": "16 Market Lane, Dublin"
+  },
+  {
+    "vendor_id": "V043",
+    "name": "Harbourside Systems S.r.l.",
+    "tax_id": "NL66040622",
+    "email": "accounts@harbourside-systems-s-r-l.example",
+    "address": "92 Industrial Estate Road, Milan"
+  },
+  {
+    "vendor_id": "V044",
+    "name": "Redfern Catering Supplies PLC",
+    "tax_id": "GB429 2377 93",
+    "email": "accounts@redfern-catering-supplies-plc.example",
+    "address": "218 Market Lane, Leeds"
+  },
+  {
+    "vendor_id": "V045",
+    "name": "Old Mill Supplies S.r.l.",
+    "tax_id": "NL82967390",
+    "email": "accounts@old-mill-supplies-s-r-l.example",
+    "address": "56 Triq il-Kbira, Valletta"
+  },
+  {
+    "vendor_id": "V046",
+    "name": "Northwind Office Solutions LLC",
+    "tax_id": "50-2675908",
+    "email": "accounts@northwind-office-solutions-llc.example",
+    "address": "76 Market Lane, Columbus, OH"
+  },
+  {
+    "vendor_id": "V047",
+    "name": "MAPLE & FINCH ENGINEERING LTD",
+    "tax_id": "IT25342993",
+    "email": "accounts@maple-finch-engineering-ltd.example",
+    "address": "68 Industrial Estate Road, Dublin"
+  },
+  {
+    "vendor_id": "V048",
+    "name": "Lumen IT Services plc",
+    "tax_id": "GB823 9584 22",
+    "email": "accounts@lumen-it-services-plc.example",
+    "address": "186 Triq il-Kbira, Leeds"
+  },
+  {
+    "vendor_id": "V049",
+    "name": "Solano Supplies LLC",
+    "tax_id": "70-6260015",
+    "email": "accounts@solano-supplies-llc.example",
+    "address": "4 Elm Avenue, Columbus, OH"
+  },
+  {
+    "vendor_id": "V050",
+    "name": "Blue Harbor Building Materials Corp.",
+    "tax_id": "11-1919662",
+    "email": "accounts@blue-harbor-building-materials-corp.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V051",
+    "name": "Kestrel IT Services Ltd",
+    "tax_id": "MT15618863",
+    "email": "accounts@kestrel-it-services-ltd.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V052",
+    "name": "Ironbridge Catering Supplies LLC",
+    "tax_id": "73-6202342",
+    "email": "accounts@ironbridge-catering-supplies-llc.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V053",
+    "name": "Maple & Finch Packaging Inc.",
+    "tax_id": "98-9623601",
+    "email": "accounts@maple-finch-packaging-inc.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V054",
+    "name": "Solano Systems Corp.",
+    "tax_id": "14-6687669",
+    "email": "accounts@solano-systems-corp.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V055",
+    "name": "Brightwater Trading Ltd",
+    "tax_id": "MT79226327",
+    "email": "accounts@brightwater-trading-ltd.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V056",
+    "name": "Granite Peak Systems GmbH",
+    "tax_id": "MT75348250",
+    "email": "accounts@granite-peak-systems-gmbh.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V057",
+    "name": "Lumen Supplies Ltd",
+    "tax_id": "MT11722372",
+    "email": "accounts@lumen-supplies-ltd.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V058",
+    "name": "Harbourside IT Services Ltd",
+    "tax_id": "MT24402643",
+    "email": "accounts@harbourside-it-services-ltd.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V059",
+    "name": "Vantage Supplies Inc.",
+    "tax_id": "70-9727774",
+    "email": "accounts@vantage-supplies-inc.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V060",
+    "name": "Old Mill Office Solutions Corp.",
+    "tax_id": "39-6993115",
+    "email": "accounts@old-mill-office-solutions-corp.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V061",
+    "name": "Redfern Engineering LLC",
+    "tax_id": "82-9672340",
+    "email": "accounts@redfern-engineering-llc.example",
+    "address": "Distractor Road 1"
+  },
+  {
+    "vendor_id": "V062",
+    "name": "Atlas Engineering LLP",
+    "tax_id": "GB982 7977 91",
+    "email": "accounts@atlas-engineering-llp.example",
+    "address": "Distractor Road 1"
+  }
+]
