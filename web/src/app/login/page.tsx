@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import {
-  ArrowDownToLine,
   ArrowRight,
   Loader2,
   LockKeyhole,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { HawkMark } from "@/components/hawk-mark";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 async function signIn(body: FormData) {
@@ -48,7 +48,7 @@ export default function Login() {
       </div>
       <div className="login-card">
         <span className="brand-mark">
-          <ArrowDownToLine />
+          <HawkMark size={26} />
         </span>
         <p className="eyebrow">TALLYHAWK WORKSPACE</p>
         <h1>
