@@ -34,6 +34,9 @@ const data = {
 };
 // Requests left to answer like a sleeping Render service (an HTML 503).
 let asleep = 0;
+// Demo upload cap per forwarded session id, like src/tallyhawk/limits.py.
+let cap = Infinity,
+  uploads = {};
 let current = structuredClone(invoice),
   corrected = structuredClone(data),
   reviews = [];
@@ -103,6 +106,13 @@ createServer(async (req, res) => {
     corrected = structuredClone(data);
     reviews = [];
     asleep = 0;
+    cap = Infinity;
+    uploads = {};
+    res.end("{}");
+    return;
+  }
+  if (url.pathname === "/cap") {
+    cap = Number(url.searchParams.get("uploads"));
     res.end("{}");
     return;
   }
@@ -145,6 +155,20 @@ createServer(async (req, res) => {
     return;
   }
   if (url.pathname === "/invoices" && req.method === "POST") {
+    const session = req.headers["x-tallyhawk-session"];
+    if (!/^[0-9a-f-]{36}$/.test(session || "")) {
+      res.writeHead(400).end(JSON.stringify({ detail: "No session id." }));
+      return;
+    }
+    uploads[session] = (uploads[session] || 0) + 1;
+    if (uploads[session] > cap) {
+      res.writeHead(429).end(
+        JSON.stringify({
+          detail: `You've reached the demo limit of ${cap} invoices per visit.`,
+        }),
+      );
+      return;
+    }
     res.writeHead(202).end(JSON.stringify({ ...current, status: "uploaded" }));
     return;
   }

@@ -1472,3 +1472,12 @@ pre {
     animation: none;
   }
 }
+.limit-banner {
+  margin: 16px 0 0;
+  background: var(--warning-background);
+  color: var(--foreground);
+}
+.limit-banner a {
+  color: var(--primary);
+  text-decoration: underline;
+}

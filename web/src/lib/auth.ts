@@ -1,5 +1,5 @@
 import "server-only";
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 export const COOKIE = "tallyhawk-session";
 export const TTL = 60 * 60 * 8;
@@ -28,20 +28,29 @@ export function equal(a: string, b: string) {
     y = Buffer.from(b);
   return x.length === y.length && timingSafeEqual(x, y);
 }
+// Cookie value: `<expiry>.<session id>.<signature>`. The random session id lets the API
+// count uploads per visit for the demo caps (src/tallyhawk/limits.py).
 export function sessionToken() {
-  const expiry = String(Math.floor(Date.now() / 1000) + TTL);
-  return `${expiry}.${sign(expiry)}`;
+  const value = `${Math.floor(Date.now() / 1000) + TTL}.${randomUUID()}`;
+  return `${value}.${sign(value)}`;
+}
+async function session() {
+  if (!configured()) return null;
+  const value = (await cookies()).get(COOKIE)?.value;
+  if (!value) return null;
+  const [expiry, id, signature] = value.split(".");
+  const valid =
+    /^\d+$/.test(expiry) &&
+    /^[0-9a-f-]{36}$/.test(id || "") &&
+    Number(expiry) > Date.now() / 1000 &&
+    equal(signature || "", sign(`${expiry}.${id}`));
+  return valid ? { id } : null;
 }
 export async function authenticated() {
-  if (!configured()) return false;
-  const value = (await cookies()).get(COOKIE)?.value;
-  if (!value) return false;
-  const [expiry, signature] = value.split(".");
-  return (
-    /^\d+$/.test(expiry) &&
-    Number(expiry) > Date.now() / 1000 &&
-    equal(signature || "", sign(expiry))
-  );
+  return (await session()) !== null;
+}
+export async function sessionId() {
+  return (await session())?.id ?? null;
 }
 export function sameOrigin(request: Request) {
   return request.headers.get("origin") === new URL(request.url).origin;

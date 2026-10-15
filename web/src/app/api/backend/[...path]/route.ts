@@ -1,4 +1,4 @@
-import { authenticated, sameOrigin } from "@/lib/auth";
+import { sameOrigin, sessionId } from "@/lib/auth";
 export const maxDuration = 300;
 const uuid = "[0-9a-fA-F-]{36}";
 // Tells the browser the API itself is unreachable or still starting (Render's
@@ -8,7 +8,8 @@ async function proxy(
   request: Request,
   context: { params: Promise<{ path: string[] }> },
 ) {
-  if (!(await authenticated()))
+  const session = await sessionId();
+  if (!session)
     return Response.json({ detail: "Please sign in again." }, { status: 401 });
   if (request.method !== "GET" && !sameOrigin(request))
     return Response.json(
@@ -24,6 +25,8 @@ async function proxy(
     return Response.json({ detail: "Not found." }, { status: 404 });
   const headers = new Headers({
     Authorization: `Bearer ${process.env.TALLYHAWK_API_KEY}`,
+    // Counts uploads per visit for the demo caps (src/tallyhawk/limits.py).
+    "X-TallyHawk-Session": session,
   });
   let body: BodyInit | undefined;
   try {

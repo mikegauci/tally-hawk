@@ -9,7 +9,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { api } from "@/lib/client";
+import { api, demoLimitReached } from "@/lib/client";
 import type { InvoiceRecord } from "@/lib/types";
 type Upload = {
   file: File;
@@ -22,6 +22,7 @@ export function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
   const [drag, setDrag] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [limit, setLimit] = useState("");
   function add(files: FileList | File[]) {
     setError("");
     const next: Upload[] = Array.from(files).map((file) => ({
@@ -62,6 +63,13 @@ export function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
         next[i] = { ...next[i], state: "done" };
         onUploaded();
       } catch (error) {
+        if (demoLimitReached(error)) {
+          // Every later upload would hit the same cap; leave them ready.
+          next[i] = { ...next[i], state: "ready" };
+          setItems([...next]);
+          setLimit((error as Error).message);
+          break;
+        }
         next[i] = {
           ...next[i],
           state: "error",
@@ -123,6 +131,26 @@ export function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
           }}
         />
       </div>
+      {limit && (
+        <div className="error-banner limit-banner" role="alert">
+          <div>
+            <strong>Demo limit reached.</strong> {limit}
+            {process.env.NEXT_PUBLIC_DEMO_VIDEO_URL && (
+              <>
+                {" "}
+                <a
+                  href={process.env.NEXT_PUBLIC_DEMO_VIDEO_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch the demo video
+                </a>{" "}
+                to see uploads end to end.
+              </>
+            )}
+          </div>
+        </div>
+      )}
       {items.length > 0 && (
         <div className="upload-list" aria-live="polite">
           {items.map((item, i) => (

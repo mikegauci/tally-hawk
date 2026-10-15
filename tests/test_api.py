@@ -13,6 +13,7 @@ from fastapi.testclient import TestClient
 from tallyhawk.api import create_app
 from tallyhawk.db import PostgresStore
 from tallyhawk.extract import ExtractionResult, Usage
+from tallyhawk.limits import DemoLimits
 from tallyhawk.schema import InvoiceData
 from tallyhawk.service import InvoiceService
 from tallyhawk.storage import LocalFileStore
@@ -33,11 +34,11 @@ class FakeExtractor:
 
     def __init__(self):
         self.overrides: dict[str, dict] = {}
-        self.fail = False
+        self.fail: Exception | None = None
 
     def __call__(self, data: bytes, media_type: str) -> ExtractionResult:
         if self.fail:
-            raise RuntimeError("model unavailable")
+            raise self.fail
         case_id = data.decode().split(":", 1)[1]
         invoice = gold(case_id).model_copy(update=self.overrides.get(case_id, {}))
         extracted = make_extracted(invoice)
@@ -59,19 +60,36 @@ def extractor():
     return FakeExtractor()
 
 
-@pytest.fixture
-def client(pg_pool, tmp_path, extractor):
+def make_client(pg_pool, tmp_path, extractor, limits: DemoLimits):
     with pg_pool.connection() as conn:
         conn.execute("truncate invoices cascade")
+        conn.execute("truncate demo_usage")
         conn.execute("delete from posted_invoices where invoice_id is not null")
     service = InvoiceService(pg_pool, LocalFileStore(tmp_path), MatchingWorkflow(PostgresStore(pg_pool)), extractor)
-    with TestClient(create_app(service, api_key=TOKEN), headers={"Authorization": f"Bearer {TOKEN}"}) as c:
+    return TestClient(create_app(service, api_key=TOKEN, limits=limits), headers={"Authorization": f"Bearer {TOKEN}"})
+
+
+@pytest.fixture
+def client(pg_pool, tmp_path, extractor):
+    with make_client(pg_pool, tmp_path, extractor, DemoLimits()) as c:
         yield c
 
 
-def upload(client, case_id: str, process: bool = True) -> dict:
+@pytest.fixture
+def capped(pg_pool, tmp_path, extractor):
+    """2 uploads per visit, 3 per day across everyone."""
+    with make_client(pg_pool, tmp_path, extractor, DemoLimits(per_session=2, per_day=3)) as c:
+        yield c
+
+
+def post_upload(client, case_id: str, process: bool = True, session: str | None = None):
     files = {"file": (f"{case_id}.pdf", f"case:{case_id}".encode(), "application/pdf")}
-    response = client.post("/invoices", files=files, params={"process": process})
+    headers = {"X-TallyHawk-Session": session} if session else {}
+    return client.post("/invoices", files=files, params={"process": process}, headers=headers)
+
+
+def upload(client, case_id: str, process: bool = True, session: str | None = None) -> dict:
+    response = post_upload(client, case_id, process, session)
     assert response.status_code == 202, response.text
     return response.json()
 
@@ -132,7 +150,7 @@ def test_correcting_a_misread_field_rematches(client, extractor):
 def test_failed_extraction_is_recorded_and_can_be_retried(client, extractor):
     uploaded = upload(client, "inv_001", process=False)
     assert uploaded["status"] == "uploaded"
-    extractor.fail = True
+    extractor.fail = RuntimeError("model unavailable")
     response = client.post(f"/invoices/{uploaded['id']}/process")
     assert response.status_code == 502
     detail = client.get(f"/invoices/{uploaded['id']}").json()
@@ -156,3 +174,41 @@ def test_file_listing_and_errors(client):
     assert client.post(f"/invoices/{uploaded['id']}/review", json={"action": "correct"}).status_code == 422
     assert client.get("/invoices", headers={"Authorization": "Bearer wrong"}).status_code == 401
     assert client.get("/health", headers={"Authorization": ""}).json() == {"status": "ok"}
+
+
+VISIT_A = "aaaaaaaa-1111-4111-8111-111111111111"
+VISIT_B = "bbbbbbbb-2222-4222-8222-222222222222"
+
+
+def test_demo_caps_per_visit_and_per_day(capped):
+    client = capped
+    upload(client, "inv_001", process=False, session=VISIT_A)
+    upload(client, "inv_002", process=False, session=VISIT_A)
+    capped = post_upload(client, "inv_003", process=False, session=VISIT_A)
+    assert capped.status_code == 429 and "per visit" in capped.json()["detail"]
+
+    upload(client, "inv_003", process=False, session=VISIT_B)  # a new visit has its own allowance
+    daily = post_upload(client, "inv_004", process=False, session=VISIT_B)
+    assert daily.status_code == 429 and "for today" in daily.json()["detail"]
+    # Requests without a session id (direct API use) still count toward the daily cap.
+    assert post_upload(client, "inv_004", process=False).status_code == 429
+    assert len(client.get("/invoices").json()) == 3  # rejected uploads store nothing
+
+
+def test_reprocessing_counts_against_the_caps(capped):
+    client = capped
+    uploaded = upload(client, "inv_001", process=False, session=VISIT_A)  # 1 of 2 for this visit
+    assert client.post(f"/invoices/{uploaded['id']}/process", headers={"X-TallyHawk-Session": VISIT_A}).is_success
+    again = client.post(f"/invoices/{uploaded['id']}/process", headers={"X-TallyHawk-Session": VISIT_A})
+    assert again.status_code == 429
+
+
+def test_used_up_openai_budget_is_explained(client, extractor):
+    from test_limits import rate_limit_error
+
+    uploaded = upload(client, "inv_001", process=False)
+    extractor.fail = rate_limit_error("insufficient_quota")
+    response = client.post(f"/invoices/{uploaded['id']}/process")
+    assert response.status_code == 429 and "budget" in response.json()["detail"]
+    detail = client.get(f"/invoices/{uploaded['id']}").json()
+    assert detail["invoice"]["status"] == "failed" and "budget" in detail["invoice"]["error"]

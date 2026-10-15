@@ -34,6 +34,7 @@ Use the repo [`render.yaml`](../render.yaml) blueprint (**New → Blueprint** in
 | `SUPABASE_SERVICE_ROLE_KEY` | Never expose to the browser |
 | `TALLYHAWK_CORS_ORIGINS` | `https://your-app.vercel.app` |
 | `LANGFUSE_PUBLIC_KEY` / `LANGFUSE_SECRET_KEY` | Optional tracing |
+| `TALLYHAWK_DEMO_SESSION_LIMIT` / `TALLYHAWK_DEMO_DAILY_LIMIT` | Public demo caps, e.g. `10` / `50` (off when unset) |
 
 3. Health check path: `/health`.
 4. Pre-deploy (paid): `tallyhawk db migrate`. Free tier: run migrate locally before deploy.
@@ -54,19 +55,35 @@ Use the repo [`render.yaml`](../render.yaml) blueprint (**New → Blueprint** in
 | `WEB_DEMO_TOKEN` | Optional; `openssl rand -hex 32` for recruiter magic links (`/login?token=…`) |
 | `SESSION_SECRET` | `openssl rand -hex 32` |
 | `WEB_REVIEWER_NAME` | Optional |
+| `NEXT_PUBLIC_DEMO_VIDEO_URL` | Optional; linked when a reviewer hits a demo cap |
 
 3. Deploy. Production web URL: **https://tally-hawk.vercel.app** (set `TALLYHAWK_CORS_ORIGINS` on Render to this origin).
 4. Sign in, verify **Overview** shows demo counts after `demo load` and a live API.
 
 Until Render is live, set `TALLYHAWK_API_URL` on Vercel to your API origin (default placeholder: `https://tallyhawk-api.onrender.com`).
 
-## 4. Security checklist
+## 4. Bounding OpenAI spend
+
+The live demo spends real money on every invoice (about $0.038 each). Three layers keep a
+forwarded magic link from becoming a large bill:
+
+1. **Per visit:** `TALLYHAWK_DEMO_SESSION_LIMIT=10` uploads per signed browser session.
+2. **Per day:** `TALLYHAWK_DEMO_DAILY_LIMIT=50` uploads across all visitors (UTC day). This
+   is the real backstop, since signing in again starts a new session.
+3. **Per month:** give the API key its own OpenAI project with a monthly budget (e.g. $20).
+   When the budget runs out, OpenAI answers `insufficient_quota`, and the app shows a
+   "demo budget used up" message instead of a generic failure.
+
+Visitors who hit a cap see a friendly message (with the demo video link when
+`NEXT_PUBLIC_DEMO_VIDEO_URL` is set). Counts live in the `demo_usage` table.
+
+## 5. Security checklist
 
 - Rotate `TALLYHAWK_API_KEY`, `SESSION_SECRET`, and `WEB_DEMO_TOKEN` if leaked.
 - Rate-limit `/api/session` at the edge (Vercel firewall or similar) before broad exposure.
 - Use separate preview credentials/backends if preview deployments must not touch production data.
 
-## 5. Reset demo data
+## 6. Reset demo data
 
 ```bash
 uv run tallyhawk db seed

@@ -29,6 +29,7 @@ from psycopg_pool import ConnectionPool
 from pydantic import BaseModel, Field, model_validator
 
 from tallyhawk.extract import ExtractionResult
+from tallyhawk.limits import QUOTA_MESSAGE, is_quota_error
 from tallyhawk.matching import Decision
 from tallyhawk.schema import InvoiceData
 from tallyhawk.storage import FileStore
@@ -133,6 +134,11 @@ def safe_filename(name: str) -> str:
     return stem[:120] or "invoice"
 
 
+def failure_reason(exc: Exception) -> str:
+    """What a reviewer sees on a failed invoice."""
+    return QUOTA_MESSAGE if is_quota_error(exc) else f"{type(exc).__name__}: {exc}"
+
+
 class InvoiceService:
     def __init__(self, pool: ConnectionPool, files: FileStore, workflow: MatchingWorkflow, extractor: Extractor):
         self.pool = pool
@@ -185,7 +191,7 @@ class InvoiceService:
             data = self.files.get(row["storage_path"])
             extraction = self.extractor(data, row["media_type"])
         except Exception as exc:  # recorded on the invoice; the reviewer sees why
-            self._set_status(invoice_id, "failed", f"{type(exc).__name__}: {exc}")
+            self._set_status(invoice_id, "failed", failure_reason(exc))
             raise
         with self.pool.connection() as conn, conn.transaction():
             extraction_id = conn.execute(
@@ -210,7 +216,7 @@ class InvoiceService:
         try:
             outcome = self.workflow.run(extraction.extracted.invoice, low_confidence=extraction.low_confidence_fields)
         except Exception as exc:
-            self._set_status(invoice_id, "failed", f"{type(exc).__name__}: {exc}")
+            self._set_status(invoice_id, "failed", failure_reason(exc))
             raise
         with self.pool.connection() as conn, conn.transaction():
             self._save_match(conn, invoice_id, extraction_id, "extraction", extraction.extracted.invoice, outcome)

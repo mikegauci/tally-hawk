@@ -14,6 +14,17 @@ export function announceWake(state: WakeState) {
 export function unavailable(response: Response) {
   return response.headers.get("X-TallyHawk-Unavailable") === "1";
 }
+export class ApiError extends Error {
+  constructor(
+    message: string,
+    readonly status: number,
+  ) {
+    super(message);
+  }
+}
+// 429: a demo cap or the demo's OpenAI budget was reached (src/tallyhawk/limits.py).
+export const demoLimitReached = (error: unknown) =>
+  error instanceof ApiError && error.status === 429;
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const get = (init?.method ?? "GET").toUpperCase() === "GET";
   const started = Date.now();
@@ -47,10 +58,11 @@ export async function api<T>(path: string, init?: RequestInit): Promise<T> {
   }
   const data = await response.json();
   if (!response.ok)
-    throw new Error(
+    throw new ApiError(
       typeof data.detail === "string"
         ? data.detail
         : "The request could not be completed. Check your fields and try again.",
+      response.status,
     );
   return data;
 }
