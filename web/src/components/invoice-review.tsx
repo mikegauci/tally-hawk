@@ -61,6 +61,7 @@ export function InvoiceReview({ id }: { id: string }) {
   const [action, setAction] = useState<Action | null>(null);
   const [note, setNote] = useState("");
   const [mobileTab, setMobileTab] = useState("data");
+  const [reviewTab, setReviewTab] = useState("overview");
   const original =
     detail?.match?.invoice || detail?.extraction?.result.extracted.invoice;
   const dirty = Boolean(
@@ -85,6 +86,13 @@ export function InvoiceReview({ id }: { id: string }) {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     void load();
   }, [load]);
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("tourTab") === "matching") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- product tour deep link
+      setReviewTab("matching");
+      setMobileTab("data");
+    }
+  }, [id]);
   useEffect(() => {
     if (!detail || !["processing", "uploaded"].includes(detail.invoice.status))
       return;
@@ -232,7 +240,7 @@ export function InvoiceReview({ id }: { id: string }) {
         </Button>
       </div>
       <div className={`review-grid show-${mobileTab}`}>
-        <section className="panel source-panel">
+        <section className="panel source-panel" data-tour="bill-source">
           <div className="section-heading">
             <div>
               <h2>
@@ -281,12 +289,14 @@ export function InvoiceReview({ id }: { id: string }) {
           </div>
         </section>
         <section className="panel extracted-panel">
-          <Tabs defaultValue="overview">
+          <Tabs value={reviewTab} onValueChange={setReviewTab}>
             <div className="review-tabs">
               <TabsList>
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="lines">Line items</TabsTrigger>
-                <TabsTrigger value="matching">Matching</TabsTrigger>
+                <TabsTrigger value="matching" data-tour="bill-matching-tab">
+                  Matching
+                </TabsTrigger>
                 <TabsTrigger value="activity">Activity</TabsTrigger>
               </TabsList>
             </div>
@@ -471,7 +481,11 @@ export function InvoiceReview({ id }: { id: string }) {
                 </div>
               ))}
             </TabsContent>
-            <TabsContent value="matching" className="review-tab-content">
+            <TabsContent
+              value="matching"
+              className="review-tab-content"
+              data-tour="bill-matching-panel"
+            >
               <h2>Purchase order checks</h2>
               <p className="muted">
                 {outcome?.po_number
@@ -499,7 +513,11 @@ export function InvoiceReview({ id }: { id: string }) {
                 </div>
               )}
               {outcome?.lines.map((line, index) => (
-                <div className="match-line" key={index}>
+                <div
+                  className="match-line"
+                  key={index}
+                  {...(index === 0 ? { "data-tour": "bill-match-lines" } : {})}
+                >
                   <h3>{line.description}</h3>
                   <dl>
                     <div>
@@ -596,7 +614,7 @@ export function InvoiceReview({ id }: { id: string }) {
             </TabsContent>
           </Tabs>
           {editable && (
-            <div className="review-footer">
+            <div className="review-footer" data-tour="bill-decisions">
               <p>
                 {dirty
                   ? "Unsaved corrections. Save and recheck before deciding."

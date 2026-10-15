@@ -123,8 +123,10 @@ vars. Expect roughly **$0.15–0.50** in OpenAI usage for the default set. See [
   edits block decisions until saved/rechecked, and navigation warns about them.
 - Failed/empty/loading states, responsive mobile document/data switching, keyboard
   accessible shadcn tabs and dialogs, persistent desktop sidebar collapse.
-- First-visit **Product tour** (driver.js) on Overview; replay from the sidebar. Magic-link
-  sign-in (`WEB_DEMO_TOKEN`) redirects to `/dashboard?tour=1`.
+- First-visit **Product tour** (driver.js): Overview → **My Tasks** (review queue) → open a
+  queued bill on the **Matching** tab (invoice vs PO vs goods receipt). Stops on My Tasks if
+  the queue is empty. Replay from the sidebar; magic-link sign-in (`WEB_DEMO_TOKEN`) starts
+  at `/dashboard?tour=1`.
 
 No payment, sending, or unsupported AR capability is implied. `send_query` records
 supplier follow-up; it does **not** send email. The backend can automatically approve

@@ -209,7 +209,10 @@ export function WorkspacePage({ view }: { view: "inbox" | "tasks" | "bills" }) {
   });
   return (
     <>
-      <div className="page-heading">
+      <div
+        className="page-heading"
+        {...(view === "tasks" ? { "data-tour": "tasks-intro" } : {})}
+      >
         <div>
           <p className="eyebrow">
             {view === "inbox" ? "YOUR DOCUMENTS, IN ORDER" : "ACCOUNTS PAYABLE"}
@@ -236,7 +239,10 @@ export function WorkspacePage({ view }: { view: "inbox" | "tasks" | "bills" }) {
           </Link>
         )}
       </div>
-      <div className="metrics">
+      <div
+        className="metrics"
+        {...(view === "tasks" ? { "data-tour": "tasks-metrics" } : {})}
+      >
         <Metric
           label="Needs review"
           value={loading ? "—" : queue.length}
@@ -309,7 +315,10 @@ export function WorkspacePage({ view }: { view: "inbox" | "tasks" | "bills" }) {
           </aside>
         </div>
       )}
-      <section className="panel table-panel">
+      <section
+        className="panel table-panel"
+        {...(view === "tasks" ? { "data-tour": "tasks-queue" } : {})}
+      >
         <div className="section-heading">
           <div>
             <h2>

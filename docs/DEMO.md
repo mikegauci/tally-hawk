@@ -50,7 +50,7 @@ deploying the web app. Replace the demo video URL in the root README when publis
 
    `https://tally-hawk.vercel.app/login?token=<WEB_DEMO_TOKEN>`
 
-   The link signs the visitor in and starts the in-app **Product tour**. Do not commit the token or paste the full URL in the public README. Rotate the env var if the link leaks.
+   The link signs the visitor in and starts the in-app **Product tour** (Overview → My Tasks → sample bill **Matching** tab for three-way PO/receipt checks). If My Tasks is empty, the tour stops with a note to run `demo load`. Do not commit the token or paste the full URL in the public README. Rotate the env var if the link leaks.
 
 3. **Backup** — Plain site URL plus `WEB_PASSWORD` for people who already have credentials.
 

@@ -1396,7 +1396,7 @@ pre {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg, 12px);
   box-shadow: 0 12px 40px rgb(0 0 0 / 0.12);
-  max-width: min(360px, calc(100vw - 32px));
+  max-width: min(400px, calc(100vw - 32px));
 }
 .driver-popover.tallyhawk-tour-popover .driver-popover-title {
   font-family: var(--font-heading);

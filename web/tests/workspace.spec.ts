@@ -6,7 +6,7 @@ test.beforeEach(async ({ request }) => {
 async function login(page: import("@playwright/test").Page) {
   await page.goto("/login");
   await page.evaluate(() =>
-    localStorage.setItem("tallyhawk-tour-v1", "1"),
+    localStorage.setItem("tallyhawk-tour-v2", "1"),
   );
   await page.getByLabel("Workspace password").fill("test-password");
   await page.getByRole("button", { name: "Sign in to workspace" }).click();
@@ -23,10 +23,18 @@ test("demo magic link signs in without password and opens product tour", async (
   page,
 }) => {
   await page.goto("/login");
-  await page.evaluate(() => localStorage.removeItem("tallyhawk-tour-v1"));
+  await page.evaluate(() => {
+    localStorage.removeItem("tallyhawk-tour-v2");
+    sessionStorage.clear();
+  });
   await page.goto("/login?token=test-demo-token");
   await expect(page).toHaveURL(/\/dashboard\?tour=1$/);
   await expect(page.getByText("Overview at a glance")).toBeVisible();
+  await page.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(page.getByText("My Tasks is where humans step in")).toBeVisible();
+  await page.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(page).toHaveURL(/\/tasks\?tour=1$/);
+  await expect(page.getByText("Review queue")).toBeVisible();
   await page.getByRole("button", { name: "Close" }).click();
   await page.reload();
   await expect(page.getByText("Overview at a glance")).not.toBeVisible();
