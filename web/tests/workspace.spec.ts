@@ -34,7 +34,9 @@ test("demo magic link signs in without password and opens product tour", async (
   await expect(page.getByText("My Tasks is where humans step in")).toBeVisible();
   await page.getByRole("button", { name: "Next", exact: true }).click();
   await expect(page).toHaveURL(/\/tasks\?tour=1$/);
-  await expect(page.getByText("Review queue")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Review queue" }),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Close" }).click();
   await page.reload();
   await expect(page.getByText("Overview at a glance")).not.toBeVisible();
@@ -196,9 +198,9 @@ test("shows a wake-up notice while the API cold-starts, then loads", async ({
   page,
   request,
 }) => {
+  // Put the API to sleep before sign-in, so the dashboard's first load hits it.
+  await request.get("http://127.0.0.1:8109/sleep?requests=4");
   await login(page);
-  await request.get("http://127.0.0.1:8109/sleep?requests=3");
-  await page.goto("/inbox");
   const toast = page.getByRole("status").filter({
     hasText: "Waking up the invoice service",
   });
