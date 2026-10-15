@@ -10,14 +10,17 @@ async function login(page: import("@playwright/test").Page) {
   );
   await page.getByLabel("Workspace password").fill("test-password");
   await page.getByRole("button", { name: "Sign in to workspace" }).click();
-  await expect(page).toHaveURL("/dashboard");
+  // The first test of a run waits for the dev server to compile the dashboard.
+  await expect(page).toHaveURL("/dashboard", { timeout: 30_000 });
 }
 test("overview dashboard shows KPIs from the API", async ({ page }) => {
   await login(page);
   await expect(page.getByRole("heading", { name: "Overview" })).toBeVisible();
   await expect(page.getByText("Needs review")).toBeVisible();
   await expect(page.getByText("Recent supplier bills")).toBeVisible();
-  await expect(page.getByRole("cell", { name: "supplier-invoice.pdf" })).toBeVisible();
+  await expect(
+    page.getByRole("cell", { name: "supplier-invoice.pdf" }),
+  ).toBeVisible({ timeout: 30_000 });
 });
 test("demo magic link signs in without password and opens product tour", async ({
   page,
@@ -209,4 +212,31 @@ test("shows a wake-up notice while the API cold-starts, then loads", async ({
   await expect(
     page.getByRole("cell", { name: "supplier-invoice.pdf" }),
   ).toBeVisible();
+});
+
+test("stops uploading at the demo cap and explains why", async ({
+  page,
+  request,
+}) => {
+  await request.get("http://127.0.0.1:8109/cap?uploads=1");
+  await login(page);
+  await page.getByRole("link", { name: "Inbox" }).click();
+  const pdf = (name: string) => ({
+    name,
+    mimeType: "application/pdf",
+    buffer: Buffer.from("%PDF-1.4 test"),
+  });
+  await page
+    .getByLabel("Choose supplier invoices")
+    .setInputFiles([pdf("first.pdf"), pdf("second.pdf"), pdf("third.pdf")]);
+  await page.getByRole("button", { name: "Upload & process" }).click();
+  const banner = page
+    .getByRole("alert")
+    .filter({ hasText: "Demo limit reached." });
+  await expect(banner).toContainText("1 invoices per visit");
+  await expect(
+    page.getByText("Uploaded · Extraction and matching queued"),
+  ).toHaveCount(1);
+  // The rest are left ready rather than marked as failed.
+  await expect(page.getByText("2 ready to upload")).toBeVisible();
 });

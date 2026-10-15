@@ -15,7 +15,19 @@ import uuid
 from contextlib import asynccontextmanager
 from typing import Annotated
 
-from fastapi import BackgroundTasks, Depends, FastAPI, File, HTTPException, Query, Request, Response, UploadFile, status
+from fastapi import (
+    BackgroundTasks,
+    Depends,
+    FastAPI,
+    File,
+    Header,
+    HTTPException,
+    Query,
+    Request,
+    Response,
+    UploadFile,
+    status,
+)
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
@@ -23,6 +35,7 @@ from tallyhawk.agent import AgentResolver
 from tallyhawk.db import PostgresStore, connect
 from tallyhawk.drafting import LLMDrafter, template_drafter
 from tallyhawk.extract import DEFAULT_EFFORT, DEFAULT_MODEL, MEDIA_TYPES, extract_invoice
+from tallyhawk.limits import QUOTA_MESSAGE, DemoLimits, LimitReached, claim_upload, is_quota_error, session_id
 from tallyhawk.service import (
     Conflict,
     InvoiceDetail,
@@ -60,8 +73,11 @@ def service_from_env() -> InvoiceService:
     )
 
 
-def create_app(service: InvoiceService | None = None, api_key: str | None = None) -> FastAPI:
-    """`service` and `api_key` default to the environment (tests pass their own)."""
+def create_app(
+    service: InvoiceService | None = None, api_key: str | None = None, limits: DemoLimits | None = None
+) -> FastAPI:
+    """`service`, `api_key` and `limits` default to the environment (tests pass their own)."""
+    limits = limits if limits is not None else DemoLimits.from_env()
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -102,6 +118,15 @@ def create_app(service: InvoiceService | None = None, api_key: str | None = None
         except Conflict as exc:
             raise HTTPException(status.HTTP_409_CONFLICT, str(exc)) from exc
 
+    # Sent by the web app's proxy from its signed session cookie; see tallyhawk.limits.
+    SessionHeader = Annotated[str | None, Header(alias="X-TallyHawk-Session", include_in_schema=False)]
+
+    def claim(service: InvoiceService, session: str | None) -> None:
+        try:
+            claim_upload(service.pool, limits, session_id(session))
+        except LimitReached as exc:
+            raise HTTPException(status.HTTP_429_TOO_MANY_REQUESTS, str(exc)) from exc
+
     def process_quietly(service: InvoiceService, invoice_id: uuid.UUID) -> None:
         try:
             service.process(invoice_id)
@@ -118,6 +143,7 @@ def create_app(service: InvoiceService | None = None, api_key: str | None = None
         background: BackgroundTasks,
         file: Annotated[UploadFile, File(description="Invoice PDF or image (PNG, JPEG, WebP).")],
         process: Annotated[bool, Query(description="Extract and match in the background right away.")] = True,
+        session: SessionHeader = None,
     ) -> InvoiceRecord:
         """Upload a supplier invoice. With `process=true` (the default) extraction and matching
         start in the background; poll `GET /invoices/{id}` until the status leaves `processing`."""
@@ -135,19 +161,24 @@ def create_app(service: InvoiceService | None = None, api_key: str | None = None
             raise HTTPException(status.HTTP_413_CONTENT_TOO_LARGE, "Invoices are limited to 20 MB.")
         if not data:
             raise HTTPException(status.HTTP_400_BAD_REQUEST, "The file is empty.")
+        claim(service, session)
         record = service.upload(filename, media_type, data)
         if process:
             background.add_task(process_quietly, service, record.id)
         return record
 
     @app.post("/invoices/{invoice_id}/process", dependencies=auth, tags=["invoices"])
-    def process_invoice(service: Service, invoice_id: uuid.UUID) -> InvoiceDetail:
-        """Run (or re-run) extraction and matching now, and wait for the result."""
+    def process_invoice(service: Service, invoice_id: uuid.UUID, session: SessionHeader = None) -> InvoiceDetail:
+        """Run (or re-run) extraction and matching now, and wait for the result. A re-run counts
+        against the demo caps like an upload, since it calls the model again."""
+        claim(service, session)
         try:
             return found(service.process, invoice_id)
         except HTTPException:
             raise
         except Exception as exc:
+            if is_quota_error(exc):
+                raise HTTPException(status.HTTP_429_TOO_MANY_REQUESTS, QUOTA_MESSAGE) from exc
             raise HTTPException(status.HTTP_502_BAD_GATEWAY, f"Processing failed: {exc}") from exc
 
     @app.get("/invoices", dependencies=auth, tags=["invoices"])
