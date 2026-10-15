@@ -240,3 +240,19 @@ test("stops uploading at the demo cap and explains why", async ({
   // The rest are left ready rather than marked as failed.
   await expect(page.getByText("2 ready to upload")).toBeVisible();
 });
+
+test("uploads a sample invoice through the normal pipeline", async ({
+  page,
+}) => {
+  await login(page);
+  await page.getByRole("link", { name: "Inbox" }).click();
+  const card = page
+    .getByRole("listitem")
+    .filter({ hasText: "Supplier's own sums are wrong" });
+  await expect(card).toContainText("Expected: Supplier query drafted");
+  await card.getByRole("button", { name: /Try sample/ }).click();
+  await expect(page.getByText("inv_008.pdf")).toBeVisible();
+  await expect(
+    page.getByText("Uploaded · Extraction and matching queued"),
+  ).toBeVisible();
+});

@@ -10,7 +10,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { api, demoLimitReached } from "@/lib/client";
+import samples from "@/lib/samples.json";
 import type { InvoiceRecord } from "@/lib/types";
+type Sample = (typeof samples)[number];
 type Upload = {
   file: File;
   state: "ready" | "uploading" | "done" | "error";
@@ -49,11 +51,12 @@ export function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
       ),
     ]);
   }
-  async function upload() {
+  // Uploads the ready items in `next` (only index `only`, when given).
+  async function send(next: Upload[], only?: number) {
     setBusy(true);
-    const next = [...items];
     for (let i = 0; i < next.length; i++) {
-      if (next[i].state !== "ready") continue;
+      if (next[i].state !== "ready" || (only !== undefined && i !== only))
+        continue;
       next[i] = { ...next[i], state: "uploading" };
       setItems([...next]);
       const form = new FormData();
@@ -79,6 +82,25 @@ export function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
       setItems([...next]);
     }
     setBusy(false);
+  }
+  const upload = () => send([...items]);
+  // Samples go through the same upload, extraction and matching as any file.
+  async function trySample(sample: Sample) {
+    setError("");
+    let file: File;
+    try {
+      const response = await fetch(`/samples/${sample.file}`);
+      if (!response.ok) throw new Error();
+      file = new File([await response.blob()], sample.file, {
+        type: "application/pdf",
+      });
+    } catch {
+      setError("That sample couldn't be loaded. Refresh and try again.");
+      return;
+    }
+    const next: Upload[] = [...items, { file, state: "ready" }];
+    setItems(next);
+    await send(next, next.length - 1);
   }
   return (
     <section className="panel upload-panel">
@@ -130,6 +152,46 @@ export function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
             event.target.value = "";
           }}
         />
+      </div>
+      <p className="upload-note">
+        Your own invoices work too, but their supplier and purchase order
+        aren&apos;t in this demo&apos;s records, so they will always go to
+        review.
+      </p>
+      <div className="samples" aria-labelledby="samples-heading">
+        <div className="samples-heading">
+          <h3 id="samples-heading">Or try a sample invoice</h3>
+          <p>
+            Each one runs through the real pipeline and shows a different
+            outcome. Check the result against the label. Once a sample is
+            approved, uploading it again is caught as a duplicate until the
+            demo resets overnight.
+          </p>
+        </div>
+        <ul className="sample-grid">
+          {samples.map((sample) => (
+            <li key={sample.file} className="sample-card">
+              <div>
+                <strong>{sample.title}</strong>
+                <span>{sample.detail}</span>
+              </div>
+              <div className="sample-footer">
+                <span className={`sample-outcome outcome-${sample.decision}`}>
+                  Expected: {sample.outcome}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={busy}
+                  aria-label={`Try sample: ${sample.title}`}
+                  onClick={() => void trySample(sample)}
+                >
+                  Try it
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
       {limit && (
         <div className="error-banner limit-banner" role="alert">
