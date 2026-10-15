@@ -1,6 +1,9 @@
 import { authenticated, sameOrigin } from "@/lib/auth";
 export const maxDuration = 300;
 const uuid = "[0-9a-fA-F-]{36}";
+// Tells the browser the API itself is unreachable or still starting (Render's
+// free tier sleeps when idle), as opposed to an error the API returned.
+const UNAVAILABLE = "X-TallyHawk-Unavailable";
 async function proxy(
   request: Request,
   context: { params: Promise<{ path: string[] }> },
@@ -86,6 +89,14 @@ async function proxy(
       "Content-Type",
       upstream.headers.get("Content-Type") || "application/json",
     );
+    if (
+      [502, 503, 504].includes(upstream.status) &&
+      !resultHeaders.get("Content-Type")!.includes("application/json")
+    )
+      return Response.json(
+        { detail: "The invoice service is starting up. Try again shortly." },
+        { status: 503, headers: { [UNAVAILABLE]: "1" } },
+      );
     if (path.endsWith("/file"))
       resultHeaders.set("Content-Disposition", "inline");
     return new Response(upstream.body, {
@@ -104,7 +115,7 @@ async function proxy(
       {
         detail: `The invoice service could not respond. ${hint}`,
       },
-      { status: 502 },
+      { status: 502, headers: { [UNAVAILABLE]: "1" } },
     );
   }
 }

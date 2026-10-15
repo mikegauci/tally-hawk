@@ -191,3 +191,20 @@ test("desktop visual capture and no overflow", async ({ page }) => {
     ),
   ).toBeTruthy();
 });
+
+test("shows a wake-up notice while the API cold-starts, then loads", async ({
+  page,
+  request,
+}) => {
+  await login(page);
+  await request.get("http://127.0.0.1:8109/sleep?requests=3");
+  await page.goto("/inbox");
+  const toast = page.getByRole("status").filter({
+    hasText: "Waking up the invoice service",
+  });
+  await expect(toast).toBeVisible();
+  await expect(toast).not.toBeVisible({ timeout: 20_000 });
+  await expect(
+    page.getByRole("cell", { name: "supplier-invoice.pdf" }),
+  ).toBeVisible();
+});
