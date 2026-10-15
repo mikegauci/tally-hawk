@@ -1473,11 +1473,86 @@ pre {
   }
 }
 .limit-banner {
-  margin: 16px 0 0;
+  margin: 16px 24px 0;
   background: var(--warning-background);
   color: var(--foreground);
 }
 .limit-banner a {
   color: var(--primary);
   text-decoration: underline;
+}
+.upload-note {
+  margin: 10px 24px 0;
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+.samples {
+  margin: 20px 24px 0;
+}
+.samples-heading h3 {
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 600;
+}
+.samples-heading p {
+  margin-top: 2px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  max-width: 640px;
+}
+.sample-grid {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+.sample-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  font-size: 12px;
+}
+.sample-card > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sample-card strong {
+  color: var(--foreground);
+}
+.sample-card span {
+  color: var(--muted-foreground);
+}
+.sample-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.sample-card .sample-outcome {
+  font-size: 11px;
+  font-weight: 500;
+}
+.sample-card .outcome-approve {
+  color: var(--success);
+}
+.sample-card .outcome-review {
+  color: var(--warning);
+}
+.sample-card .outcome-vendor_query {
+  color: var(--primary);
+}
+@media (max-width: 767px) {
+  .upload-note,
+  .samples,
+  .limit-banner {
+    margin-inline: 16px;
+  }
 }

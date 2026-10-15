@@ -1,0 +1,53 @@
+[
+  {
+    "file": "inv_004.pdf",
+    "title": "Goods arrived in two deliveries",
+    "detail": "Two goods receipts together cover everything billed.",
+    "decision": "approve",
+    "outcome": "Auto-approved"
+  },
+  {
+    "file": "inv_006.pdf",
+    "title": "Price a fraction above the PO",
+    "detail": "One unit price is slightly higher, but within tolerance.",
+    "decision": "approve",
+    "outcome": "Auto-approved"
+  },
+  {
+    "file": "inv_008.pdf",
+    "title": "Supplier's own sums are wrong",
+    "detail": "Matches the PO, but the invoice's arithmetic doesn't add up.",
+    "decision": "vendor_query",
+    "outcome": "Supplier query drafted"
+  },
+  {
+    "file": "inv_024.pdf",
+    "title": "No purchase order at all",
+    "detail": "No PO is quoted and none of the supplier's POs match.",
+    "decision": "vendor_query",
+    "outcome": "Supplier query drafted"
+  },
+  {
+    "file": "inv_010.pdf",
+    "title": "PO number has a typo",
+    "detail": "The AI agent searches the supplier's POs and finds the real one.",
+    "decision": "review",
+    "outcome": "Needs review (agent-found PO)",
+    "agent": true
+  },
+  {
+    "file": "inv_019.pdf",
+    "title": "Already paid once",
+    "detail": "The same invoice was approved before: a duplicate.",
+    "decision": "review",
+    "outcome": "Needs review (duplicate)"
+  },
+  {
+    "file": "inv_055.pdf",
+    "title": "Crooked, noisy scan",
+    "detail": "An image with no text layer. The supplier isn't on file, so it goes to a person.",
+    "decision": "review",
+    "outcome": "Needs review (unknown supplier)",
+    "scan": true
+  }
+]
