@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # TallyHawk
 
 AI invoice and purchase-order agent for SMB finance teams (accounts payable on Xero or
@@ -53,7 +57,26 @@ matter as much as features.
   status rules. `src/tallyhawk/api.py`: FastAPI routes over it. `src/tallyhawk/storage.py`:
   Supabase Storage or a local folder.
 - `src/tallyhawk/cli.py`: `uv run tallyhawk extract invoice.pdf`, `uv run tallyhawk match invoice.pdf|label.json [--db]`,
-  `uv run tallyhawk db migrate|seed`.
+  `uv run tallyhawk db migrate|seed`, `uv run tallyhawk demo load|snapshot|reset` (`demo.py`: curated
+  eval invoices through the real upload + process pipeline; `snapshot` saves them to
+  `demo/snapshot.json`, `reset` restores it without OpenAI, nightly via `.github/workflows/demo-reset.yml`).
+- `src/tallyhawk/limits.py`: public demo caps (`TALLYHAWK_DEMO_SESSION_LIMIT` per browser session,
+  `TALLYHAWK_DEMO_DAILY_LIMIT` per UTC day, counted in `demo_usage`; off when unset) and the friendly
+  message for OpenAI `insufficient_quota`. The session id comes from the signed web cookie, forwarded by
+  the proxy as `X-TallyHawk-Session`.
+- `src/tallyhawk/tracing.py`: optional Langfuse tracing; a no-op when `LANGFUSE_*` is unset.
+- `web/`: Next.js App Router + Tailwind v4 + shadcn/ui (Base UI) frontend; see `web/README.md`
+  and `web/DESIGN_SYSTEM.md`. The browser never talks to FastAPI directly:
+  `web/src/app/api/backend/[...path]` proxies an allowlist of API routes and adds
+  `TALLYHAWK_API_KEY` server-side; `web/src/app/api/session` + `web/src/lib/auth.ts` handle the
+  shared workspace password (`WEB_PASSWORD`, `SESSION_SECRET`, optional `WEB_DEMO_TOKEN` magic link).
+  Pages live under `web/src/app/(workspace)/` (dashboard, inbox, tasks, payables/bills).
+  `web/src/lib/client.ts` retries GETs while the API cold-starts (Render free tier) and drives the
+  wake-up toast. The inbox's "Try a sample invoice" cards come from `web/src/lib/samples.json` and
+  `web/public/samples/` (copies of eval PDFs; `tests/test_web_samples.py` keeps them honest).
+  `web/AGENTS.md`: this Next.js version has breaking changes, so read
+  `web/node_modules/next/dist/docs/` before writing Next.js code.
+- Deploy: API on Render via root `Dockerfile` / `render.yaml`; web on Vercel with root `web/`.
 - `evals/generate.py`: deterministic generator for `evals/data/` (PDFs + labels). Labels
   hold the values *printed* on the invoice, including deliberate supplier mistakes.
   `HARD_KINDS` defines the hard set; scanned cases are rendered by `RasterDoc` as JPEG-only
@@ -81,8 +104,22 @@ uv run pytest -m live -s                  # full eval with pass/fail thresholds
 TALLYHAWK_TEST_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres uv run pytest  # + DB/API tests
 uv run tallyhawk db migrate && uv run tallyhawk db seed   # needs DATABASE_URL
 uv run tallyhawk demo load                              # showcase invoices (OpenAI)
-uv run uvicorn tallyhawk.api:app --reload # API on :8000, docs at /docs
+uv run tallyhawk demo snapshot && uv run tallyhawk demo reset   # save / restore the demo state (no OpenAI)
+uv run uvicorn tallyhawk.api:app --env-file .env --reload  # API on :8000, docs at /docs (uvicorn doesn't load .env itself)
+uv run pytest tests/test_matching.py::test_name   # single test
+
+# web/ (needs the API running and web/.env.local from web/.env.example)
+cd web && npm ci && npm run dev           # :3000
+npm run typecheck && npm run lint && npm run build
+npm test                                  # Playwright; mock API on :8109, Next on :3109, no OpenAI/DB
+npx playwright test -g "name"             # single browser test
 ```
+
+pytest runs `tests/` and `evals/` with `-m 'not live'` by default; DB/API tests skip unless
+`TALLYHAWK_TEST_DATABASE_URL` is set. Playwright uses installed Chrome; set
+`PLAYWRIGHT_CHANNEL=chromium` where Chrome isn't installed. CI (`.github/workflows/ci.yml`) runs
+ruff + pytest against Postgres 16 and the web typecheck/lint/build/Playwright; the extraction
+and matching evals are manual `workflow_dispatch` jobs because they cost money.
 
 ## Conventions
 
