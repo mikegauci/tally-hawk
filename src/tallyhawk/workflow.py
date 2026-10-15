@@ -19,8 +19,9 @@
 from __future__ import annotations
 
 import operator
+import time
 import uuid
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from typing import Annotated, Literal, TypedDict
 
 from langgraph.checkpoint.base import BaseCheckpointSaver
@@ -47,6 +48,19 @@ from tallyhawk.procurement import POLine, ProcurementStore, PurchaseOrder, Vendo
 from tallyhawk.schema import InvoiceData, LineItem
 from tallyhawk.validation import validate_invoice
 
+
+class Step(BaseModel):
+    """One node of the graph as it ran: what it did, how long it took, and any model calls."""
+
+    name: str
+    summary: list[str]
+    duration_ms: float
+    llm_calls: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
+    cost_usd: float | None = None
+
+
 # Types the graph state holds, allowed when a checkpointer reads a paused case back.
 CHECKPOINT_TYPES = [
     (cls.__module__, cls.__name__)
@@ -64,6 +78,7 @@ CHECKPOINT_TYPES = [
         Usage,
         Resolution,
         ToolCall,
+        Step,
     )
 ]
 
@@ -90,6 +105,7 @@ class State(TypedDict, total=False):
     review: dict | None
     usage: Annotated[list[Usage], operator.add]
     trace: Annotated[list[str], operator.add]
+    steps: Annotated[list[Step], operator.add]
 
 
 class MatchOutcome(BaseModel):
@@ -111,6 +127,7 @@ class MatchOutcome(BaseModel):
     output_tokens: int
     cost_usd: float | None
     trace: list[str]
+    steps: list[Step] = []  # absent on outcomes stored before per-step timing
 
 
 class MatchingWorkflow:
@@ -230,6 +247,28 @@ class MatchingWorkflow:
 
     # --- graph -------------------------------------------------------------------------
 
+    @staticmethod
+    def _timed(name: str, node: Callable[[State], dict]) -> Callable[[State], dict]:
+        """Wrap a node so it also records a `Step` with its duration and model usage."""
+
+        def run(state: State) -> dict:
+            started = time.perf_counter()
+            update = node(state)
+            usage: list[Usage] = update.get("usage", [])
+            costs = [u.cost_usd for u in usage]
+            step = Step(
+                name=name,
+                summary=[line.split(": ", 1)[-1] for line in update.get("trace", [])],
+                duration_ms=round((time.perf_counter() - started) * 1000, 1),
+                llm_calls=len(usage),
+                input_tokens=sum(u.input_tokens for u in usage),
+                output_tokens=sum(u.output_tokens for u in usage),
+                cost_usd=round(sum(costs), 6) if usage and None not in costs else None,
+            )
+            return update | {"steps": [step]}
+
+        return run
+
     def _after_lookup(self, state: State) -> str:
         return "match" if state.get("po") is not None or self.resolver is None else "investigate"
 
@@ -240,13 +279,13 @@ class MatchingWorkflow:
 
     def _build(self) -> StateGraph:
         g = StateGraph(State)
-        g.add_node("check", self._check)
-        g.add_node("lookup", self._lookup)
-        g.add_node("investigate", self._investigate)
-        g.add_node("match", self._match)
-        g.add_node("decide", self._decide)
-        g.add_node("draft_query", self._draft_query)
-        g.add_node("handoff", self._handoff)
+        g.add_node("check", self._timed("check", self._check))
+        g.add_node("lookup", self._timed("lookup", self._lookup))
+        g.add_node("investigate", self._timed("investigate", self._investigate))
+        g.add_node("match", self._timed("match", self._match))
+        g.add_node("decide", self._timed("decide", self._decide))
+        g.add_node("draft_query", self._timed("draft_query", self._draft_query))
+        g.add_node("handoff", self._timed("handoff", self._handoff))
         g.add_edge(START, "check")
         g.add_edge("check", "lookup")
         g.add_conditional_edges("lookup", self._after_lookup, ["match", "investigate"])
@@ -308,4 +347,5 @@ class MatchingWorkflow:
             output_tokens=sum(u.output_tokens for u in usage),
             cost_usd=round(sum(costs), 6) if usage and None not in costs else None,
             trace=state.get("trace", []),
+            steps=state.get("steps", []),
         )

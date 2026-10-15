@@ -36,7 +36,10 @@ def test_postgres_store_matches_like_the_in_memory_store(stores, case_id):
     """Every matching eval case gets the same outcome (decision, issues, lines, trace) on both stores."""
     pg, mem = stores
     invoice = gold(case_id)
-    assert MatchingWorkflow(pg).run(invoice) == MatchingWorkflow(mem).run(invoice)
+    on_pg, in_mem = MatchingWorkflow(pg).run(invoice), MatchingWorkflow(mem).run(invoice)
+    assert on_pg.model_dump(exclude={"steps"}) == in_mem.model_dump(exclude={"steps"})
+    # Step timings differ run to run; what each step did must not.
+    assert [(s.name, s.summary) for s in on_pg.steps] == [(s.name, s.summary) for s in in_mem.steps]
 
 
 def test_store_lookups_agree(stores):
