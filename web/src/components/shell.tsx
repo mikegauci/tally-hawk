@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
 import {
-  ArrowDownToLine,
   Inbox,
   LayoutDashboard,
   ListTodo,
@@ -17,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HawkMark } from "@/components/hawk-mark";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { replayWorkspaceTour, WorkspaceTour } from "@/components/workspace-tour";
 import { ApiWakeToast } from "@/components/api-wake-toast";
@@ -69,7 +69,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <aside className={`sidebar ${mobile ? "mobile-open" : ""}`}>
         <Link href="/dashboard" className="brand">
           <span className="brand-mark">
-            <ArrowDownToLine size={21} />
+            <HawkMark size={26} />
           </span>
           <span className="sidebar-label">
             TallyHawk<span className="brand-caption">Finance workspace</span>
