@@ -1,0 +1,1295 @@
+{
+ "extractions": [
+  {
+   "cost_usd": 0.01592,
+   "created_at": "2026-10-15T13:28:37.311726+02:00",
+   "extracted": {
+    "confidence": {
+     "currency": 0.99,
+     "due_date": 0.99,
+     "invoice_date": 0.99,
+     "invoice_number": 0.99,
+     "line_items": 0.99,
+     "po_number": 0.99,
+     "subtotal": 0.99,
+     "tax_amount": 0.99,
+     "tax_rate": 0.99,
+     "total": 0.99,
+     "vendor_name": 0.99,
+     "vendor_tax_id": 0.99
+    },
+    "invoice": {
+     "currency": "EUR",
+     "due_date": "2026-10-28",
+     "invoice_date": "2026-08-29",
+     "invoice_number": "INV-183700",
+     "line_items": [
+      {
+       "amount": 444.3,
+       "description": "Pallet delivery, zone 2",
+       "quantity": 10.0,
+       "unit_price": 44.43
+      },
+      {
+       "amount": 205.88,
+       "description": "On-site IT support, per hour",
+       "quantity": 2.0,
+       "unit_price": 102.94
+      },
+      {
+       "amount": 109.6,
+       "description": "Plasterboard sheet 2400x1200",
+       "quantity": 10.0,
+       "unit_price": 10.96
+      },
+      {
+       "amount": 51.23,
+       "description": "Safety boots, size assorted",
+       "quantity": 1.0,
+       "unit_price": 51.23
+      }
+     ],
+     "po_number": "HVH-3330",
+     "subtotal": 811.01,
+     "tax_amount": 72.99,
+     "tax_rate": 9.0,
+     "total": 884.0,
+     "vendor_name": "Kestrel Building Materials Ltd",
+     "vendor_tax_id": "IE82876894"
+    },
+    "notes": null
+   },
+   "id": 1,
+   "input_tokens": 1408,
+   "invoice_id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "issues": [],
+   "latency_s": 6.05,
+   "low_confidence_fields": [],
+   "model": "gpt-5.5-2026-04-23",
+   "needs_review": false,
+   "output_tokens": 296
+  },
+  {
+   "cost_usd": 0.01719,
+   "created_at": "2026-10-15T13:28:42.969811+02:00",
+   "extracted": {
+    "confidence": {
+     "currency": 0.99,
+     "due_date": 0.99,
+     "invoice_date": 0.99,
+     "invoice_number": 0.99,
+     "line_items": 0.99,
+     "po_number": 0.98,
+     "subtotal": 0.99,
+     "tax_amount": 0.99,
+     "tax_rate": 0.99,
+     "total": 0.99,
+     "vendor_name": 0.99,
+     "vendor_tax_id": 0.99
+    },
+    "invoice": {
+     "currency": "USD",
+     "due_date": "2026-09-20",
+     "invoice_date": "2026-08-21",
+     "invoice_number": "2026-817180",
+     "line_items": [
+      {
+       "amount": 467.7,
+       "description": "Freight surcharge",
+       "quantity": 10.0,
+       "unit_price": 46.77
+      },
+      {
+       "amount": 41.61,
+       "description": "Olive oil, extra virgin, 5L",
+       "quantity": 1.0,
+       "unit_price": 41.61
+      },
+      {
+       "amount": 354.24,
+       "description": "Ready-mix concrete, per m3",
+       "quantity": 3.0,
+       "unit_price": 118.08
+      },
+      {
+       "amount": 110.5,
+       "description": "Coffee beans 1kg",
+       "quantity": 5.0,
+       "unit_price": 22.1
+      },
+      {
+       "amount": 41.42,
+       "description": "A4 copy paper, 80gsm (box of 5 reams)",
+       "quantity": 2.0,
+       "unit_price": 20.71
+      }
+     ],
+     "po_number": null,
+     "subtotal": 1015.47,
+     "tax_amount": 83.78,
+     "tax_rate": 8.25,
+     "total": 1099.25,
+     "vendor_name": "OLD MILL SUPPLIES INC.",
+     "vendor_tax_id": "30-4773968"
+    },
+    "notes": null
+   },
+   "id": 2,
+   "input_tokens": 1440,
+   "invoice_id": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae",
+   "issues": [
+    {
+     "code": "missing_po",
+     "message": "No PO number found; the invoice can't be auto-matched.",
+     "severity": "warning"
+    }
+   ],
+   "latency_s": 5.53,
+   "low_confidence_fields": [],
+   "model": "gpt-5.5-2026-04-23",
+   "needs_review": false,
+   "output_tokens": 333
+  },
+  {
+   "cost_usd": 0.016785,
+   "created_at": "2026-10-15T13:28:52.949761+02:00",
+   "extracted": {
+    "confidence": {
+     "currency": 0.99,
+     "due_date": 0.99,
+     "invoice_date": 0.99,
+     "invoice_number": 0.99,
+     "line_items": 0.99,
+     "po_number": 0.99,
+     "subtotal": 0.99,
+     "tax_amount": 0.99,
+     "tax_rate": 0.99,
+     "total": 0.99,
+     "vendor_name": 0.99,
+     "vendor_tax_id": 0.99
+    },
+    "invoice": {
+     "currency": "EUR",
+     "due_date": "2026-09-10",
+     "invoice_date": "2026-08-11",
+     "invoice_number": "2026-769765",
+     "line_items": [
+      {
+       "amount": 161.36,
+       "description": "Pallet delivery, zone 2",
+       "quantity": 2.0,
+       "unit_price": 80.68
+      },
+      {
+       "amount": 16.08,
+       "description": "Cat6 patch cable 3m",
+       "quantity": 4.0,
+       "unit_price": 4.02
+      },
+      {
+       "amount": 169.32,
+       "description": "Safety boots, size assorted",
+       "quantity": 3.0,
+       "unit_price": 56.44
+      },
+      {
+       "amount": 16.09,
+       "description": "Flour type 00, 25kg sack",
+       "quantity": 1.0,
+       "unit_price": 16.09
+      },
+      {
+       "amount": 73.15,
+       "description": "Monthly software licence, per seat",
+       "quantity": 5.0,
+       "unit_price": 14.63
+      }
+     ],
+     "po_number": "PO-31244",
+     "subtotal": 436.0,
+     "tax_amount": 91.56,
+     "tax_rate": 21.0,
+     "total": 527.56,
+     "vendor_name": "Vantage Systems B.V.",
+     "vendor_tax_id": "IE66459413"
+    },
+    "notes": null
+   },
+   "id": 3,
+   "input_tokens": 1431,
+   "invoice_id": "aae97fa9-6375-42c1-b5c4-65b3acb2f943",
+   "issues": [],
+   "latency_s": 3.57,
+   "low_confidence_fields": [],
+   "model": "gpt-5.5-2026-04-23",
+   "needs_review": false,
+   "output_tokens": 321
+  },
+  {
+   "cost_usd": 0.01787,
+   "created_at": "2026-10-15T13:29:00.554915+02:00",
+   "extracted": {
+    "confidence": {
+     "currency": 0.99,
+     "due_date": 0.99,
+     "invoice_date": 0.99,
+     "invoice_number": 0.99,
+     "line_items": 0.99,
+     "po_number": 0.99,
+     "subtotal": 0.99,
+     "tax_amount": 0.99,
+     "tax_rate": 0.99,
+     "total": 0.99,
+     "vendor_name": 0.99,
+     "vendor_tax_id": 0.98
+    },
+    "invoice": {
+     "currency": "USD",
+     "due_date": "2026-06-09",
+     "invoice_date": "2026-04-25",
+     "invoice_number": "338626",
+     "line_items": [
+      {
+       "amount": 996.48,
+       "description": "Safety boots, size assorted",
+       "quantity": 24.0,
+       "unit_price": 41.52
+      },
+      {
+       "amount": 328.92,
+       "description": "Cleaning chemicals, 10L",
+       "quantity": 12.0,
+       "unit_price": 27.41
+      },
+      {
+       "amount": 2390.88,
+       "description": "Ready-mix concrete, per m3",
+       "quantity": 24.0,
+       "unit_price": 99.62
+      },
+      {
+       "amount": 9.48,
+       "description": "Cat6 patch cable 3m",
+       "quantity": 2.0,
+       "unit_price": 4.74
+      },
+      {
+       "amount": 377.52,
+       "description": "Toner cartridge, black",
+       "quantity": 4.0,
+       "unit_price": 94.38
+      },
+      {
+       "amount": 277.44,
+       "description": "Shrink wrap roll 500mm",
+       "quantity": 12.0,
+       "unit_price": 23.12
+      }
+     ],
+     "po_number": "4500058691",
+     "subtotal": 4380.72,
+     "tax_amount": 328.55,
+     "tax_rate": 7.5,
+     "total": 4709.27,
+     "vendor_name": "MAPLE & FINCH LOGISTICS CORP.",
+     "vendor_tax_id": "83-8599901"
+    },
+    "notes": null
+   },
+   "id": 4,
+   "input_tokens": 1462,
+   "invoice_id": "e0d323a7-d27b-4a45-82c8-e11e763f7711",
+   "issues": [],
+   "latency_s": 4.34,
+   "low_confidence_fields": [],
+   "model": "gpt-5.5-2026-04-23",
+   "needs_review": false,
+   "output_tokens": 352
+  },
+  {
+   "cost_usd": 0.019155,
+   "created_at": "2026-10-15T13:29:07.102619+02:00",
+   "extracted": {
+    "confidence": {
+     "currency": 0.99,
+     "due_date": 0.99,
+     "invoice_date": 0.99,
+     "invoice_number": 0.99,
+     "line_items": 0.99,
+     "po_number": 0.99,
+     "subtotal": 0.99,
+     "tax_amount": 0.99,
+     "tax_rate": 0.99,
+     "total": 0.99,
+     "vendor_name": 0.99,
+     "vendor_tax_id": 0.98
+    },
+    "invoice": {
+     "currency": "USD",
+     "due_date": "2026-01-28",
+     "invoice_date": "2026-01-14",
+     "invoice_number": "2026-670452",
+     "line_items": [
+      {
+       "amount": 396.2,
+       "description": "Flour type 00, 25kg sack",
+       "quantity": 20.0,
+       "unit_price": 19.81
+      },
+      {
+       "amount": 255.9,
+       "description": "A4 copy paper, 80gsm (box of 5 reams)",
+       "quantity": 10.0,
+       "unit_price": 25.59
+      },
+      {
+       "amount": 11.78,
+       "description": "Plasterboard sheet 2400x1200",
+       "quantity": 1.0,
+       "unit_price": 11.78
+      },
+      {
+       "amount": 62.4,
+       "description": "Coffee beans 1kg",
+       "quantity": 4.0,
+       "unit_price": 15.6
+      },
+      {
+       "amount": 254.82,
+       "description": "Safety boots, size assorted",
+       "quantity": 6.0,
+       "unit_price": 42.47
+      },
+      {
+       "amount": 221.45,
+       "description": "Laptop docking station",
+       "quantity": 1.0,
+       "unit_price": 221.45
+      },
+      {
+       "amount": 168.06,
+       "description": "Pallet delivery, zone 2",
+       "quantity": 3.0,
+       "unit_price": 56.02
+      }
+     ],
+     "po_number": "MPM-2810",
+     "subtotal": 1370.61,
+     "tax_amount": 102.8,
+     "tax_rate": 7.5,
+     "total": 1473.41,
+     "vendor_name": "Vantage IT Services LLC",
+     "vendor_tax_id": "33-6541914"
+    },
+    "notes": null
+   },
+   "id": 5,
+   "input_tokens": 1491,
+   "invoice_id": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc",
+   "issues": [],
+   "latency_s": 4.07,
+   "low_confidence_fields": [],
+   "model": "gpt-5.5-2026-04-23",
+   "needs_review": false,
+   "output_tokens": 390
+  }
+ ],
+ "invoices": [
+  {
+   "error": null,
+   "filename": "inv_003.pdf",
+   "id": "aae97fa9-6375-42c1-b5c4-65b3acb2f943",
+   "media_type": "application/pdf",
+   "sha256": "a03526745a4892a1a37f2defb511c367ae4d197f77b9cdd891bf84abaaa28333",
+   "size_bytes": 2478,
+   "status": "awaiting_review",
+   "storage_path": "aae97fa9-6375-42c1-b5c4-65b3acb2f943/inv_003.pdf",
+   "updated_at": "2026-10-15T13:28:56.177262+02:00",
+   "uploaded_at": "2026-10-15T13:28:49.365686+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_002.pdf",
+   "id": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae",
+   "media_type": "application/pdf",
+   "sha256": "82762d102cc8ae898da6ab6c119224e61f105f78627cda0464ff9020c7f2a609",
+   "size_bytes": 2423,
+   "status": "awaiting_review",
+   "storage_path": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae/inv_002.pdf",
+   "updated_at": "2026-10-15T13:28:49.351716+02:00",
+   "uploaded_at": "2026-10-15T13:28:37.431209+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_011.pdf",
+   "id": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc",
+   "media_type": "application/pdf",
+   "sha256": "18635b828238469cea6d61f85f807afdc6cd883a56920dfec202f03a8d43156c",
+   "size_bytes": 2608,
+   "status": "awaiting_review",
+   "storage_path": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc/inv_011.pdf",
+   "updated_at": "2026-10-15T13:29:07.136706+02:00",
+   "uploaded_at": "2026-10-15T13:29:03.019509+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_007.pdf",
+   "id": "e0d323a7-d27b-4a45-82c8-e11e763f7711",
+   "media_type": "application/pdf",
+   "sha256": "4baf6d31d4657a71ec8d4d116905f3759fdd9dbefa5c2af591965c9c92a7eb98",
+   "size_bytes": 2516,
+   "status": "awaiting_review",
+   "storage_path": "e0d323a7-d27b-4a45-82c8-e11e763f7711/inv_007.pdf",
+   "updated_at": "2026-10-15T13:29:02.987959+02:00",
+   "uploaded_at": "2026-10-15T13:28:56.191415+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_001.pdf",
+   "id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "media_type": "application/pdf",
+   "sha256": "1c56776db78ca1a5681b94dcb058a67c8f4cd1324925f1fff5c17113f86336aa",
+   "size_bytes": 2448,
+   "status": "approved",
+   "storage_path": "e3265e1b-4ed1-47fc-8869-897f3d369760/inv_001.pdf",
+   "updated_at": "2026-10-15T13:28:37.40233+02:00",
+   "uploaded_at": "2026-10-15T13:28:31.227874+02:00"
+  }
+ ],
+ "match_results": [
+  {
+   "cost_usd": null,
+   "created_at": "2026-10-15T13:28:37.40233+02:00",
+   "decision": "approve",
+   "extraction_id": 1,
+   "id": 1,
+   "invoice_data": {
+    "currency": "EUR",
+    "due_date": "2026-10-28",
+    "invoice_date": "2026-08-29",
+    "invoice_number": "INV-183700",
+    "line_items": [
+     {
+      "amount": 444.3,
+      "description": "Pallet delivery, zone 2",
+      "quantity": 10.0,
+      "unit_price": 44.43
+     },
+     {
+      "amount": 205.88,
+      "description": "On-site IT support, per hour",
+      "quantity": 2.0,
+      "unit_price": 102.94
+     },
+     {
+      "amount": 109.6,
+      "description": "Plasterboard sheet 2400x1200",
+      "quantity": 10.0,
+      "unit_price": 10.96
+     },
+     {
+      "amount": 51.23,
+      "description": "Safety boots, size assorted",
+      "quantity": 1.0,
+      "unit_price": 51.23
+     }
+    ],
+    "po_number": "HVH-3330",
+    "subtotal": 811.01,
+    "tax_amount": 72.99,
+    "tax_rate": 9.0,
+    "total": 884.0,
+    "vendor_name": "Kestrel Building Materials Ltd",
+    "vendor_tax_id": "IE82876894"
+   },
+   "invoice_id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "outcome": {
+    "cost_usd": null,
+    "decision": "approve",
+    "draft": null,
+    "input_tokens": 0,
+    "invoice_number": "INV-183700",
+    "issues": [],
+    "lines": [
+     {
+      "billed_qty": 10.0,
+      "description": "Pallet delivery, zone 2",
+      "invoice_line": 1,
+      "invoice_price": 44.43,
+      "issues": [],
+      "ordered_qty": 10.0,
+      "po_line": 1,
+      "po_price": 44.43,
+      "received_qty": 10.0
+     },
+     {
+      "billed_qty": 2.0,
+      "description": "On-site IT support, per hour",
+      "invoice_line": 2,
+      "invoice_price": 102.94,
+      "issues": [],
+      "ordered_qty": 2.0,
+      "po_line": 2,
+      "po_price": 102.94,
+      "received_qty": 2.0
+     },
+     {
+      "billed_qty": 10.0,
+      "description": "Plasterboard sheet 2400x1200",
+      "invoice_line": 3,
+      "invoice_price": 10.96,
+      "issues": [],
+      "ordered_qty": 10.0,
+      "po_line": 3,
+      "po_price": 10.96,
+      "received_qty": 10.0
+     },
+     {
+      "billed_qty": 1.0,
+      "description": "Safety boots, size assorted",
+      "invoice_line": 4,
+      "invoice_price": 51.23,
+      "issues": [],
+      "ordered_qty": 1.0,
+      "po_line": 4,
+      "po_price": 51.23,
+      "received_qty": 1.0
+     }
+    ],
+    "llm_calls": 0,
+    "output_tokens": 0,
+    "po_number": "HVH-3330",
+    "po_source": "printed",
+    "resolution": null,
+    "review": null,
+    "status": "done",
+    "thread_id": null,
+    "trace": [
+     "check: 0 extraction issue(s)",
+     "lookup: supplier V001; PO HVH-3330 on file",
+     "match: 0 match issue(s)",
+     "decide: approve"
+    ],
+    "vendor_id": "V001",
+    "vendor_source": "lookup"
+   },
+   "po_number": "HVH-3330",
+   "source": "extraction",
+   "vendor_id": "V001"
+  },
+  {
+   "cost_usd": 0.01795,
+   "created_at": "2026-10-15T13:28:49.351716+02:00",
+   "decision": "review",
+   "extraction_id": 2,
+   "id": 2,
+   "invoice_data": {
+    "currency": "USD",
+    "due_date": "2026-09-20",
+    "invoice_date": "2026-08-21",
+    "invoice_number": "2026-817180",
+    "line_items": [
+     {
+      "amount": 467.7,
+      "description": "Freight surcharge",
+      "quantity": 10.0,
+      "unit_price": 46.77
+     },
+     {
+      "amount": 41.61,
+      "description": "Olive oil, extra virgin, 5L",
+      "quantity": 1.0,
+      "unit_price": 41.61
+     },
+     {
+      "amount": 354.24,
+      "description": "Ready-mix concrete, per m3",
+      "quantity": 3.0,
+      "unit_price": 118.08
+     },
+     {
+      "amount": 110.5,
+      "description": "Coffee beans 1kg",
+      "quantity": 5.0,
+      "unit_price": 22.1
+     },
+     {
+      "amount": 41.42,
+      "description": "A4 copy paper, 80gsm (box of 5 reams)",
+      "quantity": 2.0,
+      "unit_price": 20.71
+     }
+    ],
+    "po_number": null,
+    "subtotal": 1015.47,
+    "tax_amount": 83.78,
+    "tax_rate": 8.25,
+    "total": 1099.25,
+    "vendor_name": "OLD MILL SUPPLIES INC.",
+    "vendor_tax_id": "30-4773968"
+   },
+   "invoice_id": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae",
+   "outcome": {
+    "cost_usd": 0.01795,
+    "decision": "review",
+    "draft": null,
+    "input_tokens": 2732,
+    "invoice_number": "2026-817180",
+    "issues": [
+     {
+      "code": "po_inferred",
+      "message": "The invoice quotes no PO; the best matching PO on file is CCC-7335.",
+      "route": "review"
+     }
+    ],
+    "lines": [
+     {
+      "billed_qty": 10.0,
+      "description": "Freight surcharge",
+      "invoice_line": 1,
+      "invoice_price": 46.77,
+      "issues": [],
+      "ordered_qty": 10.0,
+      "po_line": 1,
+      "po_price": 46.77,
+      "received_qty": 10.0
+     },
+     {
+      "billed_qty": 1.0,
+      "description": "Olive oil, extra virgin, 5L",
+      "invoice_line": 2,
+      "invoice_price": 41.61,
+      "issues": [],
+      "ordered_qty": 1.0,
+      "po_line": 2,
+      "po_price": 41.61,
+      "received_qty": 1.0
+     },
+     {
+      "billed_qty": 3.0,
+      "description": "Ready-mix concrete, per m3",
+      "invoice_line": 3,
+      "invoice_price": 118.08,
+      "issues": [],
+      "ordered_qty": 3.0,
+      "po_line": 3,
+      "po_price": 118.08,
+      "received_qty": 3.0
+     },
+     {
+      "billed_qty": 5.0,
+      "description": "Coffee beans 1kg",
+      "invoice_line": 4,
+      "invoice_price": 22.1,
+      "issues": [],
+      "ordered_qty": 5.0,
+      "po_line": 4,
+      "po_price": 22.1,
+      "received_qty": 5.0
+     },
+     {
+      "billed_qty": 2.0,
+      "description": "A4 copy paper, 80gsm (box of 5 reams)",
+      "invoice_line": 5,
+      "invoice_price": 20.71,
+      "issues": [],
+      "ordered_qty": 2.0,
+      "po_line": 5,
+      "po_price": 20.71,
+      "received_qty": 2.0
+     }
+    ],
+    "llm_calls": 3,
+    "output_tokens": 143,
+    "po_number": "CCC-7335",
+    "po_source": "agent",
+    "resolution": {
+     "confidence": 1.0,
+     "po_number": "CCC-7335",
+     "reasoning": "Supplier matched Old Mill Supplies Inc. by exact tax ID (30-4773968). Open PO CCC-7335 has the same currency, subtotal total, and all five invoice lines match exactly on descriptions, quantities, and unit prices.",
+     "tool_calls": [
+      {
+       "arguments": {
+        "name": "OLD MILL SUPPLIES INC.",
+        "tax_id": "30-4773968"
+       },
+       "name": "search_vendors"
+      },
+      {
+       "arguments": {
+        "include_closed": false,
+        "vendor_id": "V002"
+       },
+       "name": "list_purchase_orders"
+      },
+      {
+       "arguments": {
+        "confidence": 1,
+        "po_number": "CCC-7335",
+        "reasoning": "Supplier matched Old Mill Supplies Inc. by exact tax ID (30-4773968). Open PO CCC-7335 has the same currency, subtotal total, and all five invoice lines match exactly on descriptions, quantities, and unit prices.",
+        "vendor_id": "V002"
+       },
+       "name": "submit_resolution"
+      }
+     ],
+     "usage": [
+      {
+       "cost_usd": 0.00377,
+       "input_tokens": 556,
+       "output_tokens": 33
+      },
+      {
+       "cost_usd": 0.004695,
+       "input_tokens": 783,
+       "output_tokens": 26
+      },
+      {
+       "cost_usd": 0.009485,
+       "input_tokens": 1393,
+       "output_tokens": 84
+      }
+     ],
+     "vendor_id": "V002"
+    },
+    "review": null,
+    "status": "done",
+    "thread_id": null,
+    "trace": [
+     "check: 0 extraction issue(s)",
+     "lookup: supplier V002; PO none not found",
+     "investigate: agent made 3 tool call(s)",
+     "investigate: PO CCC-7335",
+     "match: 1 match issue(s)",
+     "decide: review",
+     "handoff: queued for a person"
+    ],
+    "vendor_id": "V002",
+    "vendor_source": "lookup"
+   },
+   "po_number": "CCC-7335",
+   "source": "extraction",
+   "vendor_id": "V002"
+  },
+  {
+   "cost_usd": 0.004875,
+   "created_at": "2026-10-15T13:28:56.177262+02:00",
+   "decision": "vendor_query",
+   "extraction_id": 3,
+   "id": 3,
+   "invoice_data": {
+    "currency": "EUR",
+    "due_date": "2026-09-10",
+    "invoice_date": "2026-08-11",
+    "invoice_number": "2026-769765",
+    "line_items": [
+     {
+      "amount": 161.36,
+      "description": "Pallet delivery, zone 2",
+      "quantity": 2.0,
+      "unit_price": 80.68
+     },
+     {
+      "amount": 16.08,
+      "description": "Cat6 patch cable 3m",
+      "quantity": 4.0,
+      "unit_price": 4.02
+     },
+     {
+      "amount": 169.32,
+      "description": "Safety boots, size assorted",
+      "quantity": 3.0,
+      "unit_price": 56.44
+     },
+     {
+      "amount": 16.09,
+      "description": "Flour type 00, 25kg sack",
+      "quantity": 1.0,
+      "unit_price": 16.09
+     },
+     {
+      "amount": 73.15,
+      "description": "Monthly software licence, per seat",
+      "quantity": 5.0,
+      "unit_price": 14.63
+     }
+    ],
+    "po_number": "PO-31244",
+    "subtotal": 436.0,
+    "tax_amount": 91.56,
+    "tax_rate": 21.0,
+    "total": 527.56,
+    "vendor_name": "Vantage Systems B.V.",
+    "vendor_tax_id": "IE66459413"
+   },
+   "invoice_id": "aae97fa9-6375-42c1-b5c4-65b3acb2f943",
+   "outcome": {
+    "cost_usd": 0.004875,
+    "decision": "vendor_query",
+    "draft": {
+     "body": "Dear Vantage Systems BV,\n\nWe are unable to pay invoice 2026-769765 as billed.\n\nPO PO-31244 shows line 4, \u201cFlour type 00, 25kg sack\u201d, agreed at EUR 14.79 per unit, but the invoice bills this line at EUR 16.09 per unit.\n\nPlease send a corrected invoice or credit note so we can proceed with payment.\n\nKind regards,\n\nAccounts Payable",
+     "subject": "Invoice 2026-769765 - pricing discrepancy",
+     "to": "accounts@vantage-systems-bv.example",
+     "usage": {
+      "cost_usd": 0.004875,
+      "input_tokens": 231,
+      "output_tokens": 124
+     }
+    },
+    "input_tokens": 231,
+    "invoice_number": "2026-769765",
+    "issues": [
+     {
+      "code": "price_variance",
+      "message": "Line 4 ('Flour type 00, 25kg sack') is billed at 16.09 per unit; PO-31244 agreed 14.79.",
+      "route": "vendor"
+     }
+    ],
+    "lines": [
+     {
+      "billed_qty": 2.0,
+      "description": "Pallet delivery, zone 2",
+      "invoice_line": 1,
+      "invoice_price": 80.68,
+      "issues": [],
+      "ordered_qty": 2.0,
+      "po_line": 1,
+      "po_price": 80.68,
+      "received_qty": 2.0
+     },
+     {
+      "billed_qty": 4.0,
+      "description": "Cat6 patch cable 3m",
+      "invoice_line": 2,
+      "invoice_price": 4.02,
+      "issues": [],
+      "ordered_qty": 4.0,
+      "po_line": 2,
+      "po_price": 4.02,
+      "received_qty": 4.0
+     },
+     {
+      "billed_qty": 3.0,
+      "description": "Safety boots, size assorted",
+      "invoice_line": 3,
+      "invoice_price": 56.44,
+      "issues": [],
+      "ordered_qty": 3.0,
+      "po_line": 3,
+      "po_price": 56.44,
+      "received_qty": 3.0
+     },
+     {
+      "billed_qty": 1.0,
+      "description": "Flour type 00, 25kg sack",
+      "invoice_line": 4,
+      "invoice_price": 16.09,
+      "issues": [
+       "price_variance"
+      ],
+      "ordered_qty": 1.0,
+      "po_line": 4,
+      "po_price": 14.79,
+      "received_qty": 1.0
+     },
+     {
+      "billed_qty": 5.0,
+      "description": "Monthly software licence, per seat",
+      "invoice_line": 5,
+      "invoice_price": 14.63,
+      "issues": [],
+      "ordered_qty": 5.0,
+      "po_line": 5,
+      "po_price": 14.63,
+      "received_qty": 5.0
+     }
+    ],
+    "llm_calls": 1,
+    "output_tokens": 124,
+    "po_number": "PO-31244",
+    "po_source": "printed",
+    "resolution": null,
+    "review": null,
+    "status": "done",
+    "thread_id": null,
+    "trace": [
+     "check: 0 extraction issue(s)",
+     "lookup: supplier V003; PO PO-31244 on file",
+     "match: 1 match issue(s)",
+     "decide: vendor_query",
+     "draft_query: email to accounts@vantage-systems-bv.example",
+     "handoff: queued for a person"
+    ],
+    "vendor_id": "V003",
+    "vendor_source": "lookup"
+   },
+   "po_number": "PO-31244",
+   "source": "extraction",
+   "vendor_id": "V003"
+  },
+  {
+   "cost_usd": 0.00432,
+   "created_at": "2026-10-15T13:29:02.987959+02:00",
+   "decision": "vendor_query",
+   "extraction_id": 4,
+   "id": 4,
+   "invoice_data": {
+    "currency": "USD",
+    "due_date": "2026-06-09",
+    "invoice_date": "2026-04-25",
+    "invoice_number": "338626",
+    "line_items": [
+     {
+      "amount": 996.48,
+      "description": "Safety boots, size assorted",
+      "quantity": 24.0,
+      "unit_price": 41.52
+     },
+     {
+      "amount": 328.92,
+      "description": "Cleaning chemicals, 10L",
+      "quantity": 12.0,
+      "unit_price": 27.41
+     },
+     {
+      "amount": 2390.88,
+      "description": "Ready-mix concrete, per m3",
+      "quantity": 24.0,
+      "unit_price": 99.62
+     },
+     {
+      "amount": 9.48,
+      "description": "Cat6 patch cable 3m",
+      "quantity": 2.0,
+      "unit_price": 4.74
+     },
+     {
+      "amount": 377.52,
+      "description": "Toner cartridge, black",
+      "quantity": 4.0,
+      "unit_price": 94.38
+     },
+     {
+      "amount": 277.44,
+      "description": "Shrink wrap roll 500mm",
+      "quantity": 12.0,
+      "unit_price": 23.12
+     }
+    ],
+    "po_number": "4500058691",
+    "subtotal": 4380.72,
+    "tax_amount": 328.55,
+    "tax_rate": 7.5,
+    "total": 4709.27,
+    "vendor_name": "MAPLE & FINCH LOGISTICS CORP.",
+    "vendor_tax_id": "83-8599901"
+   },
+   "invoice_id": "e0d323a7-d27b-4a45-82c8-e11e763f7711",
+   "outcome": {
+    "cost_usd": 0.00432,
+    "decision": "vendor_query",
+    "draft": {
+     "body": "Dear Maple & Finch Logistics Corp.,\n\nWe are unable to pay invoice 338626 as billed against PO 4500058691.\n\nIssue:\n- Line 1, \u201cSafety boots, size assorted\u201d, bills 24 units, but 19 were received.\n\nPlease send a corrected invoice reflecting the quantity received, or provide a credit note for the difference.\n\nRegards,\nAccounts Payable",
+     "subject": "Invoice 338626 - quantity discrepancy",
+     "to": "accounts@maple-finch-logistics-corp.example",
+     "usage": {
+      "cost_usd": 0.00432,
+      "input_tokens": 216,
+      "output_tokens": 108
+     }
+    },
+    "input_tokens": 216,
+    "invoice_number": "338626",
+    "issues": [
+     {
+      "code": "qty_exceeds_received",
+      "message": "Line 1 ('Safety boots, size assorted') bills 24; 19 were received.",
+      "route": "vendor"
+     }
+    ],
+    "lines": [
+     {
+      "billed_qty": 24.0,
+      "description": "Safety boots, size assorted",
+      "invoice_line": 1,
+      "invoice_price": 41.52,
+      "issues": [
+       "qty_exceeds_received"
+      ],
+      "ordered_qty": 24.0,
+      "po_line": 1,
+      "po_price": 41.52,
+      "received_qty": 19.0
+     },
+     {
+      "billed_qty": 12.0,
+      "description": "Cleaning chemicals, 10L",
+      "invoice_line": 2,
+      "invoice_price": 27.41,
+      "issues": [],
+      "ordered_qty": 12.0,
+      "po_line": 2,
+      "po_price": 27.41,
+      "received_qty": 12.0
+     },
+     {
+      "billed_qty": 24.0,
+      "description": "Ready-mix concrete, per m3",
+      "invoice_line": 3,
+      "invoice_price": 99.62,
+      "issues": [],
+      "ordered_qty": 24.0,
+      "po_line": 3,
+      "po_price": 99.62,
+      "received_qty": 24.0
+     },
+     {
+      "billed_qty": 2.0,
+      "description": "Cat6 patch cable 3m",
+      "invoice_line": 4,
+      "invoice_price": 4.74,
+      "issues": [],
+      "ordered_qty": 2.0,
+      "po_line": 4,
+      "po_price": 4.74,
+      "received_qty": 2.0
+     },
+     {
+      "billed_qty": 4.0,
+      "description": "Toner cartridge, black",
+      "invoice_line": 5,
+      "invoice_price": 94.38,
+      "issues": [],
+      "ordered_qty": 4.0,
+      "po_line": 5,
+      "po_price": 94.38,
+      "received_qty": 4.0
+     },
+     {
+      "billed_qty": 12.0,
+      "description": "Shrink wrap roll 500mm",
+      "invoice_line": 6,
+      "invoice_price": 23.12,
+      "issues": [],
+      "ordered_qty": 12.0,
+      "po_line": 6,
+      "po_price": 23.12,
+      "received_qty": 12.0
+     }
+    ],
+    "llm_calls": 1,
+    "output_tokens": 108,
+    "po_number": "4500058691",
+    "po_source": "printed",
+    "resolution": null,
+    "review": null,
+    "status": "done",
+    "thread_id": null,
+    "trace": [
+     "check: 0 extraction issue(s)",
+     "lookup: supplier V007; PO 4500058691 on file",
+     "match: 1 match issue(s)",
+     "decide: vendor_query",
+     "draft_query: email to accounts@maple-finch-logistics-corp.example",
+     "handoff: queued for a person"
+    ],
+    "vendor_id": "V007",
+    "vendor_source": "lookup"
+   },
+   "po_number": "4500058691",
+   "source": "extraction",
+   "vendor_id": "V007"
+  },
+  {
+   "cost_usd": null,
+   "created_at": "2026-10-15T13:29:07.136706+02:00",
+   "decision": "review",
+   "extraction_id": 5,
+   "id": 5,
+   "invoice_data": {
+    "currency": "USD",
+    "due_date": "2026-01-28",
+    "invoice_date": "2026-01-14",
+    "invoice_number": "2026-670452",
+    "line_items": [
+     {
+      "amount": 396.2,
+      "description": "Flour type 00, 25kg sack",
+      "quantity": 20.0,
+      "unit_price": 19.81
+     },
+     {
+      "amount": 255.9,
+      "description": "A4 copy paper, 80gsm (box of 5 reams)",
+      "quantity": 10.0,
+      "unit_price": 25.59
+     },
+     {
+      "amount": 11.78,
+      "description": "Plasterboard sheet 2400x1200",
+      "quantity": 1.0,
+      "unit_price": 11.78
+     },
+     {
+      "amount": 62.4,
+      "description": "Coffee beans 1kg",
+      "quantity": 4.0,
+      "unit_price": 15.6
+     },
+     {
+      "amount": 254.82,
+      "description": "Safety boots, size assorted",
+      "quantity": 6.0,
+      "unit_price": 42.47
+     },
+     {
+      "amount": 221.45,
+      "description": "Laptop docking station",
+      "quantity": 1.0,
+      "unit_price": 221.45
+     },
+     {
+      "amount": 168.06,
+      "description": "Pallet delivery, zone 2",
+      "quantity": 3.0,
+      "unit_price": 56.02
+     }
+    ],
+    "po_number": "MPM-2810",
+    "subtotal": 1370.61,
+    "tax_amount": 102.8,
+    "tax_rate": 7.5,
+    "total": 1473.41,
+    "vendor_name": "Vantage IT Services LLC",
+    "vendor_tax_id": "33-6541914"
+   },
+   "invoice_id": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc",
+   "outcome": {
+    "cost_usd": null,
+    "decision": "review",
+    "draft": null,
+    "input_tokens": 0,
+    "invoice_number": "2026-670452",
+    "issues": [
+     {
+      "code": "no_goods_receipt",
+      "message": "Nothing has been recorded as received against MPM-2810 yet.",
+      "route": "review"
+     }
+    ],
+    "lines": [
+     {
+      "billed_qty": 20.0,
+      "description": "Flour type 00, 25kg sack",
+      "invoice_line": 1,
+      "invoice_price": 19.81,
+      "issues": [],
+      "ordered_qty": 20.0,
+      "po_line": 1,
+      "po_price": 19.81,
+      "received_qty": null
+     },
+     {
+      "billed_qty": 10.0,
+      "description": "A4 copy paper, 80gsm (box of 5 reams)",
+      "invoice_line": 2,
+      "invoice_price": 25.59,
+      "issues": [],
+      "ordered_qty": 10.0,
+      "po_line": 2,
+      "po_price": 25.59,
+      "received_qty": null
+     },
+     {
+      "billed_qty": 1.0,
+      "description": "Plasterboard sheet 2400x1200",
+      "invoice_line": 3,
+      "invoice_price": 11.78,
+      "issues": [],
+      "ordered_qty": 1.0,
+      "po_line": 3,
+      "po_price": 11.78,
+      "received_qty": null
+     },
+     {
+      "billed_qty": 4.0,
+      "description": "Coffee beans 1kg",
+      "invoice_line": 4,
+      "invoice_price": 15.6,
+      "issues": [],
+      "ordered_qty": 4.0,
+      "po_line": 4,
+      "po_price": 15.6,
+      "received_qty": null
+     },
+     {
+      "billed_qty": 6.0,
+      "description": "Safety boots, size assorted",
+      "invoice_line": 5,
+      "invoice_price": 42.47,
+      "issues": [],
+      "ordered_qty": 6.0,
+      "po_line": 5,
+      "po_price": 42.47,
+      "received_qty": null
+     },
+     {
+      "billed_qty": 1.0,
+      "description": "Laptop docking station",
+      "invoice_line": 6,
+      "invoice_price": 221.45,
+      "issues": [],
+      "ordered_qty": 1.0,
+      "po_line": 6,
+      "po_price": 221.45,
+      "received_qty": null
+     },
+     {
+      "billed_qty": 3.0,
+      "description": "Pallet delivery, zone 2",
+      "invoice_line": 7,
+      "invoice_price": 56.02,
+      "issues": [],
+      "ordered_qty": 3.0,
+      "po_line": 7,
+      "po_price": 56.02,
+      "received_qty": null
+     }
+    ],
+    "llm_calls": 0,
+    "output_tokens": 0,
+    "po_number": "MPM-2810",
+    "po_source": "printed",
+    "resolution": null,
+    "review": null,
+    "status": "done",
+    "thread_id": null,
+    "trace": [
+     "check: 0 extraction issue(s)",
+     "lookup: supplier V011; PO MPM-2810 on file",
+     "match: 1 match issue(s)",
+     "decide: review",
+     "handoff: queued for a person"
+    ],
+    "vendor_id": "V011",
+    "vendor_source": "lookup"
+   },
+   "po_number": "MPM-2810",
+   "source": "extraction",
+   "vendor_id": "V011"
+  }
+ ],
+ "posted_invoices": [
+  {
+   "created_at": "2026-10-15T13:28:37.40233+02:00",
+   "id": 17,
+   "invoice_date": "2026-08-29",
+   "invoice_id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "invoice_number": "INV-183700",
+   "status": "posted",
+   "total": 884.0,
+   "vendor_id": "V001"
+  }
+ ],
+ "reviews": [],
+ "version": 1
+}

@@ -85,9 +85,24 @@ Visitors who hit a cap see a friendly message (with the demo video link when
 
 ## 6. Reset demo data
 
-```bash
-uv run tallyhawk db seed
-uv run tallyhawk demo load
-```
+Visitors approve, reject and upload invoices, so the demo is put back to its curated state
+every night at 03:00 UTC by the **Demo reset** GitHub Action
+(`.github/workflows/demo-reset.yml`). It runs `tallyhawk demo reset`, which:
 
-Or truncate `invoices` and related tables in Supabase SQL editor, then `demo load` again.
+- deletes every invoice in the database and its stored file, then restores the five
+  curated demo invoices from `demo/snapshot.json`, timestamps moved up to now;
+- clears the upload counters (`demo_usage`), so the daily cap starts fresh;
+- makes **no OpenAI calls** and leaves the procurement seed (vendors, POs, receipts) alone.
+
+Setup: add `DATABASE_URL`, `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` as repository
+secrets (Settings → Secrets and variables → Actions). Until they are set, the job logs a
+warning and does nothing. Run it by hand from the Actions tab (**Run workflow**) after
+setup to check it works.
+
+Refresh the snapshot whenever the prompt, schema or model changes, against a database
+holding only the demo load:
+
+```bash
+uv run tallyhawk demo load       # paid: five invoices through OpenAI (about $0.09)
+uv run tallyhawk demo snapshot   # writes demo/snapshot.json; commit it
+```

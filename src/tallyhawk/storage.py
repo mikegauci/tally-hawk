@@ -17,6 +17,8 @@ class FileStore(Protocol):
 
     def get(self, path: str) -> bytes: ...
 
+    def delete(self, paths: list[str]) -> None: ...
+
 
 class LocalFileStore:
     def __init__(self, root: str | Path):
@@ -35,6 +37,10 @@ class LocalFileStore:
 
     def get(self, path: str) -> bytes:
         return self._resolve(path).read_bytes()
+
+    def delete(self, paths: list[str]) -> None:
+        for path in paths:
+            self._resolve(path).unlink(missing_ok=True)
 
 
 class SupabaseFileStore:
@@ -57,6 +63,11 @@ class SupabaseFileStore:
         response = self.client.get(f"{self.base}/{quote(path)}")
         response.raise_for_status()
         return response.content
+
+    def delete(self, paths: list[str]) -> None:
+        for start in range(0, len(paths), 100):  # keep each request small
+            response = self.client.request("DELETE", self.base, json={"prefixes": paths[start : start + 100]})
+            response.raise_for_status()
 
 
 def file_store_from_env() -> FileStore:

@@ -7,6 +7,8 @@ tallyhawk db migrate                          # create or update the schema at $
 tallyhawk db seed                             # load the synthetic vendors, POs and receipts into it
 tallyhawk match invoice.pdf --db              # match against the database instead of the seed JSON
 tallyhawk demo load                           # seed DB and process curated eval PDFs (OpenAI)
+tallyhawk demo snapshot                       # save the loaded demo invoices to demo/snapshot.json
+tallyhawk demo reset                          # restore that snapshot (no OpenAI; nightly in CI)
 """
 
 from __future__ import annotations
@@ -70,13 +72,32 @@ def main(argv: list[str] | None = None) -> int:
         default="evals/data/invoices",
         help="Directory containing {case_id}.pdf files.",
     )
+    snap = demo_sub.add_parser(
+        "snapshot", help="Save the invoice side of the database (after demo load) for demo reset."
+    )
+    snap.add_argument("--out", default="demo/snapshot.json")
+    reset = demo_sub.add_parser(
+        "reset",
+        help="Delete visitors' invoices, restore the snapshot and clear upload counters (no OpenAI calls).",
+    )
+    reset.add_argument("--snapshot", default="demo/snapshot.json")
+    reset.add_argument("--invoices-dir", default="evals/data/invoices")
     args = parser.parse_args(argv)
 
     if args.command == "demo":
         from pathlib import Path
 
-        from tallyhawk.demo import run_load
+        from tallyhawk.demo import run_load, run_reset, write_snapshot
 
+        if args.demo_command == "snapshot":
+            from tallyhawk.db import connect
+
+            with connect(_database_url()) as pool, pool.connection() as conn:
+                counts = write_snapshot(conn, Path(args.out))
+            sys.stdout.write(", ".join(f"{n} {table}" for table, n in counts.items()) + f" saved to {args.out}\n")
+            return 0
+        if args.demo_command == "reset":
+            return run_reset(Path(args.snapshot), Path(args.invoices_dir))
         cases = [c.strip() for c in args.cases.split(",") if c.strip()]
         return run_load(
             cases,
