@@ -346,6 +346,6 @@ Python 3.12, [uv](https://docs.astral.sh/uv/), Pydantic, the OpenAI Python SDK
 reportlab (synthetic invoices), FastAPI, Postgres / Supabase (psycopg 3), Docker,
 optional Langfuse tracing. Next.js, TypeScript, Tailwind v4, shadcn/ui and TanStack Table in `web/`.
 
-Populate a demo workspace: `uv run tallyhawk demo load` (see [docs/DEPLOY.md](docs/DEPLOY.md)).
+Populate a demo workspace: `uv run tallyhawk demo load`. The live demo is put back to that state every night by `tallyhawk demo reset`, with no OpenAI calls (see [docs/DEPLOY.md](docs/DEPLOY.md#6-reset-demo-data)).
 
 Next: individual user authentication and tenant permissions.

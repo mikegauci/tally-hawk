@@ -1,0 +1,40 @@
+name: Demo reset
+
+# Every night, put the live demo back to its curated state: delete what visitors uploaded
+# or reviewed, restore demo/snapshot.json, clear the upload counters. No OpenAI calls.
+# Needs repository secrets DATABASE_URL, SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 03:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: demo-reset
+  cancel-in-progress: false
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - name: Check configuration
+        id: config
+        run: |
+          if [ -z "$DATABASE_URL" ] || [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "::warning::Demo reset skipped: set DATABASE_URL, SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY as repository secrets."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.config.outputs.ready == 'true'
+        uses: actions/checkout@v4
+      - if: steps.config.outputs.ready == 'true'
+        uses: astral-sh/setup-uv@v6
+      - if: steps.config.outputs.ready == 'true'
+        run: uv sync --locked
+      - if: steps.config.outputs.ready == 'true'
+        run: uv run tallyhawk demo reset
