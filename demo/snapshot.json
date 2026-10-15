@@ -2,7 +2,7 @@
  "extractions": [
   {
    "cost_usd": 0.01592,
-   "created_at": "2026-10-15T13:28:37.311726+02:00",
+   "created_at": "2026-10-15T13:46:15.809226+02:00",
    "extracted": {
     "confidence": {
      "currency": 0.99,
@@ -61,9 +61,9 @@
    },
    "id": 1,
    "input_tokens": 1408,
-   "invoice_id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "invoice_id": "65c7dd81-fb99-41ab-a2b1-23d72cb401bf",
    "issues": [],
-   "latency_s": 6.05,
+   "latency_s": 4.9,
    "low_confidence_fields": [],
    "model": "gpt-5.5-2026-04-23",
    "needs_review": false,
@@ -71,7 +71,7 @@
   },
   {
    "cost_usd": 0.01719,
-   "created_at": "2026-10-15T13:28:42.969811+02:00",
+   "created_at": "2026-10-15T13:46:20.687844+02:00",
    "extracted": {
     "confidence": {
      "currency": 0.99,
@@ -136,7 +136,7 @@
    },
    "id": 2,
    "input_tokens": 1440,
-   "invoice_id": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae",
+   "invoice_id": "32b4f957-b6e3-42c5-95ab-c03b2eb680cd",
    "issues": [
     {
      "code": "missing_po",
@@ -144,7 +144,7 @@
      "severity": "warning"
     }
    ],
-   "latency_s": 5.53,
+   "latency_s": 4.84,
    "low_confidence_fields": [],
    "model": "gpt-5.5-2026-04-23",
    "needs_review": false,
@@ -152,7 +152,7 @@
   },
   {
    "cost_usd": 0.016785,
-   "created_at": "2026-10-15T13:28:52.949761+02:00",
+   "created_at": "2026-10-15T13:46:30.320012+02:00",
    "extracted": {
     "confidence": {
      "currency": 0.99,
@@ -217,9 +217,9 @@
    },
    "id": 3,
    "input_tokens": 1431,
-   "invoice_id": "aae97fa9-6375-42c1-b5c4-65b3acb2f943",
+   "invoice_id": "34f73b33-0a39-418c-9313-d93083573a3d",
    "issues": [],
-   "latency_s": 3.57,
+   "latency_s": 3.99,
    "low_confidence_fields": [],
    "model": "gpt-5.5-2026-04-23",
    "needs_review": false,
@@ -227,7 +227,7 @@
   },
   {
    "cost_usd": 0.01787,
-   "created_at": "2026-10-15T13:29:00.554915+02:00",
+   "created_at": "2026-10-15T13:46:36.620452+02:00",
    "extracted": {
     "confidence": {
      "currency": 0.99,
@@ -298,9 +298,9 @@
    },
    "id": 4,
    "input_tokens": 1462,
-   "invoice_id": "e0d323a7-d27b-4a45-82c8-e11e763f7711",
+   "invoice_id": "2fabdb22-6ecd-4d96-ad60-74115eec3b5d",
    "issues": [],
-   "latency_s": 4.34,
+   "latency_s": 4.04,
    "low_confidence_fields": [],
    "model": "gpt-5.5-2026-04-23",
    "needs_review": false,
@@ -308,7 +308,7 @@
   },
   {
    "cost_usd": 0.019155,
-   "created_at": "2026-10-15T13:29:07.102619+02:00",
+   "created_at": "2026-10-15T13:46:43.226446+02:00",
    "extracted": {
     "confidence": {
      "currency": 0.99,
@@ -322,7 +322,7 @@
      "tax_rate": 0.99,
      "total": 0.99,
      "vendor_name": 0.99,
-     "vendor_tax_id": 0.98
+     "vendor_tax_id": 0.99
     },
     "invoice": {
      "currency": "USD",
@@ -385,9 +385,9 @@
    },
    "id": 5,
    "input_tokens": 1491,
-   "invoice_id": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc",
+   "invoice_id": "45c73dfd-1c7c-4ac8-b214-a404efd172bb",
    "issues": [],
-   "latency_s": 4.07,
+   "latency_s": 3.84,
    "low_confidence_fields": [],
    "model": "gpt-5.5-2026-04-23",
    "needs_review": false,
@@ -397,69 +397,69 @@
  "invoices": [
   {
    "error": null,
-   "filename": "inv_003.pdf",
-   "id": "aae97fa9-6375-42c1-b5c4-65b3acb2f943",
-   "media_type": "application/pdf",
-   "sha256": "a03526745a4892a1a37f2defb511c367ae4d197f77b9cdd891bf84abaaa28333",
-   "size_bytes": 2478,
-   "status": "awaiting_review",
-   "storage_path": "aae97fa9-6375-42c1-b5c4-65b3acb2f943/inv_003.pdf",
-   "updated_at": "2026-10-15T13:28:56.177262+02:00",
-   "uploaded_at": "2026-10-15T13:28:49.365686+02:00"
-  },
-  {
-   "error": null,
-   "filename": "inv_002.pdf",
-   "id": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae",
-   "media_type": "application/pdf",
-   "sha256": "82762d102cc8ae898da6ab6c119224e61f105f78627cda0464ff9020c7f2a609",
-   "size_bytes": 2423,
-   "status": "awaiting_review",
-   "storage_path": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae/inv_002.pdf",
-   "updated_at": "2026-10-15T13:28:49.351716+02:00",
-   "uploaded_at": "2026-10-15T13:28:37.431209+02:00"
-  },
-  {
-   "error": null,
-   "filename": "inv_011.pdf",
-   "id": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc",
-   "media_type": "application/pdf",
-   "sha256": "18635b828238469cea6d61f85f807afdc6cd883a56920dfec202f03a8d43156c",
-   "size_bytes": 2608,
-   "status": "awaiting_review",
-   "storage_path": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc/inv_011.pdf",
-   "updated_at": "2026-10-15T13:29:07.136706+02:00",
-   "uploaded_at": "2026-10-15T13:29:03.019509+02:00"
-  },
-  {
-   "error": null,
    "filename": "inv_007.pdf",
-   "id": "e0d323a7-d27b-4a45-82c8-e11e763f7711",
+   "id": "2fabdb22-6ecd-4d96-ad60-74115eec3b5d",
    "media_type": "application/pdf",
    "sha256": "4baf6d31d4657a71ec8d4d116905f3759fdd9dbefa5c2af591965c9c92a7eb98",
    "size_bytes": 2516,
    "status": "awaiting_review",
-   "storage_path": "e0d323a7-d27b-4a45-82c8-e11e763f7711/inv_007.pdf",
-   "updated_at": "2026-10-15T13:29:02.987959+02:00",
-   "uploaded_at": "2026-10-15T13:28:56.191415+02:00"
+   "storage_path": "2fabdb22-6ecd-4d96-ad60-74115eec3b5d/inv_007.pdf",
+   "updated_at": "2026-10-15T13:46:39.373774+02:00",
+   "uploaded_at": "2026-10-15T13:46:32.574826+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_002.pdf",
+   "id": "32b4f957-b6e3-42c5-95ab-c03b2eb680cd",
+   "media_type": "application/pdf",
+   "sha256": "82762d102cc8ae898da6ab6c119224e61f105f78627cda0464ff9020c7f2a609",
+   "size_bytes": 2423,
+   "status": "awaiting_review",
+   "storage_path": "32b4f957-b6e3-42c5-95ab-c03b2eb680cd/inv_002.pdf",
+   "updated_at": "2026-10-15T13:46:26.319402+02:00",
+   "uploaded_at": "2026-10-15T13:46:15.843246+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_003.pdf",
+   "id": "34f73b33-0a39-418c-9313-d93083573a3d",
+   "media_type": "application/pdf",
+   "sha256": "a03526745a4892a1a37f2defb511c367ae4d197f77b9cdd891bf84abaaa28333",
+   "size_bytes": 2478,
+   "status": "awaiting_review",
+   "storage_path": "34f73b33-0a39-418c-9313-d93083573a3d/inv_003.pdf",
+   "updated_at": "2026-10-15T13:46:32.56607+02:00",
+   "uploaded_at": "2026-10-15T13:46:26.32562+02:00"
+  },
+  {
+   "error": null,
+   "filename": "inv_011.pdf",
+   "id": "45c73dfd-1c7c-4ac8-b214-a404efd172bb",
+   "media_type": "application/pdf",
+   "sha256": "18635b828238469cea6d61f85f807afdc6cd883a56920dfec202f03a8d43156c",
+   "size_bytes": 2608,
+   "status": "awaiting_review",
+   "storage_path": "45c73dfd-1c7c-4ac8-b214-a404efd172bb/inv_011.pdf",
+   "updated_at": "2026-10-15T13:46:43.242429+02:00",
+   "uploaded_at": "2026-10-15T13:46:39.382247+02:00"
   },
   {
    "error": null,
    "filename": "inv_001.pdf",
-   "id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "id": "65c7dd81-fb99-41ab-a2b1-23d72cb401bf",
    "media_type": "application/pdf",
    "sha256": "1c56776db78ca1a5681b94dcb058a67c8f4cd1324925f1fff5c17113f86336aa",
    "size_bytes": 2448,
    "status": "approved",
-   "storage_path": "e3265e1b-4ed1-47fc-8869-897f3d369760/inv_001.pdf",
-   "updated_at": "2026-10-15T13:28:37.40233+02:00",
-   "uploaded_at": "2026-10-15T13:28:31.227874+02:00"
+   "storage_path": "65c7dd81-fb99-41ab-a2b1-23d72cb401bf/inv_001.pdf",
+   "updated_at": "2026-10-15T13:46:15.834831+02:00",
+   "uploaded_at": "2026-10-15T13:46:10.889997+02:00"
   }
  ],
  "match_results": [
   {
    "cost_usd": null,
-   "created_at": "2026-10-15T13:28:37.40233+02:00",
+   "created_at": "2026-10-15T13:46:15.834831+02:00",
    "decision": "approve",
    "extraction_id": 1,
    "id": 1,
@@ -502,7 +502,7 @@
     "vendor_name": "Kestrel Building Materials Ltd",
     "vendor_tax_id": "IE82876894"
    },
-   "invoice_id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "invoice_id": "65c7dd81-fb99-41ab-a2b1-23d72cb401bf",
    "outcome": {
     "cost_usd": null,
     "decision": "approve",
@@ -563,6 +563,52 @@
     "resolution": null,
     "review": null,
     "status": "done",
+    "steps": [
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "check",
+      "output_tokens": 0,
+      "summary": [
+       "0 extraction issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 7.9,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "lookup",
+      "output_tokens": 0,
+      "summary": [
+       "supplier V001; PO HVH-3330 on file"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 3.5,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "match",
+      "output_tokens": 0,
+      "summary": [
+       "0 match issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "decide",
+      "output_tokens": 0,
+      "summary": [
+       "approve"
+      ]
+     }
+    ],
     "thread_id": null,
     "trace": [
      "check: 0 extraction issue(s)",
@@ -578,8 +624,8 @@
    "vendor_id": "V001"
   },
   {
-   "cost_usd": 0.01795,
-   "created_at": "2026-10-15T13:28:49.351716+02:00",
+   "cost_usd": 0.01816,
+   "created_at": "2026-10-15T13:46:26.319402+02:00",
    "decision": "review",
    "extraction_id": 2,
    "id": 2,
@@ -628,9 +674,9 @@
     "vendor_name": "OLD MILL SUPPLIES INC.",
     "vendor_tax_id": "30-4773968"
    },
-   "invoice_id": "b3cbc6f3-5e70-4669-8af3-4bdae4c4ccae",
+   "invoice_id": "32b4f957-b6e3-42c5-95ab-c03b2eb680cd",
    "outcome": {
-    "cost_usd": 0.01795,
+    "cost_usd": 0.01816,
     "decision": "review",
     "draft": null,
     "input_tokens": 2732,
@@ -700,13 +746,13 @@
      }
     ],
     "llm_calls": 3,
-    "output_tokens": 143,
+    "output_tokens": 150,
     "po_number": "CCC-7335",
     "po_source": "agent",
     "resolution": {
      "confidence": 1.0,
      "po_number": "CCC-7335",
-     "reasoning": "Supplier matched Old Mill Supplies Inc. by exact tax ID (30-4773968). Open PO CCC-7335 has the same currency, subtotal total, and all five invoice lines match exactly on descriptions, quantities, and unit prices.",
+     "reasoning": "Supplier matched exactly by name and tax ID to Old Mill Supplies Inc. (V002). Open PO CCC-7335 has the same currency and exactly matches all five invoice lines with identical quantities and unit prices, and its total equals the invoice subtotal 1015.47.",
      "tool_calls": [
       {
        "arguments": {
@@ -726,7 +772,7 @@
        "arguments": {
         "confidence": 1,
         "po_number": "CCC-7335",
-        "reasoning": "Supplier matched Old Mill Supplies Inc. by exact tax ID (30-4773968). Open PO CCC-7335 has the same currency, subtotal total, and all five invoice lines match exactly on descriptions, quantities, and unit prices.",
+        "reasoning": "Supplier matched exactly by name and tax ID to Old Mill Supplies Inc. (V002). Open PO CCC-7335 has the same currency and exactly matches all five invoice lines with identical quantities and unit prices, and its total equals the invoice subtotal 1015.47.",
         "vendor_id": "V002"
        },
        "name": "submit_resolution"
@@ -744,15 +790,84 @@
        "output_tokens": 26
       },
       {
-       "cost_usd": 0.009485,
+       "cost_usd": 0.009695,
        "input_tokens": 1393,
-       "output_tokens": 84
+       "output_tokens": 91
       }
      ],
      "vendor_id": "V002"
     },
     "review": null,
     "status": "done",
+    "steps": [
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "check",
+      "output_tokens": 0,
+      "summary": [
+       "0 extraction issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 4.8,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "lookup",
+      "output_tokens": 0,
+      "summary": [
+       "supplier V002; PO none not found"
+      ]
+     },
+     {
+      "cost_usd": 0.01816,
+      "duration_ms": 5617.4,
+      "input_tokens": 2732,
+      "llm_calls": 3,
+      "name": "investigate",
+      "output_tokens": 150,
+      "summary": [
+       "agent made 3 tool call(s)",
+       "PO CCC-7335"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 3.3,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "match",
+      "output_tokens": 0,
+      "summary": [
+       "1 match issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "decide",
+      "output_tokens": 0,
+      "summary": [
+       "review"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "handoff",
+      "output_tokens": 0,
+      "summary": [
+       "queued for a person"
+      ]
+     }
+    ],
     "thread_id": null,
     "trace": [
      "check: 0 extraction issue(s)",
@@ -771,8 +886,8 @@
    "vendor_id": "V002"
   },
   {
-   "cost_usd": 0.004875,
-   "created_at": "2026-10-15T13:28:56.177262+02:00",
+   "cost_usd": 0.004785,
+   "created_at": "2026-10-15T13:46:32.56607+02:00",
    "decision": "vendor_query",
    "extraction_id": 3,
    "id": 3,
@@ -821,18 +936,18 @@
     "vendor_name": "Vantage Systems B.V.",
     "vendor_tax_id": "IE66459413"
    },
-   "invoice_id": "aae97fa9-6375-42c1-b5c4-65b3acb2f943",
+   "invoice_id": "34f73b33-0a39-418c-9313-d93083573a3d",
    "outcome": {
-    "cost_usd": 0.004875,
+    "cost_usd": 0.004785,
     "decision": "vendor_query",
     "draft": {
-     "body": "Dear Vantage Systems BV,\n\nWe are unable to pay invoice 2026-769765 as billed.\n\nPO PO-31244 shows line 4, \u201cFlour type 00, 25kg sack\u201d, agreed at EUR 14.79 per unit, but the invoice bills this line at EUR 16.09 per unit.\n\nPlease send a corrected invoice or credit note so we can proceed with payment.\n\nKind regards,\n\nAccounts Payable",
+     "body": "Dear Vantage Systems BV,\n\nWe are unable to pay invoice 2026-769765 as billed.\n\nPO-31244 shows line 4, \u201cFlour type 00, 25kg sack\u201d, agreed at EUR 14.79 per unit, but the invoice bills this line at EUR 16.09 per unit.\n\nPlease send a corrected invoice or credit note so we can process payment.\n\nKind regards,\nAccounts Payable",
      "subject": "Invoice 2026-769765 - pricing discrepancy",
      "to": "accounts@vantage-systems-bv.example",
      "usage": {
-      "cost_usd": 0.004875,
+      "cost_usd": 0.004785,
       "input_tokens": 231,
-      "output_tokens": 124
+      "output_tokens": 121
      }
     },
     "input_tokens": 231,
@@ -904,12 +1019,80 @@
      }
     ],
     "llm_calls": 1,
-    "output_tokens": 124,
+    "output_tokens": 121,
     "po_number": "PO-31244",
     "po_source": "printed",
     "resolution": null,
     "review": null,
     "status": "done",
+    "steps": [
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "check",
+      "output_tokens": 0,
+      "summary": [
+       "0 extraction issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 5.7,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "lookup",
+      "output_tokens": 0,
+      "summary": [
+       "supplier V003; PO PO-31244 on file"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 2.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "match",
+      "output_tokens": 0,
+      "summary": [
+       "1 match issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "decide",
+      "output_tokens": 0,
+      "summary": [
+       "vendor_query"
+      ]
+     },
+     {
+      "cost_usd": 0.004785,
+      "duration_ms": 2230.7,
+      "input_tokens": 231,
+      "llm_calls": 1,
+      "name": "draft_query",
+      "output_tokens": 121,
+      "summary": [
+       "email to accounts@vantage-systems-bv.example"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "handoff",
+      "output_tokens": 0,
+      "summary": [
+       "queued for a person"
+      ]
+     }
+    ],
     "thread_id": null,
     "trace": [
      "check: 0 extraction issue(s)",
@@ -927,8 +1110,8 @@
    "vendor_id": "V003"
   },
   {
-   "cost_usd": 0.00432,
-   "created_at": "2026-10-15T13:29:02.987959+02:00",
+   "cost_usd": 0.00414,
+   "created_at": "2026-10-15T13:46:39.373774+02:00",
    "decision": "vendor_query",
    "extraction_id": 4,
    "id": 4,
@@ -983,18 +1166,18 @@
     "vendor_name": "MAPLE & FINCH LOGISTICS CORP.",
     "vendor_tax_id": "83-8599901"
    },
-   "invoice_id": "e0d323a7-d27b-4a45-82c8-e11e763f7711",
+   "invoice_id": "2fabdb22-6ecd-4d96-ad60-74115eec3b5d",
    "outcome": {
-    "cost_usd": 0.00432,
+    "cost_usd": 0.00414,
     "decision": "vendor_query",
     "draft": {
-     "body": "Dear Maple & Finch Logistics Corp.,\n\nWe are unable to pay invoice 338626 as billed against PO 4500058691.\n\nIssue:\n- Line 1, \u201cSafety boots, size assorted\u201d, bills 24 units, but 19 were received.\n\nPlease send a corrected invoice reflecting the quantity received, or provide a credit note for the difference.\n\nRegards,\nAccounts Payable",
-     "subject": "Invoice 338626 - quantity discrepancy",
+     "body": "Dear Maple & Finch Logistics Corp.,\n\nWe are unable to pay invoice 338626 as billed against PO 4500058691.\n\nIssue:\n- Line 1, \"Safety boots, size assorted\": invoice bills 24, but 19 were received.\n\nPlease send a corrected invoice or credit note for the quantity discrepancy.\n\nRegards,\nAccounts Payable",
+     "subject": "Invoice 338626 - Quantity discrepancy",
      "to": "accounts@maple-finch-logistics-corp.example",
      "usage": {
-      "cost_usd": 0.00432,
+      "cost_usd": 0.00414,
       "input_tokens": 216,
-      "output_tokens": 108
+      "output_tokens": 102
      }
     },
     "input_tokens": 216,
@@ -1077,12 +1260,80 @@
      }
     ],
     "llm_calls": 1,
-    "output_tokens": 108,
+    "output_tokens": 102,
     "po_number": "4500058691",
     "po_source": "printed",
     "resolution": null,
     "review": null,
     "status": "done",
+    "steps": [
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "check",
+      "output_tokens": 0,
+      "summary": [
+       "0 extraction issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 10.1,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "lookup",
+      "output_tokens": 0,
+      "summary": [
+       "supplier V007; PO 4500058691 on file"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 3.4,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "match",
+      "output_tokens": 0,
+      "summary": [
+       "1 match issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "decide",
+      "output_tokens": 0,
+      "summary": [
+       "vendor_query"
+      ]
+     },
+     {
+      "cost_usd": 0.00414,
+      "duration_ms": 2728.4,
+      "input_tokens": 216,
+      "llm_calls": 1,
+      "name": "draft_query",
+      "output_tokens": 102,
+      "summary": [
+       "email to accounts@maple-finch-logistics-corp.example"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "handoff",
+      "output_tokens": 0,
+      "summary": [
+       "queued for a person"
+      ]
+     }
+    ],
     "thread_id": null,
     "trace": [
      "check: 0 extraction issue(s)",
@@ -1101,7 +1352,7 @@
   },
   {
    "cost_usd": null,
-   "created_at": "2026-10-15T13:29:07.136706+02:00",
+   "created_at": "2026-10-15T13:46:43.242429+02:00",
    "decision": "review",
    "extraction_id": 5,
    "id": 5,
@@ -1162,7 +1413,7 @@
     "vendor_name": "Vantage IT Services LLC",
     "vendor_tax_id": "33-6541914"
    },
-   "invoice_id": "cd0f0bf2-61ce-411b-8adc-1b44c8f1e5fc",
+   "invoice_id": "45c73dfd-1c7c-4ac8-b214-a404efd172bb",
    "outcome": {
     "cost_usd": null,
     "decision": "review",
@@ -1262,6 +1513,63 @@
     "resolution": null,
     "review": null,
     "status": "done",
+    "steps": [
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "check",
+      "output_tokens": 0,
+      "summary": [
+       "0 extraction issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 6.8,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "lookup",
+      "output_tokens": 0,
+      "summary": [
+       "supplier V011; PO MPM-2810 on file"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 2.2,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "match",
+      "output_tokens": 0,
+      "summary": [
+       "1 match issue(s)"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "decide",
+      "output_tokens": 0,
+      "summary": [
+       "review"
+      ]
+     },
+     {
+      "cost_usd": null,
+      "duration_ms": 0.0,
+      "input_tokens": 0,
+      "llm_calls": 0,
+      "name": "handoff",
+      "output_tokens": 0,
+      "summary": [
+       "queued for a person"
+      ]
+     }
+    ],
     "thread_id": null,
     "trace": [
      "check: 0 extraction issue(s)",
@@ -1280,10 +1588,10 @@
  ],
  "posted_invoices": [
   {
-   "created_at": "2026-10-15T13:28:37.40233+02:00",
+   "created_at": "2026-10-15T13:46:15.834831+02:00",
    "id": 17,
    "invoice_date": "2026-08-29",
-   "invoice_id": "e3265e1b-4ed1-47fc-8869-897f3d369760",
+   "invoice_id": "65c7dd81-fb99-41ab-a2b1-23d72cb401bf",
    "invoice_number": "INV-183700",
    "status": "posted",
    "total": 884.0,

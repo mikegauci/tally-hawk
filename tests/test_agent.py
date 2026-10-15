@@ -9,9 +9,10 @@ from openai_mock import function_call, message, scripted_client
 
 from tallyhawk.agent import AgentResolver, Resolution, run_tool
 from tallyhawk.drafting import LLMDrafter
+from tallyhawk.extract import Usage
 from tallyhawk.procurement import InMemoryStore
 from tallyhawk.schema import InvoiceData
-from tallyhawk.workflow import MatchingWorkflow, checkpoint_serializer
+from tallyhawk.workflow import MatchingWorkflow, MatchOutcome, checkpoint_serializer
 
 DATA = Path(__file__).parent.parent / "evals" / "data"
 
@@ -132,3 +133,32 @@ def test_pause_for_reviewer_and_resume(store):
 def test_await_human_needs_a_checkpointer(store):
     with pytest.raises(ValueError):
         MatchingWorkflow(store).run(gold("inv_001"), await_human=True)
+
+
+def test_each_step_records_its_time_and_model_usage(store, labels):
+    label = labels["inv_002"]
+    spend = Usage(input_tokens=900, output_tokens=120, cost_usd=0.004)
+
+    def resolver(invoice):
+        return Resolution(
+            vendor_id=label["expected_vendor_id"],
+            po_number=label["expected_po_number"],
+            confidence=0.9,
+            reasoning="test",
+            usage=[spend],
+        )
+
+    outcome = MatchingWorkflow(store, resolver=resolver).run(gold("inv_002"))
+    steps = {step.name: step for step in outcome.steps}
+    assert [s.name for s in outcome.steps] == ["check", "lookup", "investigate", "match", "decide", "handoff"]
+    assert all(s.duration_ms >= 0 for s in outcome.steps)
+    assert (steps["investigate"].llm_calls, steps["investigate"].input_tokens) == (1, 900)
+    assert steps["investigate"].cost_usd == 0.004
+    assert steps["match"].llm_calls == 0 and steps["match"].cost_usd is None  # rules, no model
+    assert steps["decide"].summary == ["review"]
+
+
+def test_outcomes_stored_before_step_timing_still_load(store):
+    stored = MatchingWorkflow(store).run(gold("inv_001")).model_dump(mode="json")
+    del stored["steps"]
+    assert MatchOutcome.model_validate(stored).steps == []

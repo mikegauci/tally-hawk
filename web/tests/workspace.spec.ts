@@ -5,9 +5,7 @@ test.beforeEach(async ({ request }) => {
 });
 async function login(page: import("@playwright/test").Page) {
   await page.goto("/login");
-  await page.evaluate(() =>
-    localStorage.setItem("tallyhawk-tour-v2", "1"),
-  );
+  await page.evaluate(() => localStorage.setItem("tallyhawk-tour-v2", "1"));
   await page.getByLabel("Workspace password").fill("test-password");
   await page.getByRole("button", { name: "Sign in to workspace" }).click();
   // The first test of a run waits for the dev server to compile the dashboard.
@@ -34,7 +32,9 @@ test("demo magic link signs in without password and opens product tour", async (
   await expect(page).toHaveURL(/\/dashboard\?tour=1$/);
   await expect(page.getByText("Overview at a glance")).toBeVisible();
   await page.getByRole("button", { name: "Next", exact: true }).click();
-  await expect(page.getByText("My Tasks is where humans step in")).toBeVisible();
+  await expect(
+    page.getByText("My Tasks is where humans step in"),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Next", exact: true }).click();
   await expect(page).toHaveURL(/\/tasks\?tour=1$/);
   await expect(
@@ -255,4 +255,25 @@ test("uploads a sample invoice through the normal pipeline", async ({
   await expect(
     page.getByText("Uploaded · Extraction and matching queued"),
   ).toBeVisible();
+});
+
+test("pipeline tab shows each step with time, tokens and cost", async ({
+  page,
+}) => {
+  await login(page);
+  await page.goto(`/payables/bills/${id}`);
+  await page.getByRole("tab", { name: "Pipeline" }).click();
+  await expect(page.getByLabel("Pipeline totals")).toContainText(
+    "13.3 s in total · 2 model calls · 3,950 tokens · $0.0410",
+  );
+  const steps = page.locator(".pipeline-steps > li");
+  await expect(steps).toHaveCount(7);
+  await expect(steps.first()).toContainText("Read the invoice");
+  await expect(steps.first()).toContainText("$0.0300");
+  await expect(steps.filter({ hasText: "Three-way match" })).toContainText(
+    "Rules",
+  );
+  await expect(
+    steps.filter({ hasText: "Draft the supplier email" }),
+  ).toContainText("950 tokens (700 in, 250 out)");
 });

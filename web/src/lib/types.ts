@@ -54,6 +54,9 @@ export type InvoiceDetail = {
     result: {
       extracted: { invoice: InvoiceData; notes: string | null };
       low_confidence_fields: string[];
+      issues?: { code: string; message: string }[];
+      usage?: Usage;
+      latency_s?: number;
     };
     created_at: string;
   } | null;
@@ -78,6 +81,8 @@ export type InvoiceDetail = {
       }[];
       draft: { to: string | null; subject: string; body: string } | null;
       trace: string[];
+      // Absent on invoices matched before per-step timing was recorded.
+      steps?: PipelineStep[];
     };
   } | null;
   reviews: {
@@ -88,4 +93,18 @@ export type InvoiceDetail = {
     created_at: string;
     corrected_invoice: InvoiceData | null;
   }[];
+};
+export type Usage = {
+  input_tokens: number;
+  output_tokens: number;
+  cost_usd: number | null;
+};
+export type PipelineStep = {
+  name: string;
+  summary: string[];
+  duration_ms: number;
+  llm_calls: number;
+  input_tokens: number;
+  output_tokens: number;
+  cost_usd: number | null;
 };

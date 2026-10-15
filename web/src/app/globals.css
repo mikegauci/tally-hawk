@@ -1556,3 +1556,82 @@ pre {
     margin-inline: 16px;
   }
 }
+.pipeline-total {
+  margin: 12px 0 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.pipeline-total strong {
+  color: var(--foreground);
+}
+.pipeline-steps {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pipeline-steps li {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding-bottom: 16px;
+}
+.pipeline-steps li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  bottom: 0;
+  border-left: 1px solid var(--border);
+}
+.pipeline-icon {
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted-foreground);
+}
+.pipeline-steps li.is-ai .pipeline-icon {
+  color: var(--ai-accent);
+}
+.pipeline-steps li > div {
+  min-width: 0;
+  flex: 1;
+  font-size: 12px;
+}
+.pipeline-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+.pipeline-heading strong {
+  color: var(--foreground);
+}
+.pipeline-engine {
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted-foreground);
+  font-size: 10px;
+}
+.pipeline-steps li.is-ai .pipeline-engine {
+  color: var(--ai-accent);
+}
+.pipeline-steps p {
+  margin-top: 2px;
+  color: var(--text-secondary);
+}
+.pipeline-steps small {
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+.pipeline-legacy ul {
+  margin: 8px 0 0 18px;
+  list-style: disc;
+  font-size: 12px;
+  color: var(--text-secondary);
+}

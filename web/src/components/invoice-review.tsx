@@ -24,6 +24,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { PipelineTrace } from "@/components/pipeline-trace";
 import { Status } from "@/components/workspace-page";
 import { api, date, money } from "@/lib/client";
 import type { InvoiceData, InvoiceDetail } from "@/lib/types";
@@ -297,6 +298,7 @@ export function InvoiceReview({ id }: { id: string }) {
                 <TabsTrigger value="matching" data-tour="bill-matching-tab">
                   Matching
                 </TabsTrigger>
+                <TabsTrigger value="pipeline">Pipeline</TabsTrigger>
                 <TabsTrigger value="activity">Activity</TabsTrigger>
               </TabsList>
             </div>
@@ -561,6 +563,9 @@ export function InvoiceReview({ id }: { id: string }) {
                   </p>
                 </div>
               )}
+            </TabsContent>
+            <TabsContent value="pipeline" className="review-tab-content">
+              <PipelineTrace detail={detail} />
             </TabsContent>
             <TabsContent value="activity" className="review-tab-content">
               <h2>Activity & review history</h2>
