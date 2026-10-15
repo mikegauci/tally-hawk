@@ -27,7 +27,7 @@ from pathlib import Path
 from evals.generate_matching import SCENARIOS
 from tallyhawk.agent import DEFAULT_AGENT_EFFORT, AgentResolver
 from tallyhawk.drafting import LLMDrafter, template_drafter
-from tallyhawk.extract import DEFAULT_MODEL, ExtractionResult
+from tallyhawk.extract import DEFAULT_MODEL, ExtractionResult, load_dotenv
 from tallyhawk.matching import Decision
 from tallyhawk.procurement import InMemoryStore
 from tallyhawk.schema import InvoiceData
@@ -267,6 +267,7 @@ def main(argv: list[str] | None = None) -> dict:
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--from-run", type=Path, help="Extraction eval run to take invoices from (end to end).")
     args = parser.parse_args(argv)
+    load_dotenv()
 
     labels = load_match_labels(args.limit)
     store = InMemoryStore.from_dir(SEED_DIR)

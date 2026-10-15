@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { replayWorkspaceTour, WorkspaceTour } from "@/components/workspace-tour";
+import { ApiWakeToast } from "@/components/api-wake-toast";
 const subscribe = (callback: () => void) => {
   window.addEventListener("sidebar-change", callback);
   return () => window.removeEventListener("sidebar-change", callback);
@@ -178,6 +179,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         </footer>
       </div>
       <WorkspaceTour />
+      <ApiWakeToast />
     </div>
   );
 }

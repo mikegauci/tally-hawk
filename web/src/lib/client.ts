@@ -1,8 +1,46 @@
+// The API on Render's free tier sleeps when idle and takes ~30s to wake. The proxy
+// marks those responses; GETs retry until the API answers, and the wake toast
+// (components/api-wake-toast.tsx) tells the user what is happening.
+export const WAKE_EVENT = "tallyhawk-api-wake";
+export type WakeState = "waking" | "awake" | "unreachable";
+const RETRY_MS = 3_000;
+const GIVE_UP_MS = 90_000;
+const SLOW_GET_MS = 5_000;
+let waking = false;
+export function announceWake(state: WakeState) {
+  waking = state === "waking";
+  window.dispatchEvent(new CustomEvent(WAKE_EVENT, { detail: state }));
+}
+export function unavailable(response: Response) {
+  return response.headers.get("X-TallyHawk-Unavailable") === "1";
+}
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`/api/backend/${path}`, {
-    ...init,
-    cache: "no-store",
-  });
+  const get = (init?.method ?? "GET").toUpperCase() === "GET";
+  const started = Date.now();
+  // A sleeping Render service often holds the request open instead of failing.
+  const slow = get
+    ? setTimeout(() => announceWake("waking"), SLOW_GET_MS)
+    : undefined;
+  let response!: Response;
+  try {
+    for (;;) {
+      response = await fetch(`/api/backend/${path}`, {
+        ...init,
+        cache: "no-store",
+      });
+      if (!unavailable(response)) break;
+      announceWake("waking");
+      // Never retry a POST: an upload or review could be applied twice.
+      if (!get || Date.now() - started > GIVE_UP_MS) {
+        if (get) announceWake("unreachable");
+        break;
+      }
+      await new Promise((resolve) => setTimeout(resolve, RETRY_MS));
+    }
+  } finally {
+    clearTimeout(slow);
+  }
+  if (waking && !unavailable(response)) announceWake("awake");
   if (response.status === 401) {
     window.location.assign("/login");
     throw new Error("Your session expired. Please sign in.");

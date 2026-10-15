@@ -32,6 +32,8 @@ const data = {
     },
   ],
 };
+// Requests left to answer like a sleeping Render service (an HTML 503).
+let asleep = 0;
 let current = structuredClone(invoice),
   corrected = structuredClone(data),
   reviews = [];
@@ -100,7 +102,19 @@ createServer(async (req, res) => {
     current = structuredClone(invoice);
     corrected = structuredClone(data);
     reviews = [];
+    asleep = 0;
     res.end("{}");
+    return;
+  }
+  if (url.pathname === "/sleep") {
+    asleep = Number(url.searchParams.get("requests"));
+    res.end("{}");
+    return;
+  }
+  if (asleep > 0) {
+    asleep -= 1;
+    res.setHeader("Content-Type", "text/html");
+    res.writeHead(503).end("<html>Service waking up</html>");
     return;
   }
   if (req.headers.authorization !== "Bearer test-api-key") {

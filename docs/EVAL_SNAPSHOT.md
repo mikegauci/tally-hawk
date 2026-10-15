@@ -36,3 +36,31 @@ The nine misses are missing-PO and PO-typo scenarios that need the agent (`--res
 ## Matching (with agent)
 
 Run: `uv run python -m evals.run_match_eval` (needs `OPENAI_API_KEY`) or the **Matching eval** GitHub Action.
+
+Pinned runs: `evals/results/match_20261015T101533Z_agent/report.md` (gold labels) and
+`evals/results/match_20261015T101657Z_agent/report.md` (end to end, invoices taken from the
+pinned extraction run above).
+
+| Metric | Gold labels | End to end |
+| --- | --- | --- |
+| Decision accuracy | 100.0% | 100.0% |
+| False approvals | 0 | 0 |
+| Auto-approved | 28.0% | 28.0% |
+| Right PO (or correctly none) | 100.0% | 100.0% |
+| Agent invoked | 28.0% | 28.0% |
+| LLM calls per invoice | 1.3 | 1.28 |
+| Cost per invoice | $0.0095 | $0.0098 |
+
+The agent fixes all nine missing-PO and PO-typo cases the rules baseline gets wrong, and
+every PO it finds still goes to a human. 28% auto-approved is the ceiling: 14 of the 50
+scenarios should be approved.
+
+**Read these numbers with care.** The 50 matching scenarios sit on the standard invoices,
+where extraction is already 100% accurate, so "end to end" here doesn't yet test how
+matching copes with extraction mistakes from scans. The matching eval is saturated and
+needs harder scenarios (see [Known weaknesses](../README.md#known-weaknesses-and-next-steps)).
+
+## Cost per invoice
+
+Extraction ($0.0278) plus matching with the agent ($0.0098): about **$0.038 per invoice**
+at gpt-5.5 list prices ($5 / $30 per million input / output tokens).
