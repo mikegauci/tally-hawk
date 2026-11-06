@@ -142,6 +142,22 @@ financial calculations. Corrections are revalidated by the backend. Model-report
 confidence percentages are omitted because they are not calibrated field scores.
 The API has no source bounding boxes, so the UI offers side-by-side source comparison.
 
+## Supabase keep-alive
+
+Vercel calls `/api/cron/heartbeat` daily at 08:00 UTC, as configured in
+`web/vercel.json` (Vercel's Root Directory is `web`). The route makes an uncached,
+authenticated request to the existing Render API's `/invoices?limit=1` endpoint,
+which reads the Supabase database. It does not upload, process, or modify invoices,
+and returns only its status and timestamp, never invoice data.
+
+Set a strong random `CRON_SECRET` in the Vercel project's Production environment
+variables before deploying. Vercel sends it as `Authorization: Bearer <CRON_SECRET>`.
+Missing or incorrect secrets are rejected. The route also uses the existing
+`TALLYHAWK_API_URL` and `TALLYHAWK_API_KEY`; no database credentials belong in the
+web app. Allow up to 240 seconds for Render to wake up and respond, within a
+300-second function duration. Failed requests return HTTP 500 and are logged in
+Vercel. Cron jobs become active on a production deployment.
+
 ## Validation
 
 ```sh
